@@ -70,7 +70,7 @@ class MyApp extends StatelessWidget {
           // overriding default texttheme
           textTheme: ploopTextTheme(),
         ),
-        home: const SplashScreen(),
+        home: const MapPage(),
       ),
     );
   }
