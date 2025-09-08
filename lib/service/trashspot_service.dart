@@ -10,7 +10,7 @@ import 'package:ploop_fe/model/trashspot_response.dart';
 class TrashspotService {
   static Future<bool> postTrashspotPositionToServer(
       TrashspotRequest spot, String jwt, XFile imageFile) async {
-    final url = Uri.parse('https://api.ploop.store/api/map/trashspot');
+    final url = Uri.parse('https://api.ploop.shop/api/map/trashspot');
     final headers = {
       'Authorization': 'Bearer $jwt',
     };
@@ -49,7 +49,7 @@ class TrashspotService {
   static Future<List<TrashspotResponse>?> getSpotPosition(
       String jwt, LatLngBounds bounds) async {
     final url = Uri.parse(
-        'https://api.ploop.store/api/map/trashspot/bounds?minLat=${bounds.southwest.latitude}&maxLat=${bounds.northeast.latitude}&minLng=${bounds.southwest.longitude}&maxLng=${bounds.northeast.longitude}');
+        'https://api.ploop.shop/api/map/trashspot/bounds?minLat=${bounds.southwest.latitude}&maxLat=${bounds.northeast.latitude}&minLng=${bounds.southwest.longitude}&maxLng=${bounds.northeast.longitude}');
     final headers = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer $jwt',

@@ -14,7 +14,7 @@ Future<MissionResponse> missionData(Ref ref) async {
   final jwt = ref.read(jwtNotifierProvider).jwt;
   debugPrint('jwt: $jwt');
   if (jwt != null) {
-    final url = Uri.parse('https://api.ploop.store/api/user/missions/summary');
+    final url = Uri.parse('https://api.ploop.shop/api/user/missions/summary');
     final headers = {
       'Content-Type': 'application/json; charset=utf-8',
       'Authorization': 'Bearer $jwt'

@@ -17,7 +17,7 @@ Future<Recommendation?> routeRecommendation(
 
   if (jwt != null) {
     final url = Uri.parse(
-        'https://api.ploop.store/api/map/route/recommendation/bounds?minLat=${bounds.southwest.latitude}&maxLat=${bounds.northeast.latitude}&minLng=${bounds.southwest.longitude}&maxLng=${bounds.northeast.longitude}');
+        'https://api.ploop.shop/api/map/route/recommendation/bounds?minLat=${bounds.southwest.latitude}&maxLat=${bounds.northeast.latitude}&minLng=${bounds.southwest.longitude}&maxLng=${bounds.northeast.longitude}');
     final headers = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer $jwt',

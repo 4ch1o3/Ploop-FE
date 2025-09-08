@@ -10,7 +10,7 @@ import 'package:ploop_fe/model/bin_response.dart';
 class BinService {
   static Future<bool> postBinPositionToServer(
       BinRequest bin, String jwt, XFile imageFile) async {
-    final url = Uri.parse('https://api.ploop.store/api/map/bin');
+    final url = Uri.parse('https://api.ploop.shop/api/map/bin');
     final headers = {
       'Authorization': 'Bearer $jwt',
     };
@@ -49,7 +49,7 @@ class BinService {
   static Future<List<BinResponse>?> getBinPosition(
       String jwt, LatLngBounds bounds) async {
     final url = Uri.parse(
-        'https://api.ploop.store/api/map/bin/bounds?minLat=${bounds.southwest.latitude}&maxLat=${bounds.northeast.latitude}&minLng=${bounds.southwest.longitude}&maxLng=${bounds.northeast.longitude}');
+        'https://api.ploop.shop/api/map/bin/bounds?minLat=${bounds.southwest.latitude}&maxLat=${bounds.northeast.latitude}&minLng=${bounds.southwest.longitude}&maxLng=${bounds.northeast.longitude}');
     final headers = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer $jwt',

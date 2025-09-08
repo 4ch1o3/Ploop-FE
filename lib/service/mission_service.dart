@@ -7,7 +7,7 @@
 
 // class MissionService {
 //   static Future<List<MissionResponse>?> getMissions(String jwt) async {
-//     final url = Uri.parse('https://api.ploop.store/api/user/missions');
+//     final url = Uri.parse('https://api.ploop.shop/api/user/missions');
 //     if (jwt == '') {
 //       debugPrint('empty jwt');
 //       return null;
