@@ -8,7 +8,7 @@ import '../model/user_response.dart';
 class UserService {
   static Future<void> patchUserProfileToServer(
       UserRequest user, String jwt) async {
-    final url = Uri.parse('https://api.ploop.store/api/user/profile');
+    final url = Uri.parse('https://api.ploop.shop/api/user/profile');
     final headers = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer $jwt'
@@ -31,7 +31,7 @@ class UserService {
   }
 
   static Future<UserResponse?> getUserProfile(String jwt) async {
-    final url = Uri.parse('https://api.ploop.store/api/user/me');
+    final url = Uri.parse('https://api.ploop.shop/api/user/me');
     final headers = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer $jwt'

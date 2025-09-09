@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AuthService {
   static Future<String?> sendIdTokenToServer(
       String idToken, WidgetRef ref) async {
-    final url = Uri.parse('https://api.ploop.store/api/auth/login');
+    final url = Uri.parse('https://api.ploop.shop/api/auth/login');
     final headers = {'Content-Type': 'application/json'};
     final body = jsonEncode({'idToken': idToken});
 

@@ -8,7 +8,7 @@ class VerifyService {
   static Future<bool> postVerification(
       int userMissionId, String jwt, XFile imageFile) async {
     final url = Uri.parse(
-        'https://api.ploop.store/api/mission/verification?userMissionId=$userMissionId');
+        'https://api.ploop.shop/api/mission/verification?userMissionId=$userMissionId');
     final headers = {
       'Authorization': 'Bearer $jwt',
     };

@@ -7,7 +7,7 @@ import 'package:ploop_fe/model/activity_request.dart';
 class PloggingActivityService {
   static Future<void> postPloggingDataToServer(
       ActivityRequest activity, String jwt) async {
-    final url = Uri.parse('https://api.ploop.store/api/plogging/end');
+    final url = Uri.parse('https://api.ploop.shop/api/plogging/end');
     final headers = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer $jwt'

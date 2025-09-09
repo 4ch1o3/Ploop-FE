@@ -21,7 +21,7 @@ Future<ActivityResponse> activityData(
 
   if (jwt != null) {
     final url = Uri.parse(
-        'https://api.ploop.store/api/activity?range=${range.name}&startDate=$startParam&endDate=$endParam');
+        'https://api.ploop.shop/api/activity?range=${range.name}&startDate=$startParam&endDate=$endParam');
     final headers = {
       'Content-Type': 'application/json; charset=utf-8',
       'Authorization': 'Bearer $jwt'
