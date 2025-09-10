@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -156,7 +157,7 @@ class _MapPageState extends ConsumerState<MapPage> {
           );
 
           recommend_polylines.add(Polyline(
-              polylineId: PolylineId('recommend'),
+              polylineId: const PolylineId('recommend'),
               points: route,
               color: theme().recommend,
               visible: _showRoute,
@@ -285,19 +286,19 @@ class _MapPageState extends ConsumerState<MapPage> {
                 ),
           result == 'success'
               ? Text(
-                  'Updated Successfully',
+                  'map_updateToast_success',
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge
                       ?.copyWith(color: GrayScale.gray_200),
-                )
+                ).tr()
               : Text(
-                  'Update Failed. Please try again.',
+                  'map_updateToast_failed',
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge
                       ?.copyWith(color: GrayScale.gray_200),
-                ),
+                ).tr(),
         ],
       ),
     );
@@ -321,26 +322,27 @@ class _MapPageState extends ConsumerState<MapPage> {
               context: context,
               builder: (context) {
                 return CupertinoAlertDialog(
-                  title: const Text("Background Location Access Needed"),
-                  content: const Text(
-                      "To track your plogging route in the background, please set location access to 'Always Allow'."),
+                  title: const Text("map_locationPermission_title").tr(),
+                  content: const Text("map_locationPermission_content").tr(),
                   actions: [
                     CupertinoDialogAction(
-                      child: Text("Cancel",
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineMedium
-                              ?.copyWith(
-                                fontSize: 17.sp,
-                                letterSpacing: -0.3.sp,
-                                color: const Color.fromARGB(255, 0, 122, 255),
-                              )),
+                      child: Text(
+                        "common_cancel",
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(
+                              fontSize: 17.sp,
+                              letterSpacing: -0.3.sp,
+                              color: const Color.fromARGB(255, 0, 122, 255),
+                            ),
+                      ).tr(),
                       onPressed: () => Navigator.of(context).pop(),
                     ),
                     CupertinoDialogAction(
                       isDefaultAction: true,
                       child: Text(
-                        "Go to settings",
+                        "map_goToSettings",
                         style: Theme.of(context)
                             .textTheme
                             .headlineMedium
@@ -350,7 +352,7 @@ class _MapPageState extends ConsumerState<MapPage> {
                               fontWeight: FontWeight.w600,
                               color: const Color.fromARGB(255, 0, 122, 255),
                             ),
-                      ),
+                      ).tr(),
                       onPressed: () async {
                         Navigator.of(context).pop();
                         await openAppSettings();
@@ -365,7 +367,7 @@ class _MapPageState extends ConsumerState<MapPage> {
               builder: (context) {
                 return AlertDialog(
                   title: Text(
-                    "Background Location Access Needed",
+                    "map_locationPermission_title",
                     style: TextStyle(
                       fontFamily: 'Roboto',
                       fontSize: 24.sp,
@@ -373,9 +375,9 @@ class _MapPageState extends ConsumerState<MapPage> {
                       height: 1.33.h,
                       letterSpacing: 0,
                     ),
-                  ),
+                  ).tr(),
                   content: Text(
-                    "To track your plogging route in the background, please set location access to 'Always Allow'.",
+                    "map_locationPermission_content",
                     style: TextStyle(
                       fontFamily: 'Roboto',
                       fontSize: 14.sp,
@@ -383,28 +385,28 @@ class _MapPageState extends ConsumerState<MapPage> {
                       height: 1.43.h,
                       letterSpacing: 0.25,
                     ),
-                  ),
+                  ).tr(),
                   actions: [
                     TextButton(
                       child: Text(
-                        "Cancel",
+                        "commom_cancel",
                         style: TextStyle(
                             fontFamily: 'Roboto',
                             fontSize: 14.sp,
                             height: 1.43.h,
                             color: GrayScale.black),
-                      ),
+                      ).tr(),
                       onPressed: () => Navigator.of(context).pop(),
                     ),
                     TextButton(
                       child: Text(
-                        "Go to Settings",
+                        "map_goToSettings",
                         style: TextStyle(
                             fontFamily: 'Roboto',
                             fontSize: 14.sp,
                             height: 1.43.h,
                             color: GrayScale.black),
-                      ),
+                      ).tr(),
                       onPressed: () async {
                         Navigator.of(context).pop();
                         await openAppSettings();
@@ -588,14 +590,14 @@ class _MapPageState extends ConsumerState<MapPage> {
                                             .textTheme
                                             .displaySmall),
                                     Text(
-                                      'Miles',
+                                      'common_km',
                                       style: Theme.of(context)
                                           .textTheme
                                           .labelLarge
                                           ?.copyWith(
                                             color: GrayScale.gray_300,
                                           ),
-                                    ),
+                                    ).tr(),
                                   ],
                                 ),
                                 // stopwatch
@@ -608,14 +610,14 @@ class _MapPageState extends ConsumerState<MapPage> {
                                             .textTheme
                                             .displaySmall),
                                     Text(
-                                      'Hours',
+                                      'common_hours',
                                       style: Theme.of(context)
                                           .textTheme
                                           .labelLarge
                                           ?.copyWith(
                                             color: GrayScale.gray_300,
                                           ),
-                                    ),
+                                    ).tr(),
                                   ],
                                 ),
                               ],
@@ -625,10 +627,10 @@ class _MapPageState extends ConsumerState<MapPage> {
                               spacing: 12.h,
                               children: [
                                 Text(
-                                  'Picked Up',
+                                  'map_pickedUpAmount',
                                   style:
                                       Theme.of(context).textTheme.headlineLarge,
-                                ),
+                                ).tr(),
                                 PickupCounter(
                                   amount: _pickedAmount,
                                   onIncrement: _increment,
@@ -678,17 +680,18 @@ class _MapPageState extends ConsumerState<MapPage> {
                         spacing: 12.w,
                         children: [
                           MapFilterButton(
-                            label: 'Litter Area',
+                            label: 'map_mapFilterButton_litterArea'.tr(),
                             isActive: _showLitterArea,
                             onPressed: _toggleAreaMarker,
                           ),
                           MapFilterButton(
-                            label: 'Bin',
+                            label: 'map_mapFilterButton_bin'.tr(),
                             isActive: _showBin,
                             onPressed: _toggleBinMarker,
                           ),
                           MapFilterButton(
-                            label: 'Route Recommendation',
+                            label:
+                                'map_mapFilterButton_routeRecommendation'.tr(),
                             isActive: _showRoute,
                             onPressed: () {
                               _toggleRouteMarker();
@@ -735,8 +738,9 @@ class _MapPageState extends ConsumerState<MapPage> {
                           });
                         },
                         recommendedRoute: route,
-                        motivation:
-                            motivation == "" ? "Loading..." : motivation,
+                        motivation: motivation == ""
+                            ? "common_loading".tr()
+                            : motivation,
                       ),
                     ),
                 ],

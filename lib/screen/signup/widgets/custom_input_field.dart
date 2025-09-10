@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -36,7 +37,7 @@ class NicknameInputField extends StatelessWidget {
             child: CupertinoTextField(
               controller: TextEditingController(text: nickname)
                 ..selection = TextSelection.collapsed(offset: nickname.length),
-              placeholder: 'Enter your nickname',
+              placeholder: 'signup_placeholder.nickname'.tr(),
               placeholderStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: GrayScale.gray_300,
                   ),

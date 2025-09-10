@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -56,11 +57,11 @@ class UserBirthDatePicker extends StatelessWidget {
         ),
         child: (date == null)
             ? Text(
-                'DD / MM / YYYY',
+                'signup_personalInfo_dateFormat',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       color: GrayScale.gray_300,
                     ),
-              )
+              ).tr()
             : Text(
                 '${date!.day} / ${date!.month} / ${date!.year}',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(

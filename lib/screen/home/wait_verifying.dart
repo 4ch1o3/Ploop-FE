@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -55,12 +56,12 @@ class VerifyingScreen extends ConsumerWidget {
                   ),
                 ),
                 Text(
-                  'Verifying in progress...',
+                  'home_verifyingScreen_message',
                   style: Theme.of(context)
                       .textTheme
                       .headlineLarge
                       ?.copyWith(color: GrayScale.white),
-                ),
+                ).tr(),
                 const SizedBox(),
               ],
             ),

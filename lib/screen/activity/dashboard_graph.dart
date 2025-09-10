@@ -152,7 +152,6 @@ class _GraphFieldState extends ConsumerState<GraphField> {
     int maxVal = 0;
     if (values.isNotEmpty) {
       maxVal = values.reduce((curr, next) => curr > next ? curr : next);
-      debugPrint('max: $maxVal');
     }
 
     if (maxVal == 0) {

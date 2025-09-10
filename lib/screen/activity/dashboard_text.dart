@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -47,11 +48,11 @@ class DashboardTextWidget extends ConsumerWidget {
               style: Theme.of(context).textTheme.displayMedium,
             ),
             Text(
-              'Trash collected',
+              'common_trashCollected',
               style: Theme.of(context).textTheme.labelLarge?.copyWith(
                     color: GrayScale.gray_300,
                   ),
-            ),
+            ).tr(),
           ],
         ),
         // records
@@ -72,11 +73,11 @@ class DashboardTextWidget extends ConsumerWidget {
                     ),
                     style: Theme.of(context).textTheme.displaySmall),
                 Text(
-                  'Miles',
+                  'common_km',
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
                         color: GrayScale.gray_300,
                       ),
-                ),
+                ).tr(),
               ],
             ),
             Column(
@@ -92,11 +93,11 @@ class DashboardTextWidget extends ConsumerWidget {
                     ),
                     style: Theme.of(context).textTheme.displaySmall),
                 Text(
-                  'Hours',
+                  'common_hours',
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
                         color: GrayScale.gray_300,
                       ),
-                ),
+                ).tr(),
               ],
             ),
             Column(
@@ -113,11 +114,11 @@ class DashboardTextWidget extends ConsumerWidget {
                   style: Theme.of(context).textTheme.displaySmall,
                 ),
                 Text(
-                  'Challenges Completed',
+                  'activity_dashboardText_completed',
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
                         color: GrayScale.gray_300,
                       ),
-                ),
+                ).tr(),
               ],
             ),
           ],

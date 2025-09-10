@@ -14,15 +14,23 @@ import 'screen/activity/activity.dart';
 import 'screen/home/home.dart';
 import 'screen/map_plogging/map.dart';
 import 'screen/world/world.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   await dotenv.load(fileName: ".env");
   await ScreenUtil.ensureScreenSize();
   await _passAllApiKeysToIOS();
   runApp(
-    const ProviderScope(
-      child: MyApp(),
+    ProviderScope(
+      child: EasyLocalization(
+        supportedLocales: const [Locale('en', 'US'), Locale('ko', 'KR')],
+        startLocale: const Locale('ko', 'KR'),
+        fallbackLocale: const Locale('en', 'US'),
+        path: 'assets/localization',
+        child: const MyApp(),
+      ),
     ),
   );
 
@@ -62,6 +70,11 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(402, 874),
       builder: (context, child) => MaterialApp(
+        // localization options
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        // content
         title: 'Ploop',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
@@ -71,7 +84,7 @@ class MyApp extends StatelessWidget {
           // overriding default texttheme
           textTheme: ploopTextTheme(),
         ),
-        home: const SplashScreen(),
+        home: const OnboardingPage(),
       ),
     );
   }

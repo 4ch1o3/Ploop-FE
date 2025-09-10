@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,13 +21,13 @@ class NextPageButton extends StatelessWidget {
       onPressed: onPressed,
       clipBehavior: Clip.antiAlias,
       child: Text(
-        'Next',
+        'common_next',
         textAlign: TextAlign.center,
         style: Theme.of(context)
             .textTheme
             .labelLarge
             ?.copyWith(color: Colors.white),
-      ),
+      ).tr(),
     );
   }
 }
@@ -51,13 +52,13 @@ class ContinueButton extends StatelessWidget {
       onPressed: onPressed,
       clipBehavior: Clip.antiAlias,
       child: Text(
-        'Continue',
+        'common_continue',
         textAlign: TextAlign.center,
         style: Theme.of(context)
             .textTheme
             .labelLarge
             ?.copyWith(color: Colors.white),
-      ),
+      ).tr(),
     );
   }
 }

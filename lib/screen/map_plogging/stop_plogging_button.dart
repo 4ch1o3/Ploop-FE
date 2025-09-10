@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ploop_fe/theme.dart';
@@ -34,7 +35,9 @@ class StopPloggingButton extends StatelessWidget {
           spacing: 10,
           children: [
             Text(
-              (mode == 'stop') ? 'Stop Plogging' : 'End Plogging',
+              (mode == 'stop')
+                  ? 'map_stopPloggingButton_stop'.tr()
+                  : 'map_stopPloggingButton_end'.tr(),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     color: Colors.black,

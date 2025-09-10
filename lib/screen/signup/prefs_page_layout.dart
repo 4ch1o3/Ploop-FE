@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -70,7 +71,8 @@ class PrefsPageLayout extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('$question',
-                          style: Theme.of(context).textTheme.headlineMedium),
+                              style: Theme.of(context).textTheme.headlineMedium)
+                          .tr(),
 
                       SizedBox(height: 60.h),
                       // dropdown options

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -84,9 +85,9 @@ class PauseModal extends ConsumerWidget {
                     style: Theme.of(context).textTheme.displayMedium,
                   ),
                   Text(
-                    'Trash collected',
+                    'common_trashCollected',
                     style: Theme.of(context).textTheme.headlineLarge,
-                  ),
+                  ).tr(),
                 ],
               ),
               Row(
@@ -99,11 +100,11 @@ class PauseModal extends ConsumerWidget {
                       Text(miles.toStringAsFixed(2),
                           style: Theme.of(context).textTheme.displaySmall),
                       Text(
-                        'Miles',
+                        'common_km',
                         style: Theme.of(context).textTheme.labelLarge?.copyWith(
                               color: GrayScale.gray_300,
                             ),
-                      ),
+                      ).tr(),
                     ],
                   ),
                   // stopwatch
@@ -114,11 +115,11 @@ class PauseModal extends ConsumerWidget {
                       Text(formattedTime.toStringAsFixed(2),
                           style: Theme.of(context).textTheme.displaySmall),
                       Text(
-                        'Hours',
+                        'common_hours',
                         style: Theme.of(context).textTheme.labelLarge?.copyWith(
                               color: GrayScale.gray_300,
                             ),
-                      ),
+                      ).tr(),
                     ],
                   ),
                 ],

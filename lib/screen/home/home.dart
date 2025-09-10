@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,16 +24,16 @@ class MainPage extends ConsumerWidget {
           ? showCupertinoDialog(
               context: context,
               builder: (context) => CupertinoAlertDialog(
-                title: const Text('Something went wrong.'),
-                content: const Text('Please sign in again.'),
+                title: const Text('common_somethingWentWrong').tr(),
+                content: const Text('home_signInError').tr(),
                 actions: [
                   CupertinoDialogAction(
                     isDefaultAction: true,
                     onPressed: () => Navigator.pop(context),
                     child: const Text(
-                      'OK',
+                      'common_ok',
                       style: TextStyle(color: Color.fromARGB(255, 0, 122, 255)),
-                    ),
+                    ).tr(),
                   ),
                 ],
               ),
@@ -41,7 +42,7 @@ class MainPage extends ConsumerWidget {
               context: context,
               builder: (context) => AlertDialog(
                 title: Text(
-                  'Something went wrong.',
+                  'common_somethingWentWrong',
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     fontSize: 24.sp,
@@ -49,9 +50,9 @@ class MainPage extends ConsumerWidget {
                     height: 1.33.h,
                     letterSpacing: 0,
                   ),
-                ),
+                ).tr(),
                 content: Text(
-                  'Please sign in again.',
+                  'home_signInError',
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     fontSize: 14.sp,
@@ -59,18 +60,18 @@ class MainPage extends ConsumerWidget {
                     height: 1.43.h,
                     letterSpacing: 0.25,
                   ),
-                ),
+                ).tr(),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(context),
                     child: Text(
-                      'OK',
+                      'common_ok',
                       style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: 14.sp,
                           height: 1.43.h,
                           color: GrayScale.black),
-                    ),
+                    ).tr(),
                   ),
                 ],
               ),
@@ -100,9 +101,9 @@ class MainPage extends ConsumerWidget {
                     // Weekly Challenge
                     children: [
                       Text(
-                        'Weekly Challenge',
+                        'home_weeklyChallenge',
                         style: Theme.of(context).textTheme.headlineLarge,
-                      ),
+                      ).tr(),
                       const ChallengeProgressCard(),
 
                       SingleChildScrollView(
@@ -128,9 +129,9 @@ class MainPage extends ConsumerWidget {
 
                       // Today's Record
                       Text(
-                        "Today's Record",
+                        "home_todaysRecord",
                         style: Theme.of(context).textTheme.headlineLarge,
-                      ),
+                      ).tr(),
                       const TodayRecordCard(),
                     ],
                   ),

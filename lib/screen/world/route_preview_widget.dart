@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ploop_fe/model/route_model.dart';
@@ -60,10 +61,12 @@ class RoutePreviewWidget extends StatelessWidget {
 
           // createAt attr
           Text(
-            'Updated ${selectedRouteModel.fUpdateDateTime()}',
+            'world_routePreviewWidget_updateDate',
             style: Theme.of(context).textTheme.labelSmall?.copyWith(
                 fontWeight: FontWeight.w600, color: GrayScale.gray_100),
-          ),
+          ).tr(namedArgs: {
+            'updateDateTime': selectedRouteModel.fUpdateDateTime()
+          }),
 
           // Show route on map
           Container(
@@ -81,12 +84,12 @@ class RoutePreviewWidget extends StatelessWidget {
               ),
               onPressed: onRoutePressed,
               child: Text(
-                "Route",
+                "world_routePreviewWidget_routeButton",
                 style: Theme.of(context)
                     .textTheme
                     .labelSmall
                     ?.copyWith(fontWeight: FontWeight.w600),
-              ),
+              ).tr(),
             ),
           ),
         ],

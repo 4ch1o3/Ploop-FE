@@ -1,0 +1,111 @@
+{
+  "common_next": "Next",
+  "common_continue": "Continue",
+  "common_upload": "Upload",
+  "common_cancel": "Cancel",
+  "common_error": "Error",
+  "common_loading": "Loading...",
+  "common_km": "km",
+  "common_miles": "Miles",
+  "common_time": "Time",
+  "common_hours": "Hours",
+  "common_ok": "OK",
+  "common_somethingWentWrong": "Something went wrong.",
+  "common_trashCollected": "Trash Collected",
+
+  "onboarding_title": "Let's go plogging!",
+  "onboarding_subtitle": "Any place.\nAny time.\nMake a move, Make a change.\nPlog with us.",
+  "onboarding_loginButton_label": "Start with Google",
+  "onboarding_loginButton_errorContent": "Failed signing in with Google.\nPlease try again.",
+  "onboarding_waiting": "Welcome!",
+
+  "signup_question": {
+    "country": "Please select your country",
+    "personalInfo": "Select your date of birth and gender",
+    "nickname": "Enter your nickname",
+    "difficulty": "What is the difficulty level of the plogging activity?",
+    "motivation": "Please select your preferred keywords",
+    "area": "Please select your preferred keywords\n(up to 3)",
+    "finish": "Well done!\nNow let's go plogging together!"
+  },
+  "signup_title1": {
+    "country": "Country",
+    "personalInfo": "Date of Birth",
+    "nickname": "Nickname",
+    "difficulty": "Plogging Experience Level",
+    "motivation": "What motivates you to go plogging?",
+    "area": "Where do you prefer?"
+  },
+  "signup_title2": {
+    "personalInfo": "Gender"
+  },
+  "signup_placeholder": {
+    "nickname": "Enter your nickname"
+  },
+  "signup_personalInfo_dateFormat": "DD / MM / YYYY",
+
+  "signup_oops_title": "Oops!",
+
+  "signup_oops_content": {
+    "country": "Please select your country.",
+    "personalInfo": {
+      "birthday": "Please select your birthday.",
+      "gender": "Please select your gender."
+    },
+    "nickname": "Please enter your nickname under 20 characters.",
+    "difficulty": "Please select your plogging experience level.",
+    "motivation": "Please select your motivation of plogging.",
+    "area": "Please select at least 1 keyword.",
+    "areaMax": "Please select up to 3 keywords."
+  },
+  "signup_personalInfo_female": "Female",
+  "signup_personalInfo_male": "Male",
+  "signup_personalInfo_other": "Prefer not to say",
+  "signup_difficulty_beginner": "I'm a complete beginner",
+  "signup_difficulty_intermediate": "I've tried it a few times",
+  "signup_difficulty_advanced": "I do it regularly",
+  "signup_motivation_local": "To contribute to the local community",
+  "signup_motivation_stress": "To relieve stress",
+  "signup_motivation_trends": "To participate in social trends or challenges",
+  "signup_motivation_selfDev": "For self-development",
+  "signup_motivation_social": "To raise social awareness",
+  "signup_motivation_health": "For health improvement",
+  "signup_area_nature": "Nature (riverside paths, forest trails, parks)",
+  "signup_area_urban": "Urban alleys",
+  "signup_area_historic": "Historic sites / Cultural streets",
+  "signup_area_coastal": "Coastal areas",
+  "signup_area_university": "Around university campuses",
+  "signup_area_hiddenGems": "Hidden gems",
+
+  "home_signInError": "Please sign in again.",
+  "home_weeklyChallenge": "Weekly Challenge",
+  "home_todaysRecord": "Today's Record",
+  "home_todayRecordCard_garbage": "Collected garbage",
+  "home_challenge_partners_title": "Your challenge partners",
+  "home_challenge_partners_content": "You and {partnerName} are in a challenge together",
+  "home_challenge_verifyButton": "Verify",
+  "home_verifyingScreen_message": "Verifying in progress...",
+  "home_verifySuccess_message": "Challenge Completed",
+  "home_verifyFailed_message": "Challenge Failed",
+
+  "map_updateToast_success": "Updated Successfully",
+  "map_updateToast_failed": "Updated Failed. Please try again",
+  "map_locationPermission_title": "Background Location Access Needed",
+  "map_locationPermission_content": "To track your plogging route in the background, please set location access to 'Always Allow'.",
+  "map_goToSettings": "Go to settings",
+  "map_pickedUpAmount": "Picked Up",
+  "map_stopPloggingButton_stop": "Stop Plogging",
+  "map_stopPloggingButton_end": "End Plogging",
+
+  "map_mapFilterButton_litterArea": "Litter Area",
+  "map_mapFilterButton_bin": "Bin",
+  "map_mapFilterButton_routeRecommendation": "Route Recommendation",
+  "map_ploggingResult_addressNotFound": "Address not found",
+  "map_startPlogging": "Start Plogging",
+
+  "activity_title": "Activity",
+  "activity_dashboardText_completed": "Challenges Completed",
+
+  "world_routePreviewWidget_updateDate": "Updated {updateDateTime}",
+  "world_routePreviewWidget_routeButton": "Route"
+}

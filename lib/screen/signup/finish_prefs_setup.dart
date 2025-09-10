@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ploop_fe/main.dart';
@@ -17,7 +18,7 @@ class FinishSetup extends ConsumerWidget {
       canPop: false,
       child: PrefsPageLayout(
         lastPage: true,
-        question: "Well done!\nNow let's go plogging together!",
+        question: "signup_question.finish".tr(),
         onButtonPressed: () {
           Navigator.push(
             context,

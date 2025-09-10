@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -331,12 +332,11 @@ Future<void> _checkPermission(BuildContext context) async {
             context: context,
             builder: (context) {
               return CupertinoAlertDialog(
-                title: const Text("Background Location Access Needed"),
-                content: const Text(
-                    "To track your plogging route in the background, please set location access to 'Always Allow'."),
+                title: const Text("map_locationPermission_title").tr(),
+                content: const Text("map_locationPermission_content").tr(),
                 actions: [
                   CupertinoDialogAction(
-                    child: Text("Cancel",
+                    child: Text("common_cancel",
                         style: Theme.of(context)
                             .textTheme
                             .headlineMedium
@@ -344,13 +344,13 @@ Future<void> _checkPermission(BuildContext context) async {
                               letterSpacing: -0.3.sp,
                               fontSize: 17.sp,
                               color: const Color.fromARGB(255, 0, 122, 255),
-                            )),
+                            )).tr(),
                     onPressed: () => Navigator.of(context).pop(),
                   ),
                   CupertinoDialogAction(
                     // isDefaultAction: true,
                     child: Text(
-                      "Go to settings",
+                      "map_goToSettings",
                       style:
                           Theme.of(context).textTheme.headlineMedium?.copyWith(
                                 fontSize: 17.sp,
@@ -358,7 +358,7 @@ Future<void> _checkPermission(BuildContext context) async {
                                 fontWeight: FontWeight.w600,
                                 color: const Color.fromARGB(255, 0, 122, 255),
                               ),
-                    ),
+                    ).tr(),
                     onPressed: () async {
                       Navigator.of(context).pop();
                       await openAppSettings();
@@ -373,7 +373,7 @@ Future<void> _checkPermission(BuildContext context) async {
             builder: (context) {
               return AlertDialog(
                 title: Text(
-                  "Background Location Access Needed",
+                  "map_locationPermission_title",
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     fontSize: 24.sp,
@@ -381,9 +381,9 @@ Future<void> _checkPermission(BuildContext context) async {
                     height: 1.33.h,
                     letterSpacing: 0,
                   ),
-                ),
+                ).tr(),
                 content: Text(
-                  "To track your plogging route in the background, please set location access to 'Always Allow'.",
+                  "map_locaionPermission_content",
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     fontSize: 14.sp,
@@ -391,28 +391,28 @@ Future<void> _checkPermission(BuildContext context) async {
                     height: 1.43.h,
                     letterSpacing: 0.25,
                   ),
-                ),
+                ).tr(),
                 actions: [
                   TextButton(
                     child: Text(
-                      "Cancel",
+                      "common_cancel",
                       style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: 14.sp,
                           height: 1.43.h,
                           color: GrayScale.black),
-                    ),
+                    ).tr(),
                     onPressed: () => Navigator.of(context).pop(),
                   ),
                   TextButton(
                     child: Text(
-                      "Go to settings",
+                      "map_goToSettings",
                       style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: 14.sp,
                           height: 1.43.h,
                           color: GrayScale.black),
-                    ),
+                    ).tr(),
                     onPressed: () async {
                       Navigator.of(context).pop();
                       await openAppSettings();

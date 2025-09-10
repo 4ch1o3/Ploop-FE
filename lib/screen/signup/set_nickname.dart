@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,8 +25,8 @@ class _SetNicknamePageState extends ConsumerState<SetNicknamePage> {
   @override
   Widget build(BuildContext context) {
     return PrefsPageLayout(
-      question: 'Enter your nickname',
-      title1: 'Nickname',
+      question: 'signup_question.nickname'.tr(),
+      title1: 'signup_title1.nickname'.tr(),
       widget1: NicknameInputField(
           nickname: nickname,
           onChanged: (val) {
@@ -41,17 +42,16 @@ class _SetNicknamePageState extends ConsumerState<SetNicknamePage> {
             showCupertinoDialog(
               context: context,
               builder: (context) => CupertinoAlertDialog(
-                title: const Text('Oops!'),
-                content: const Text(
-                    'Please enter your nickname under 20 characters.'),
+                title: const Text('signup_oops_title').tr(),
+                content: const Text('signup_oops_content.nickname').tr(),
                 actions: [
                   CupertinoDialogAction(
                     isDefaultAction: true,
                     onPressed: () => Navigator.pop(context),
                     child: const Text(
-                      'OK',
+                      'common_ok',
                       style: TextStyle(color: Color.fromARGB(255, 0, 122, 255)),
-                    ),
+                    ).tr(),
                   ),
                 ],
               ),
@@ -61,7 +61,7 @@ class _SetNicknamePageState extends ConsumerState<SetNicknamePage> {
               context: context,
               builder: (context) => AlertDialog(
                 title: Text(
-                  'Oops!',
+                  'signup_oops_title',
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     fontSize: 24.sp,
@@ -69,9 +69,9 @@ class _SetNicknamePageState extends ConsumerState<SetNicknamePage> {
                     height: 1.33.h,
                     letterSpacing: 0,
                   ),
-                ),
+                ).tr(),
                 content: Text(
-                  'Please enter your nickname under 20 characters.',
+                  'signup_oops_content.nickname',
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     fontSize: 14.sp,
@@ -79,18 +79,18 @@ class _SetNicknamePageState extends ConsumerState<SetNicknamePage> {
                     height: 1.43.h,
                     letterSpacing: 0.25,
                   ),
-                ),
+                ).tr(),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(context),
                     child: Text(
-                      'OK',
+                      'common_ok',
                       style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: 14.sp,
                           height: 1.43.h,
                           color: GrayScale.black),
-                    ),
+                    ).tr(),
                   ),
                 ],
               ),

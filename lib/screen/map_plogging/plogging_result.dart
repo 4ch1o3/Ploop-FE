@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -81,12 +82,12 @@ class PloggingResult extends ConsumerWidget {
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                           Text(
-                            'Trash collected',
+                            'common_trashCollected',
                             style: Theme.of(context)
                                 .textTheme
                                 .labelLarge
                                 ?.copyWith(color: GrayScale.gray_300),
-                          ),
+                          ).tr(),
                         ],
                       ),
                       Row(
@@ -100,14 +101,14 @@ class PloggingResult extends ConsumerWidget {
                                   style:
                                       Theme.of(context).textTheme.displaySmall),
                               Text(
-                                'Miles',
+                                'common_km',
                                 style: Theme.of(context)
                                     .textTheme
                                     .labelLarge
                                     ?.copyWith(
                                       color: GrayScale.gray_300,
                                     ),
-                              ),
+                              ).tr(),
                             ],
                           ),
                           // stopwatch
@@ -119,14 +120,14 @@ class PloggingResult extends ConsumerWidget {
                                   style:
                                       Theme.of(context).textTheme.displaySmall),
                               Text(
-                                'Hours',
+                                'common_hours',
                                 style: Theme.of(context)
                                     .textTheme
                                     .labelLarge
                                     ?.copyWith(
                                       color: GrayScale.gray_300,
                                     ),
-                              ),
+                              ).tr(),
                             ],
                           ),
                         ],
@@ -254,7 +255,7 @@ class _AddressBoxState extends State<AddressBox> {
     } catch (e) {
       debugPrint('error: $e');
       setState(() {
-        address = 'Address not found';
+        address = 'map_ploggingResult_addressNotFound'.tr();
       });
     }
   }

@@ -1,4 +1,5 @@
 // GET record by Datetime to duration?
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,16 +32,16 @@ class TodayRecordCard extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Collected garbage',
+                  'home_todayRecordCard_garbage',
                   style: Theme.of(context).textTheme.labelSmall,
-                ),
+                ).tr(),
                 Text(
                   ref
                       .watch(activityDataProvider(Range.W, today, todayEnd))
                       .when(
                           data: (activity) => '${activity.totalTrash}',
                           error: (err, stack) => '0',
-                          loading: () => 'Loading...'),
+                          loading: () => 'common_loading'.tr()),
                   // '$todayGarbageCount',
                   style: Theme.of(context).textTheme.labelMedium,
                 ),
@@ -55,9 +56,9 @@ class TodayRecordCard extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Miles',
+                  'common_distance',
                   style: Theme.of(context).textTheme.labelSmall,
-                ),
+                ).tr(),
                 Text(
                   ref
                       .watch(activityDataProvider(Range.W, today, todayEnd))
@@ -65,7 +66,7 @@ class TodayRecordCard extends ConsumerWidget {
                           data: (activity) =>
                               activity.totalMiles.toStringAsFixed(2),
                           error: (err, stack) => '0.00',
-                          loading: () => 'Loading...'),
+                          loading: () => 'common_loading'.tr()),
                   style: Theme.of(context).textTheme.labelMedium,
                 ),
               ],
@@ -79,9 +80,9 @@ class TodayRecordCard extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Time',
+                  'common_hours',
                   style: Theme.of(context).textTheme.labelSmall,
-                ),
+                ).tr(),
                 Text(
                   // _printDuration(todayRecordTime),
                   ref
@@ -90,7 +91,7 @@ class TodayRecordCard extends ConsumerWidget {
                           data: (activity) =>
                               activity.totalHours.toStringAsFixed(2),
                           error: (err, stack) => '0.00',
-                          loading: () => 'Loading...'),
+                          loading: () => 'common_loading'.tr()),
                   style: Theme.of(context).textTheme.labelMedium,
                 ),
               ],
