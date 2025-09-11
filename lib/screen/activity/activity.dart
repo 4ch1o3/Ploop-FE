@@ -43,7 +43,7 @@ class _ActivityPageState extends ConsumerState<ActivityPage> {
                   children: [
                     Text(
                       'activity_title',
-                      style: Theme.of(context).textTheme.headlineLarge,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ).tr(),
                     DateRangePicker(
                       ranges: const [Range.W, Range.M, Range.Y],

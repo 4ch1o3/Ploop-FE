@@ -39,7 +39,7 @@ class StopPloggingButton extends StatelessWidget {
                   ? 'map_stopPloggingButton_stop'.tr()
                   : 'map_stopPloggingButton_end'.tr(),
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              style: Theme.of(context).textTheme.labelLarge?.copyWith(
                     color: Colors.black,
                     letterSpacing: 0.06,
                   ),

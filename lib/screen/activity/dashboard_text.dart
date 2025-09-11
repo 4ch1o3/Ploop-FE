@@ -28,9 +28,7 @@ class DashboardTextWidget extends ConsumerWidget {
         // date range
         Text(
           '${DateFormat('d. MM. y').format(startDate)} - ${DateFormat('d. MM. y').format(endDate)}',
-          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                fontSize: 13.sp,
-                fontWeight: FontWeight.w600,
+          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                 color: GrayScale.gray_300,
               ),
         ),
@@ -45,11 +43,11 @@ class DashboardTextWidget extends ConsumerWidget {
                 loading: () => '0',
                 error: (err, stack) => '0',
               ),
-              style: Theme.of(context).textTheme.displayMedium,
+              style: Theme.of(context).textTheme.displayLarge,
             ),
             Text(
-              'common_trashCollected',
-              style: Theme.of(context).textTheme.labelLarge?.copyWith(
+              'activity_garbageCount',
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     color: GrayScale.gray_300,
                   ),
             ).tr(),
@@ -74,7 +72,7 @@ class DashboardTextWidget extends ConsumerWidget {
                     style: Theme.of(context).textTheme.displaySmall),
                 Text(
                   'common_km',
-                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         color: GrayScale.gray_300,
                       ),
                 ).tr(),
@@ -94,7 +92,7 @@ class DashboardTextWidget extends ConsumerWidget {
                     style: Theme.of(context).textTheme.displaySmall),
                 Text(
                   'common_hours',
-                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         color: GrayScale.gray_300,
                       ),
                 ).tr(),
@@ -115,7 +113,7 @@ class DashboardTextWidget extends ConsumerWidget {
                 ),
                 Text(
                   'activity_dashboardText_completed',
-                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         color: GrayScale.gray_300,
                       ),
                 ).tr(),

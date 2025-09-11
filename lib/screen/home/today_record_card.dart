@@ -33,7 +33,7 @@ class TodayRecordCard extends ConsumerWidget {
               children: [
                 Text(
                   'home_todayRecordCard_garbage',
-                  style: Theme.of(context).textTheme.labelSmall,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ).tr(),
                 Text(
                   ref
@@ -43,7 +43,7 @@ class TodayRecordCard extends ConsumerWidget {
                           error: (err, stack) => '0',
                           loading: () => 'common_loading'.tr()),
                   // '$todayGarbageCount',
-                  style: Theme.of(context).textTheme.labelMedium,
+                  style: Theme.of(context).textTheme.labelLarge,
                 ),
               ],
             ),
@@ -57,7 +57,7 @@ class TodayRecordCard extends ConsumerWidget {
               children: [
                 Text(
                   'common_distance',
-                  style: Theme.of(context).textTheme.labelSmall,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ).tr(),
                 Text(
                   ref
@@ -67,7 +67,7 @@ class TodayRecordCard extends ConsumerWidget {
                               activity.totalMiles.toStringAsFixed(2),
                           error: (err, stack) => '0.00',
                           loading: () => 'common_loading'.tr()),
-                  style: Theme.of(context).textTheme.labelMedium,
+                  style: Theme.of(context).textTheme.labelLarge,
                 ),
               ],
             ),
@@ -81,7 +81,7 @@ class TodayRecordCard extends ConsumerWidget {
               children: [
                 Text(
                   'common_hours',
-                  style: Theme.of(context).textTheme.labelSmall,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ).tr(),
                 Text(
                   // _printDuration(todayRecordTime),
@@ -92,7 +92,7 @@ class TodayRecordCard extends ConsumerWidget {
                               activity.totalHours.toStringAsFixed(2),
                           error: (err, stack) => '0.00',
                           loading: () => 'common_loading'.tr()),
-                  style: Theme.of(context).textTheme.labelMedium,
+                  style: Theme.of(context).textTheme.labelLarge,
                 ),
               ],
             ),

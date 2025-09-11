@@ -58,13 +58,13 @@ class UserBirthDatePicker extends StatelessWidget {
         child: (date == null)
             ? Text(
                 'signup_personalInfo_dateFormat',
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       color: GrayScale.gray_300,
                     ),
               ).tr()
             : Text(
                 '${date!.day} / ${date!.month} / ${date!.year}',
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       color: GrayScale.black,
                     ),
               ),

@@ -499,7 +499,7 @@ class _MapPageState extends ConsumerState<MapPage> {
           onFinish: _endPlogging,
           onClose: _resumePlogging,
           amount: _pickedAmount,
-          miles: _movedDistance,
+          distance: _movedDistance,
           formattedTime: _elapsedTimeFormat,
           route: _ploggingRoute,
           polylines: _ploggingPolylines,

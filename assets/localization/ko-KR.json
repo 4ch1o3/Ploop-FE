@@ -10,10 +10,10 @@
   "common_hours": "시간",
   "common_ok": "확인",
   "common_somethingWentWrong": "문제가 발생했습니다.",
-  "common_trashCollected": "개의 쓰레기를 주웠어요",
+  "common_trashCollected": "쓰레기 개수",
 
-  "onboarding_title": "함께 플로깅해요!",
-  "onboarding_subtitle": "언제나, 어디서든.\n나의 발걸음으로\n변화를 만드세요.\n지금 함께 시작해요!",
+  "onboarding_title": "Let's go plogging!",
+  "onboarding_subtitle": "언제나, 어디서든\n나의 발걸음으로\n변화를 만드세요\n지금 함께 시작해요",
   "onboarding_loginButton_label": "Google로 시작하기",
 
   "onboarding_loginButton_errorContent": "Google 로그인에 실패했습니다.\n다시 시도해 주세요.",
@@ -105,6 +105,12 @@
 
   "activity_title": "나의 활동",
   "activity_dashboardText_completed": "미션 달성",
+  "activity_garbageCount": "수집한 쓰레기 개수",
+  "activity_dateRangePicker": {
+    "w": "주간",
+    "m": "월간",
+    "y": "연간"
+  },
 
   "world_routePreviewWidget_updateDate": "등록된 시간 {updateDateTime}",
   "world_routePreviewWidget_routeButton": "경로 보기"

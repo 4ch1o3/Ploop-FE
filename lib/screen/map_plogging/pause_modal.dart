@@ -12,7 +12,7 @@ class PauseModal extends ConsumerWidget {
   final VoidCallback onFinish;
   final VoidCallback onClose;
   final int amount;
-  final double miles;
+  final double distance;
   final double formattedTime;
   final List<LatLng> route;
   final Set<Polyline> polylines;
@@ -22,7 +22,7 @@ class PauseModal extends ConsumerWidget {
     required this.onFinish,
     required this.onClose,
     required this.amount,
-    required this.miles,
+    required this.distance,
     required this.formattedTime,
     required this.route,
     required this.polylines,
@@ -74,7 +74,7 @@ class PauseModal extends ConsumerWidget {
               // crossAxisAlignment: CrossAxisAlignment.center,
               Text(
                 DateFormat('dd. MM. y - hh:mm a').format(DateTime.now()),
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.w600, color: GrayScale.gray_300),
               ),
               Column(
@@ -82,11 +82,11 @@ class PauseModal extends ConsumerWidget {
                 children: [
                   Text(
                     '$amount',
-                    style: Theme.of(context).textTheme.displayMedium,
+                    style: Theme.of(context).textTheme.displayLarge,
                   ),
                   Text(
                     'common_trashCollected',
-                    style: Theme.of(context).textTheme.headlineLarge,
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ).tr(),
                 ],
               ),
@@ -97,11 +97,14 @@ class PauseModal extends ConsumerWidget {
                   Column(
                     spacing: 2.h,
                     children: [
-                      Text(miles.toStringAsFixed(2),
-                          style: Theme.of(context).textTheme.displaySmall),
+                      Text(distance.toStringAsFixed(2),
+                          style: Theme.of(context).textTheme.displayMedium),
                       Text(
                         'common_km',
-                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(
                               color: GrayScale.gray_300,
                             ),
                       ).tr(),
@@ -113,10 +116,13 @@ class PauseModal extends ConsumerWidget {
                     spacing: 2.h,
                     children: [
                       Text(formattedTime.toStringAsFixed(2),
-                          style: Theme.of(context).textTheme.displaySmall),
+                          style: Theme.of(context).textTheme.displayMedium),
                       Text(
                         'common_hours',
-                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(
                               color: GrayScale.gray_300,
                             ),
                       ).tr(),
@@ -134,7 +140,7 @@ class PauseModal extends ConsumerWidget {
                     MaterialPageRoute(
                       builder: (builder) => PloggingResult(
                         amount: amount,
-                        miles: miles,
+                        distance: distance,
                         time: formattedTime,
                         route: route,
                         polylines: polylines,

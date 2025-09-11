@@ -98,7 +98,7 @@ class ChallengeProgressCard extends ConsumerWidget {
               children: [
                 Text(
                   'home_challenge_partners_title',
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
                         color: Colors.white,
                       ),
                 ).tr(),
@@ -106,7 +106,7 @@ class ChallengeProgressCard extends ConsumerWidget {
                   'home_challenge_partners_content',
                   style: Theme.of(context)
                       .textTheme
-                      .labelSmall
+                      .bodyLarge
                       ?.copyWith(color: GrayScale.gray_400),
                 ).tr(namedArgs: {'partnerName': missionResponse.partnerName}),
                 SizedBox(
@@ -138,7 +138,7 @@ class ChallengeProgressCard extends ConsumerWidget {
       return SizedBox(
         height: 388.h,
         child: Image.asset(
-          context.locale.countryCode == "ko"
+          context.locale.countryCode == "KR"
               ? 'assets/images/mission_error_kr.png'
               : 'assets/images/mission_error.png',
           width: 370.w,
@@ -203,14 +203,14 @@ class ChallengeUserCard extends StatelessWidget {
                   // softWrap: true,
                   username,
                   overflow: TextOverflow.fade,
-                  style: Theme.of(context).textTheme.bodySmall,
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
               )
             ],
           ),
           Text(
             '$verifiedChallengeCount/${(totalChallengeCount / 2).toInt()}',
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
         ],
       ),
@@ -332,7 +332,7 @@ class ChallengeCardState extends ConsumerState<ChallengeCard> {
                   'home_challenge_verifyButton',
                   style: Theme.of(context)
                       .textTheme
-                      .labelSmall
+                      .bodyLarge
                       ?.copyWith(color: Colors.white),
                 ).tr(),
               ),

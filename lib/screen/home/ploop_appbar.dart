@@ -106,7 +106,7 @@ class _PloopAppBarState extends ConsumerState<PloopAppBar> {
               ),
               Text(
                 userProfile.nickname ?? 'Loading...',
-                style: Theme.of(context).textTheme.labelMedium,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ],
           ),

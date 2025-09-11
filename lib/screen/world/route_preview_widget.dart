@@ -62,7 +62,7 @@ class RoutePreviewWidget extends StatelessWidget {
           // createAt attr
           Text(
             'world_routePreviewWidget_updateDate',
-            style: Theme.of(context).textTheme.labelSmall?.copyWith(
+            style: Theme.of(context).textTheme.labelMedium?.copyWith(
                 fontWeight: FontWeight.w600, color: GrayScale.gray_100),
           ).tr(namedArgs: {
             'updateDateTime': selectedRouteModel.fUpdateDateTime()
@@ -87,7 +87,7 @@ class RoutePreviewWidget extends StatelessWidget {
                 "world_routePreviewWidget_routeButton",
                 style: Theme.of(context)
                     .textTheme
-                    .labelSmall
+                    .labelMedium
                     ?.copyWith(fontWeight: FontWeight.w600),
               ).tr(),
             ),

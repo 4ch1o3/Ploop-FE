@@ -41,7 +41,6 @@ class StartPloggingButton extends StatelessWidget {
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.labelLarge?.copyWith(
                   color: theme().color_600,
-                  letterSpacing: 0.06,
                 ),
           ).tr(),
         ),

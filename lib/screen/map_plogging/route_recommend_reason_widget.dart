@@ -51,7 +51,7 @@ class RouteRecommendReasonWidget extends StatelessWidget {
             DefaultTextStyle(
               style: Theme.of(context)
                       .textTheme
-                      .bodySmall
+                      .headlineSmall
                       ?.copyWith(color: GrayScale.white) ??
                   const TextStyle(color: GrayScale.white),
               child: AnimatedTextKit(

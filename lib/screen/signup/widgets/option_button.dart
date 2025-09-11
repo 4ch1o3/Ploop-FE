@@ -33,7 +33,7 @@ class OptionButton extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                 color: isSelected ? selectedColor : GrayScale.gray_300,
               ),
         ),

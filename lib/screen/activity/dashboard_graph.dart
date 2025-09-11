@@ -93,7 +93,7 @@ class GraphContainer extends ConsumerWidget {
                         day,
                         style: Theme.of(context)
                             .textTheme
-                            .bodySmall
+                            .headlineSmall
                             ?.copyWith(fontWeight: FontWeight.w600),
                       ),
                     ],

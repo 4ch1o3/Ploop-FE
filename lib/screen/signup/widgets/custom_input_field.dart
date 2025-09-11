@@ -38,9 +38,10 @@ class NicknameInputField extends StatelessWidget {
               controller: TextEditingController(text: nickname)
                 ..selection = TextSelection.collapsed(offset: nickname.length),
               placeholder: 'signup_placeholder.nickname'.tr(),
-              placeholderStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: GrayScale.gray_300,
-                  ),
+              placeholderStyle:
+                  Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        color: GrayScale.gray_300,
+                      ),
               decoration: null,
               inputFormatters: [
                 LengthLimitingTextInputFormatter(maxNicknameLength),

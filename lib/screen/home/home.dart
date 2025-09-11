@@ -102,7 +102,7 @@ class MainPage extends ConsumerWidget {
                     children: [
                       Text(
                         'home_weeklyChallenge',
-                        style: Theme.of(context).textTheme.headlineLarge,
+                        style: Theme.of(context).textTheme.titleMedium,
                       ).tr(),
                       const ChallengeProgressCard(),
 
@@ -130,7 +130,7 @@ class MainPage extends ConsumerWidget {
                       // Today's Record
                       Text(
                         "home_todaysRecord",
-                        style: Theme.of(context).textTheme.headlineLarge,
+                        style: Theme.of(context).textTheme.titleMedium,
                       ).tr(),
                       const TodayRecordCard(),
                     ],

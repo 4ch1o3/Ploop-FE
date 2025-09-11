@@ -6,7 +6,7 @@
   "common_error": "Error",
   "common_loading": "Loading...",
   "common_km": "km",
-  "common_miles": "Miles",
+  "common_distance": "Distance",
   "common_time": "Time",
   "common_hours": "Hours",
   "common_ok": "OK",
@@ -104,7 +104,13 @@
   "map_startPlogging": "Start Plogging",
 
   "activity_title": "Activity",
+  "activity_dateRangePicker": {
+    "w": "W",
+    "m": "M",
+    "y": "Y"
+  },
   "activity_dashboardText_completed": "Challenges Completed",
+  "activity_garbageCount": "Trash Collected",
 
   "world_routePreviewWidget_updateDate": "Updated {updateDateTime}",
   "world_routePreviewWidget_routeButton": "Route"

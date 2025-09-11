@@ -73,7 +73,7 @@ class DateRangeButton extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                 fontWeight: FontWeight.w600,
                 color: isSelected ? GrayScale.black : GrayScale.gray_500,
               ),

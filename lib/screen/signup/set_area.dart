@@ -11,6 +11,15 @@ import 'package:ploop_fe/screen/signup/finish_prefs_setup.dart';
 import 'package:ploop_fe/screen/signup/widgets/option_button_set.dart';
 import 'package:ploop_fe/theme.dart';
 
+enum PreferredAreas {
+  NATURE,
+  ALLEYS,
+  CULTURE,
+  COAST,
+  CAMPUS,
+  HIDDEN,
+}
+
 class SetAreaPage extends ConsumerStatefulWidget {
   const SetAreaPage({super.key});
 

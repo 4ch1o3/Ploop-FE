@@ -59,7 +59,7 @@ class OnboardingPage extends StatelessWidget {
                 Text('onboarding_title',
                         style: Theme.of(context)
                             .textTheme
-                            .displayLarge
+                            .displayMedium
                             ?.copyWith(color: Colors.white))
                     .tr(),
                 SizedBox(
@@ -68,11 +68,8 @@ class OnboardingPage extends StatelessWidget {
                 Text(
                   textAlign: TextAlign.center,
                   'onboarding_subtitle',
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        fontSize: 14.sp,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
                         color: Colors.white,
-                        height: 1.92,
-                        letterSpacing: 0.12.sp,
                       ),
                 ).tr(),
 
@@ -210,10 +207,7 @@ class LoginButton extends ConsumerWidget {
             Image.asset('assets/icons/signin-logo.png'),
             Text(
               'onboarding_loginButton_label',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyLarge
-                  ?.copyWith(letterSpacing: 0.12.sp),
+              style: Theme.of(context).textTheme.titleMedium,
             ).tr(),
           ],
         ),

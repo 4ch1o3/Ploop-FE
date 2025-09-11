@@ -25,7 +25,7 @@ class NextPageButton extends StatelessWidget {
         textAlign: TextAlign.center,
         style: Theme.of(context)
             .textTheme
-            .labelLarge
+            .titleLarge
             ?.copyWith(color: Colors.white),
       ).tr(),
     );
@@ -56,7 +56,7 @@ class ContinueButton extends StatelessWidget {
         textAlign: TextAlign.center,
         style: Theme.of(context)
             .textTheme
-            .labelLarge
+            .titleLarge
             ?.copyWith(color: Colors.white),
       ).tr(),
     );
