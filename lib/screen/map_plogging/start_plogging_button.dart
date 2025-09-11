@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ploop_fe/theme.dart';
@@ -36,13 +37,12 @@ class StartPloggingButton extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            'Start Plogging',
+            'map_startPlogging',
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.labelLarge?.copyWith(
                   color: theme().color_600,
-                  letterSpacing: 0.06,
                 ),
-          ),
+          ).tr(),
         ),
       ),
     );

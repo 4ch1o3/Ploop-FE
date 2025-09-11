@@ -1,0 +1,117 @@
+{
+  "common_next": "다음",
+  "common_continue": "완료",
+  "common_upload": "업로드",
+  "common_cancel": "취소",
+  "common_error": "오류",
+  "common_loading": "로딩 중...",
+  "common_km": "km",
+  "common_distance": "거리",
+  "common_hours": "시간",
+  "common_ok": "확인",
+  "common_somethingWentWrong": "문제가 발생했습니다.",
+  "common_trashCollected": "쓰레기 개수",
+
+  "onboarding_title": "Let's go plogging!",
+  "onboarding_subtitle": "언제나, 어디서든\n나의 발걸음으로\n변화를 만드세요\n지금 함께 시작해요",
+  "onboarding_loginButton_label": "Google로 시작하기",
+
+  "onboarding_loginButton_errorContent": "Google 로그인에 실패했습니다.\n다시 시도해 주세요.",
+  "onboarding_waiting": "환영해요!",
+
+  "signup_question": {
+    "country": "거주하는 국가를 선택해 주세요.",
+    "personalInfo": "생년월일과 성별을 입력해 주세요.",
+    "nickname": "사용하실 닉네임을 입력해 주세요.",
+    "difficulty": "당신의 플로깅 경험 수준을 알려주세요.",
+    "motivation": "관심 있는 키워드를 선택해 주세요.",
+    "area": "관심 있는 키워드를\n최대 3개까지 선택해 주세요.",
+    "finish": "좋아요!\n이제 함께 플로깅하러 가볼까요?"
+  },
+  "signup_title1": {
+    "country": "국가",
+    "personalInfo": "생년월일",
+    "nickname": "닉네임",
+    "difficulty": "플로깅 경험 수준",
+    "motivation": "플로깅을 하는 이유가 무엇인가요?",
+    "area": "어떤 장소에서 플로깅하는 것을 좋아하세요?"
+  },
+  "signup_title2": {
+    "personalInfo": "성별"
+  },
+  "signup_placeholder": {
+    "nickname": "닉네임을 입력하세요"
+  },
+  "signup_personalInfo_dateFormat": "일 / 월 / 연도",
+
+  "signup_oops_title": "잠깐만요!",
+
+  "signup_oops_content": {
+    "country": "국가가 선택되지 않았습니다.\n국가를 선택해 주세요.",
+    "personalInfo": {
+      "birthday": "생년월일을 입력해 주세요.",
+      "gender": "성별을 입력해 주세요."
+    },
+    "nickname": "20자 이하의 닉네임을 입력해 주세요.",
+    "difficulty": "플로깅 경험 수준을 선택해 주세요.",
+    "motivation": "플로깅을 하는 이유를 선택해 주세요.",
+    "area": "최소 1개 이상의 키워드를 선택해 주세요.",
+    "areaMax": "키워드는 최대 3개까지 선택할 수 있습니다."
+  },
+  "signup_personalInfo_female": "여성",
+  "signup_personalInfo_male": "남성",
+  "signup_personalInfo_other": "밝히고 싶지 않음",
+  "signup_difficulty_beginner": "플로깅이 처음이에요",
+  "signup_difficulty_intermediate": "플로깅을 몇 번 해봤어요",
+  "signup_difficulty_advanced": "꾸준히 플로깅하고 있어요",
+  "signup_motivation_local": "지역 사회 환경에 기여하고 싶어서",
+  "signup_motivation_stress": "스트레스를 해소하기 위해",
+  "signup_motivation_trends": "챌린지나 유행에 참여하고 싶어서",
+  "signup_motivation_selfDev": "자기 계발을 위해",
+  "signup_motivation_social": "사회적 인식을 높이기 위해",
+  "signup_motivation_health": "건강을 위해",
+  "signup_area_nature": "자연 (강변길, 숲길, 공원 등)",
+  "signup_area_urban": "도심 골목길",
+  "signup_area_historic": "유적지, 문화의 거리",
+  "signup_area_coastal": "해안가",
+  "signup_area_university": "대학가 주변",
+  "signup_area_hiddenGems": "나만 아는 숨은 명소",
+
+  "home_signInError": "다시 로그인해주세요.",
+  "home_weeklyChallenge": "주간 미션 진행도",
+  "home_todaysRecord": "오늘의 기록",
+  "home_todayRecordCard_garbage": "주운 쓰레기",
+  "home_challenge_partners_title": "함께 하는 미션 파트너",
+  "home_challenge_partners_content": "{partnerName}님과 함께 도전 중이에요",
+  "home_challenge_verifyButton": "미션 인증",
+  "home_verifyingScreen_message": "미션 인증 중...",
+  "home_verifySuccess_message": "성공적으로 인증되었어요!",
+  "home_verifyFailed_message": "인증에 실패했어요.",
+
+  "map_updateToast_success": "성공적으로 등록되었어요.",
+  "map_updateToast_failed": "등록에 실패했어요.",
+  "map_locationPermission_title": "백그라운드 위치 권한이 필요합니다.",
+  "map_locationPermission_content": "앱을 사용하지 않을 때도 플로깅 경로를 정확하게 기록하려면, 위치 접근 권한을 '항상 허용'으로 설정해 주세요.",
+  "map_goToSettings": "설정 열기",
+  "map_pickedUpAmount": "주운 쓰레기 개수",
+  "map_stopPloggingButton_stop": "플로깅 멈추기",
+  "map_stopPloggingButton_end": "플로깅 종료하기",
+
+  "map_mapFilterButton_litterArea": "쓰레기 발견 구역",
+  "map_mapFilterButton_bin": "쓰레기통",
+  "map_mapFilterButton_routeRecommendation": "AI 추천 경로",
+  "map_ploggingResult_addressNotFound": "주소를 불러오지 못했습니다.",
+  "map_startPlogging": "플로깅 시작하기",
+
+  "activity_title": "나의 활동",
+  "activity_dashboardText_completed": "미션 달성",
+  "activity_garbageCount": "수집한 쓰레기 개수",
+  "activity_dateRangePicker": {
+    "w": "주간",
+    "m": "월간",
+    "y": "연간"
+  },
+
+  "world_routePreviewWidget_updateDate": "등록된 시간 {updateDateTime}",
+  "world_routePreviewWidget_routeButton": "경로 보기"
+}

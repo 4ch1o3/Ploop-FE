@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -96,18 +97,18 @@ class ChallengeProgressCard extends ConsumerWidget {
               spacing: 4.h,
               children: [
                 Text(
-                  'Your challenge partners',
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  'home_challenge_partners_title',
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
                         color: Colors.white,
                       ),
-                ),
+                ).tr(),
                 Text(
-                  'You and ${missionResponse.partnerName} are in a challenge together',
+                  'home_challenge_partners_content',
                   style: Theme.of(context)
                       .textTheme
-                      .labelSmall
+                      .bodyLarge
                       ?.copyWith(color: GrayScale.gray_400),
-                ),
+                ).tr(namedArgs: {'partnerName': missionResponse.partnerName}),
                 SizedBox(
                   height: 6.h,
                 ),
@@ -137,7 +138,9 @@ class ChallengeProgressCard extends ConsumerWidget {
       return SizedBox(
         height: 388.h,
         child: Image.asset(
-          'assets/images/mission_error.png',
+          context.locale.countryCode == "KR"
+              ? 'assets/images/mission_error_kr.png'
+              : 'assets/images/mission_error.png',
           width: 370.w,
           height: 388.h,
         ),
@@ -200,14 +203,14 @@ class ChallengeUserCard extends StatelessWidget {
                   // softWrap: true,
                   username,
                   overflow: TextOverflow.fade,
-                  style: Theme.of(context).textTheme.bodySmall,
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
               )
             ],
           ),
           Text(
             '$verifiedChallengeCount/${(totalChallengeCount / 2).toInt()}',
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
         ],
       ),
@@ -326,12 +329,12 @@ class ChallengeCardState extends ConsumerState<ChallengeCard> {
                   }
                 },
                 child: Text(
-                  'Verify',
+                  'home_challenge_verifyButton',
                   style: Theme.of(context)
                       .textTheme
-                      .labelSmall
+                      .bodyLarge
                       ?.copyWith(color: Colors.white),
-                ),
+                ).tr(),
               ),
             ),
           ),

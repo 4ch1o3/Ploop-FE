@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,6 +11,15 @@ import 'package:ploop_fe/screen/signup/finish_prefs_setup.dart';
 import 'package:ploop_fe/screen/signup/widgets/option_button_set.dart';
 import 'package:ploop_fe/theme.dart';
 
+enum PreferredAreas {
+  NATURE,
+  ALLEYS,
+  CULTURE,
+  COAST,
+  CAMPUS,
+  HIDDEN,
+}
+
 class SetAreaPage extends ConsumerStatefulWidget {
   const SetAreaPage({super.key});
 
@@ -19,12 +29,12 @@ class SetAreaPage extends ConsumerStatefulWidget {
 
 class _SetAreaPageState extends ConsumerState<SetAreaPage> {
   final List<String> labelList = [
-    "Nature (riverside paths, forest trails, parks)",
-    "Urban alleys",
-    "Historic sites / Cultural streets",
-    "Coastal areas",
-    "Around university campuses",
-    "Hidden gems"
+    "signup_area_nature".tr(),
+    "signup_area_urban".tr(),
+    "signup_area_historic".tr(),
+    "signup_area_coastal".tr(),
+    "signup_area_university".tr(),
+    "signup_area_hiddenGems".tr()
   ];
 
   Set<String> preferredArea = {};
@@ -32,8 +42,8 @@ class _SetAreaPageState extends ConsumerState<SetAreaPage> {
   @override
   Widget build(BuildContext context) {
     return PrefsPageLayout(
-      question: 'Please select your preferred keywords\n(up to 3)',
-      title1: 'Where do you prefer?',
+      question: 'signup_question.area'.tr(),
+      title1: 'signup_title1.area'.tr(),
       widget1: OptionButtonSet(
         alignColumn: true,
         options: [...labelList],
@@ -58,16 +68,16 @@ class _SetAreaPageState extends ConsumerState<SetAreaPage> {
             showCupertinoDialog(
               context: context,
               builder: (context) => CupertinoAlertDialog(
-                title: const Text('Oops!'),
-                content: const Text('Please select at least 1 keyword.'),
+                title: const Text('signup_oops_title').tr(),
+                content: const Text('signup_oops_content.area').tr(),
                 actions: [
                   CupertinoDialogAction(
                     isDefaultAction: true,
                     onPressed: () => Navigator.pop(context),
                     child: const Text(
-                      'OK',
+                      'common_ok',
                       style: TextStyle(color: Color.fromARGB(255, 0, 122, 255)),
-                    ),
+                    ).tr(),
                   ),
                 ],
               ),
@@ -77,7 +87,7 @@ class _SetAreaPageState extends ConsumerState<SetAreaPage> {
               context: context,
               builder: (context) => AlertDialog(
                 title: Text(
-                  'Oops!',
+                  'signup_oops_title',
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     fontSize: 24.sp,
@@ -85,9 +95,9 @@ class _SetAreaPageState extends ConsumerState<SetAreaPage> {
                     height: 1.33.h,
                     letterSpacing: 0,
                   ),
-                ),
+                ).tr(),
                 content: Text(
-                  'Please select at least 1 keyword.',
+                  'signup_oops_content.area',
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     fontSize: 14.sp,
@@ -100,13 +110,13 @@ class _SetAreaPageState extends ConsumerState<SetAreaPage> {
                   TextButton(
                     onPressed: () => Navigator.pop(context),
                     child: Text(
-                      'OK',
+                      'common_ok',
                       style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: 14.sp,
                           height: 1.43.h,
                           color: GrayScale.black),
-                    ),
+                    ).tr(),
                   ),
                 ],
               ),
@@ -118,16 +128,16 @@ class _SetAreaPageState extends ConsumerState<SetAreaPage> {
             showCupertinoDialog(
               context: context,
               builder: (context) => CupertinoAlertDialog(
-                title: const Text('Oops!'),
-                content: const Text('Please select up to 3 keywords.'),
+                title: const Text('signup_oops_title').tr(),
+                content: const Text('signup_oops_content.areaMax').tr(),
                 actions: [
                   CupertinoDialogAction(
                     isDefaultAction: true,
                     onPressed: () => Navigator.pop(context),
                     child: const Text(
-                      'OK',
+                      'common_ok',
                       style: TextStyle(color: Color.fromARGB(255, 0, 122, 255)),
-                    ),
+                    ).tr(),
                   ),
                 ],
               ),
@@ -137,7 +147,7 @@ class _SetAreaPageState extends ConsumerState<SetAreaPage> {
               context: context,
               builder: (context) => AlertDialog(
                 title: Text(
-                  'Oops!',
+                  'signup_oops_title',
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     fontSize: 24.sp,
@@ -145,9 +155,9 @@ class _SetAreaPageState extends ConsumerState<SetAreaPage> {
                     height: 1.33.h,
                     letterSpacing: 0,
                   ),
-                ),
+                ).tr(),
                 content: Text(
-                  'Please select up to 3 keywords.',
+                  'signup_oops_content.areaMax',
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     fontSize: 14.sp,
@@ -155,18 +165,18 @@ class _SetAreaPageState extends ConsumerState<SetAreaPage> {
                     height: 1.43.h,
                     letterSpacing: 0.25,
                   ),
-                ),
+                ).tr(),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(context),
                     child: Text(
-                      'OK',
+                      'common_ok',
                       style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: 14.sp,
                           height: 1.43.h,
                           color: GrayScale.black),
-                    ),
+                    ).tr(),
                   ),
                 ],
               ),
@@ -184,9 +194,6 @@ class _SetAreaPageState extends ConsumerState<SetAreaPage> {
           context,
           MaterialPageRoute(builder: (context) => const FinishSetup()),
         );
-        //   final currentPrefs = ref.read(userPreferenceNotifierProvider);
-        //   debugPrint(
-        //       'Country: ${currentPrefs.country}\nRegion: ${currentPrefs.region}\nAge: ${currentPrefs.age}\nGender: ${currentPrefs.gender}\nNickname: ${currentPrefs.nickname}\nDifficulty: ${currentPrefs.difficulty}\nMotivation: ${currentPrefs.motivation}\nPreferredArea: ${currentPrefs.preferredArea}');
       },
     );
   }

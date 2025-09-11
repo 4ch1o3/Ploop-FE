@@ -51,8 +51,8 @@ class PloggingActivityNotifier extends _$PloggingActivityNotifier {
     state = state.copyWith(trashCollectedCount: count);
   }
 
-  void setDistance(double miles) {
-    state = state.copyWith(distanceMiles: miles);
+  void setDistance(double distance) {
+    state = state.copyWith(distanceMiles: distance);
   }
 
   void reset() {

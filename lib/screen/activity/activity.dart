@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,9 +42,9 @@ class _ActivityPageState extends ConsumerState<ActivityPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Activity',
-                      style: Theme.of(context).textTheme.headlineLarge,
-                    ),
+                      'activity_title',
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ).tr(),
                     DateRangePicker(
                       ranges: const [Range.W, Range.M, Range.Y],
                       selected: filter.range,

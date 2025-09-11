@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -52,13 +53,15 @@ class PrefsPageLayout extends StatelessWidget {
                 const PloopTitleBar(),
 
                 // show back button or blank
-                !firstPage
+                !firstPage && !lastPage
                     ? IconButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        icon:
-                            Image.asset('assets/icons/navigate-back-icon.png'),
+                        icon: Image.asset(
+                          'assets/icons/navigate-back-icon.png',
+                          width: 11.sp,
+                        ),
                       )
                     : SizedBox(
                         height: 70.h,
@@ -70,7 +73,8 @@ class PrefsPageLayout extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('$question',
-                          style: Theme.of(context).textTheme.headlineMedium),
+                              style: Theme.of(context).textTheme.headlineLarge)
+                          .tr(),
 
                       SizedBox(height: 60.h),
                       // dropdown options
@@ -85,7 +89,9 @@ class PrefsPageLayout extends StatelessWidget {
                               children: [
                                 Text(
                                   '$title1',
-                                  style: Theme.of(context).textTheme.labelLarge,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium,
                                 ),
                                 widget1!,
                               ],
@@ -98,7 +104,9 @@ class PrefsPageLayout extends StatelessWidget {
                               children: [
                                 Text(
                                   '$title2',
-                                  style: Theme.of(context).textTheme.labelLarge,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium,
                                 ),
                                 widget2!,
                               ],

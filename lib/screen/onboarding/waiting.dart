@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -48,11 +49,12 @@ class _WaitingScreenState extends ConsumerState<WaitingScreen> {
               mainAxisSize: MainAxisSize.min,
               spacing: 64.h,
               children: [
-                Text('Welcome!',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineMedium
-                        ?.copyWith(fontWeight: FontWeight.w600)),
+                Text('onboarding_waiting',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(fontWeight: FontWeight.w600))
+                    .tr(),
                 if (countryListState is AsyncLoading)
                   SizedBox(
                     width: 128.w,

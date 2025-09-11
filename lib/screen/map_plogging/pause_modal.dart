@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,7 +12,7 @@ class PauseModal extends ConsumerWidget {
   final VoidCallback onFinish;
   final VoidCallback onClose;
   final int amount;
-  final double miles;
+  final double distance;
   final double formattedTime;
   final List<LatLng> route;
   final Set<Polyline> polylines;
@@ -21,7 +22,7 @@ class PauseModal extends ConsumerWidget {
     required this.onFinish,
     required this.onClose,
     required this.amount,
-    required this.miles,
+    required this.distance,
     required this.formattedTime,
     required this.route,
     required this.polylines,
@@ -73,7 +74,7 @@ class PauseModal extends ConsumerWidget {
               // crossAxisAlignment: CrossAxisAlignment.center,
               Text(
                 DateFormat('dd. MM. y - hh:mm a').format(DateTime.now()),
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.w600, color: GrayScale.gray_300),
               ),
               Column(
@@ -81,12 +82,12 @@ class PauseModal extends ConsumerWidget {
                 children: [
                   Text(
                     '$amount',
-                    style: Theme.of(context).textTheme.displayMedium,
+                    style: Theme.of(context).textTheme.displayLarge,
                   ),
                   Text(
-                    'Trash collected',
-                    style: Theme.of(context).textTheme.headlineLarge,
-                  ),
+                    'common_trashCollected',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ).tr(),
                 ],
               ),
               Row(
@@ -96,14 +97,17 @@ class PauseModal extends ConsumerWidget {
                   Column(
                     spacing: 2.h,
                     children: [
-                      Text(miles.toStringAsFixed(2),
-                          style: Theme.of(context).textTheme.displaySmall),
+                      Text(distance.toStringAsFixed(2),
+                          style: Theme.of(context).textTheme.displayMedium),
                       Text(
-                        'Miles',
-                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        'common_km',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(
                               color: GrayScale.gray_300,
                             ),
-                      ),
+                      ).tr(),
                     ],
                   ),
                   // stopwatch
@@ -112,13 +116,16 @@ class PauseModal extends ConsumerWidget {
                     spacing: 2.h,
                     children: [
                       Text(formattedTime.toStringAsFixed(2),
-                          style: Theme.of(context).textTheme.displaySmall),
+                          style: Theme.of(context).textTheme.displayMedium),
                       Text(
-                        'Hours',
-                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        'common_hours',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(
                               color: GrayScale.gray_300,
                             ),
-                      ),
+                      ).tr(),
                     ],
                   ),
                 ],
@@ -133,7 +140,7 @@ class PauseModal extends ConsumerWidget {
                     MaterialPageRoute(
                       builder: (builder) => PloggingResult(
                         amount: amount,
-                        miles: miles,
+                        distance: distance,
                         time: formattedTime,
                         route: route,
                         polylines: polylines,

@@ -81,7 +81,7 @@ class CustomDropDownMenu extends StatelessWidget {
                               e,
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyLarge
+                                  .headlineMedium
                                   ?.copyWith(color: GrayScale.gray_300),
                             ),
                           ),
@@ -118,7 +118,7 @@ class CustomDropDownMenu extends StatelessWidget {
           children: [
             Text(
               selected.isEmpty ? '' : selected,
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
             IconButton(
               splashColor: Colors.transparent,

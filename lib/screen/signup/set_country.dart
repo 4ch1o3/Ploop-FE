@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,8 +31,8 @@ class _SetRegionPageState extends ConsumerState<SetRegionPage> {
       canPop: false,
       child: PrefsPageLayout(
         firstPage: true,
-        question: 'Please select your country',
-        title1: 'Country',
+        question: 'signup_question.country'.tr(),
+        title1: 'signup_title1.country'.tr(),
         widget1: CustomDropDownMenu(
           selected: country,
           onSelected: ((val) => setState(() {
@@ -50,17 +51,17 @@ class _SetRegionPageState extends ConsumerState<SetRegionPage> {
               showCupertinoDialog(
                 context: context,
                 builder: (context) => CupertinoAlertDialog(
-                  title: const Text('Oops!'),
-                  content: const Text('Please select your country.'),
+                  title: const Text('signup_oops_title').tr(),
+                  content: const Text('signup_oops_content.country').tr(),
                   actions: [
                     CupertinoDialogAction(
                       isDefaultAction: true,
                       onPressed: () => Navigator.pop(context),
                       child: const Text(
-                        'OK',
+                        'common_ok',
                         style:
                             TextStyle(color: Color.fromARGB(255, 0, 122, 255)),
-                      ),
+                      ).tr(),
                     ),
                   ],
                 ),
@@ -70,7 +71,7 @@ class _SetRegionPageState extends ConsumerState<SetRegionPage> {
                 context: context,
                 builder: (context) => AlertDialog(
                   title: Text(
-                    'Oops!',
+                    'signup_oops_title',
                     style: TextStyle(
                       fontFamily: 'Roboto',
                       fontSize: 24.sp,
@@ -78,9 +79,9 @@ class _SetRegionPageState extends ConsumerState<SetRegionPage> {
                       height: 1.33.h,
                       letterSpacing: 0,
                     ),
-                  ),
+                  ).tr(),
                   content: Text(
-                    'Please select your country.',
+                    'signup_oops_content.country',
                     style: TextStyle(
                       fontFamily: 'Roboto',
                       fontSize: 14.sp,
@@ -88,18 +89,18 @@ class _SetRegionPageState extends ConsumerState<SetRegionPage> {
                       height: 1.43.h,
                       letterSpacing: 0.25,
                     ),
-                  ),
+                  ).tr(),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context),
                       child: Text(
-                        'OK',
+                        'common_ok',
                         style: TextStyle(
                             fontFamily: 'Roboto',
                             fontSize: 14.sp,
                             height: 1.43.h,
                             color: GrayScale.black),
-                      ),
+                      ).tr(),
                     ),
                   ],
                 ),
@@ -112,10 +113,6 @@ class _SetRegionPageState extends ConsumerState<SetRegionPage> {
                   builder: (context) => const SetPersonalInfoPage()),
             );
           }
-
-          // final currentPrefs = ref.read(userPreferenceNotifierProvider);
-          // debugPrint(
-          // 'Country: ${currentPrefs.country}, Region: ${currentPrefs.region}');
         },
       ),
     );

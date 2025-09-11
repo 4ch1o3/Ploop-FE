@@ -25,8 +25,6 @@ Future<List<String>> countryList(Ref ref) async {
         .toList()
       ..sort();
 
-    debugPrint('map: ${countries.toString()}');
-
     return countries;
   } else {
     debugPrint('${response.statusCode}: ${response.body}');

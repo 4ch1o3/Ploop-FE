@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,9 +28,7 @@ class DashboardTextWidget extends ConsumerWidget {
         // date range
         Text(
           '${DateFormat('d. MM. y').format(startDate)} - ${DateFormat('d. MM. y').format(endDate)}',
-          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                fontSize: 13.sp,
-                fontWeight: FontWeight.w600,
+          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                 color: GrayScale.gray_300,
               ),
         ),
@@ -44,14 +43,14 @@ class DashboardTextWidget extends ConsumerWidget {
                 loading: () => '0',
                 error: (err, stack) => '0',
               ),
-              style: Theme.of(context).textTheme.displayMedium,
+              style: Theme.of(context).textTheme.displayLarge,
             ),
             Text(
-              'Trash collected',
-              style: Theme.of(context).textTheme.labelLarge?.copyWith(
+              'activity_garbageCount',
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     color: GrayScale.gray_300,
                   ),
-            ),
+            ).tr(),
           ],
         ),
         // records
@@ -72,11 +71,11 @@ class DashboardTextWidget extends ConsumerWidget {
                     ),
                     style: Theme.of(context).textTheme.displaySmall),
                 Text(
-                  'Miles',
-                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  'common_km',
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         color: GrayScale.gray_300,
                       ),
-                ),
+                ).tr(),
               ],
             ),
             Column(
@@ -92,11 +91,11 @@ class DashboardTextWidget extends ConsumerWidget {
                     ),
                     style: Theme.of(context).textTheme.displaySmall),
                 Text(
-                  'Hours',
-                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  'common_hours',
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         color: GrayScale.gray_300,
                       ),
-                ),
+                ).tr(),
               ],
             ),
             Column(
@@ -113,11 +112,11 @@ class DashboardTextWidget extends ConsumerWidget {
                   style: Theme.of(context).textTheme.displaySmall,
                 ),
                 Text(
-                  'Challenges Completed',
-                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  'activity_dashboardText_completed',
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         color: GrayScale.gray_300,
                       ),
-                ),
+                ).tr(),
               ],
             ),
           ],

@@ -47,6 +47,7 @@ dependencies:
   geocoding: ^3.0.0
   permission_handler: ^12.0.0+1
   animated_text_kit: ^4.2.3
+  easy_localization: ^3.0.8
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +79,7 @@ flutter:
     - assets/images/onboarding-bg.jpg
     - assets/images/onboarding-deco.png
     - assets/images/mission_error.png
+    - assets/images/mission_error_kr.png
     - assets/images/mission_loading.png
 
     # icon assets
@@ -108,6 +110,7 @@ flutter:
     - assets/markers/icon_user_route_default.png
     - assets/markers/icon_user_route_selected.png
 
+    - assets/localization/
     # An image asset can refer to one or more resolution-specific "variants", see
     - .env
   # https://flutter.dev/to/resolution-aware-images
@@ -125,16 +128,15 @@ flutter:
       fonts:
         - asset: fonts/PartialSansKR-Regular.otf
 
-    - family: SF-Pro
+    - family: Pretendard
       fonts:
-        - asset: fonts/SF-Pro.ttf
-    - family: SF-Pro-Display
-      fonts:
-        - asset: fonts/SF-Pro-Display-Bold.otf
+        - asset: fonts/Pretendard-Bold.otf
           weight: 700
-        - asset: fonts/SF-Pro-Display-Semibold.otf
+        - asset: fonts/Pretendard-Semibold.otf
           weight: 600
-        - asset: fonts/SF-Pro-Display-Regular.otf
+        - asset: fonts/Pretendard-Medium.otf
+          weight: 500
+        - asset: fonts/Pretendard-Regular.otf
           weight: 400
     - family: FugazOne
       fonts:

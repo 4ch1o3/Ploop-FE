@@ -5,113 +5,106 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 TextTheme ploopTextTheme() {
   return TextTheme(
-// App Title
+    // App title
+
+    // Dashboard/Modal collected trash count
     displayLarge: TextStyle(
-      fontSize: 34.sp,
-      fontFamily: 'SF-Pro-Display',
-      fontWeight: FontWeight.w700,
-      height: 1.21,
-      letterSpacing: Platform.isIOS ? 0.40 : 0.26,
-    ),
-    // Picked litter display
-    /* copy this theme for total challenge status */
-    displayMedium: TextStyle(
       fontSize: 60.sp,
       fontFamily: 'FugazOne',
       // default fontweight
       height: 0.82,
       letterSpacing: Platform.isIOS ? 0.40 : 0.26,
     ),
-    // Data value display
-    displaySmall: TextStyle(
-        fontSize: 22.sp,
-        fontFamily: 'SF-Pro-Display',
-        fontWeight: FontWeight.w700,
-        height: 1.27,
-        letterSpacing: Platform.isIOS ? -0.45 : -0.29),
-    // Page title
-    headlineLarge: TextStyle(
-      fontSize: 21.sp,
-      fontFamily: 'SF-Pro-Display',
-      fontWeight: FontWeight.w600,
-      height: 1.25,
-      letterSpacing: Platform.isIOS ? -0.15 : -0.1,
+    displayMedium: TextStyle(
+      fontSize: 34.sp,
+      fontFamily: 'Pretendard',
+      fontWeight: FontWeight.w700,
+      height: 41 / 34,
+      letterSpacing: Platform.isIOS ? 0.40 : 0.26,
     ),
-    // Page title 2
-    headlineMedium: TextStyle(
-      fontSize: 20.sp,
-      fontFamily: 'SF-Pro',
-      fontWeight: FontWeight.w400,
-      height: 1.25,
-      letterSpacing: Platform.isIOS ? -0.45 : -0.29,
+    displaySmall: TextStyle(
+      fontSize: 22.sp,
+      fontFamily: 'Pretendard',
+      fontWeight: FontWeight.w700,
+      height: 28 / 22,
+      letterSpacing: Platform.isIOS ? -0.26 : -0.04,
     ),
 
-    // Section Title
+    headlineLarge: TextStyle(
+      fontSize: 20.sp,
+      fontFamily: 'Pretendard',
+      fontWeight: FontWeight.w500,
+      height: 1.25,
+      letterSpacing: Platform.isIOS ? -0.45 : -0.1,
+    ),
+
+    headlineMedium: TextStyle(
+      fontSize: 17.sp,
+      fontFamily: 'Pretendard',
+      fontWeight: FontWeight.w500,
+      height: 22 / 17,
+      letterSpacing: Platform.isIOS ? -0.43 : 0.08,
+    ),
+
+    headlineSmall: TextStyle(
+      fontSize: 13.sp,
+      fontFamily: 'Pretendard',
+      fontWeight: FontWeight.w600,
+      height: 18 / 13,
+      letterSpacing: Platform.isIOS ? -0.08 : -0.02,
+    ),
     titleLarge: TextStyle(
-      fontSize: 16.sp,
-      fontFamily: 'SF-Pro-Display',
-      fontWeight: FontWeight.w600,
-      height: 1.33,
-      letterSpacing: Platform.isIOS ? 0.12 : 0.08,
+      fontSize: 17.sp,
+      fontFamily: 'Pretendard',
+      fontWeight: FontWeight.w700,
+      height: 22 / 17,
+      letterSpacing: Platform.isIOS ? -0.43 : -0.08,
     ),
-    // Section title 2
     titleMedium: TextStyle(
-      fontSize: 15.sp,
-      fontFamily: 'SF-Pro',
-      fontWeight: FontWeight.w400,
-      height: 1.33,
-      letterSpacing: Platform.isIOS ? -0.23 : -0.15,
-    ),
-    // Button1, Data unit display
-    labelLarge: TextStyle(
-      fontSize: 18.sp,
-      fontFamily: 'SF-Pro-Display',
+      fontSize: 16.sp,
+      fontFamily: 'Pretendard',
       fontWeight: FontWeight.w600,
-      height: 1.29,
+      height: 1.25,
+      letterSpacing: Platform.isIOS ? -0.5 : -0.29,
+    ),
+
+    titleSmall: TextStyle(
+      fontSize: 14.sp,
+      fontFamily: 'Pretendard',
+      fontWeight: FontWeight.w600,
+      height: 27 / 14,
       letterSpacing: Platform.isIOS ? -0.08 : -0.05,
     ),
-    // Button2
-    labelMedium: TextStyle(
+
+    labelLarge: TextStyle(
       fontSize: 15.sp,
-      fontFamily: 'SF-Pro-Display',
+      fontFamily: 'Pretendard',
       fontWeight: FontWeight.w600,
       height: 1.33,
-      letterSpacing: Platform.isIOS ? 0.06 : -0.04,
+      letterSpacing: Platform.isIOS ? -0.23 : -0.1,
     ),
-    // Navigation bar
-    labelSmall: TextStyle(
+    labelMedium: TextStyle(
       fontSize: 11.sp,
-      fontFamily: 'SF-Pro',
-      fontWeight: FontWeight.w400,
-      height: 1.18,
-      letterSpacing: Platform.isIOS ? 0.06 : 0.6,
-    ),
-    // Content
-    /* copy this theme for filter buttons on map */
-    bodyLarge: TextStyle(
-      fontSize: 17.sp,
-      fontFamily: 'SF-Pro',
-      fontWeight: FontWeight.w400,
-      height: 1.29,
-      letterSpacing: Platform.isIOS ? -0.43 : -0.28,
+      fontFamily: 'Pretendard',
+      fontWeight: FontWeight.w600,
+      height: 13 / 11,
+      letterSpacing: Platform.isIOS ? 0.06 : 0.02,
     ),
 
-    // Personal challenge status
-    bodyMedium: TextStyle(
-      fontSize: 18.sp,
-      fontFamily: 'SF-Pro-Display',
-      fontWeight: FontWeight.w600,
-      height: 1.31,
-      letterSpacing: Platform.isIOS ? -0.31 : -0.20,
+    bodyLarge: TextStyle(
+      fontSize: 11.sp,
+      fontFamily: 'Pretendard',
+      fontWeight: FontWeight.w500,
+      height: 13 / 11,
+      letterSpacing: Platform.isIOS ? 0 : -0.20,
     ),
-    // Challenge profile name
-    /* copy this theme for activity details */
-    bodySmall: TextStyle(
-      fontSize: 13.sp,
-      fontFamily: 'SF-Pro',
+
+    bodyMedium: TextStyle(
+      fontSize: 11.sp,
+      fontFamily: 'Pretendard',
       fontWeight: FontWeight.w400,
-      height: 1.38,
-      letterSpacing: Platform.isIOS ? -0.08 : 0.3,
+      height: 13 / 11,
+      letterSpacing: Platform.isIOS ? 0.06 : 0.3,
     ),
   );
 }
