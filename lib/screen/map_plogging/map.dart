@@ -220,7 +220,7 @@ class _MapPageState extends ConsumerState<MapPage> {
           currentPos!.latitude,
           currentPos!.longitude,
         );
-        _movedDistance += distanceInMeters / 1609.344;
+        _movedDistance += distanceInMeters / 1000;
       }
       previousPos = currentPos;
 
