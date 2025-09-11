@@ -13,21 +13,21 @@ TextTheme ploopTextTheme() {
       fontFamily: 'FugazOne',
       // default fontweight
       height: 0.82,
-      letterSpacing: Platform.isIOS ? 0.40 : 0.26,
+      letterSpacing: 0.40,
     ),
     displayMedium: TextStyle(
       fontSize: 34.sp,
       fontFamily: 'Pretendard',
       fontWeight: FontWeight.w700,
       height: 41 / 34,
-      letterSpacing: Platform.isIOS ? 0.40 : 0.26,
+      letterSpacing: 0.40,
     ),
     displaySmall: TextStyle(
       fontSize: 22.sp,
       fontFamily: 'Pretendard',
       fontWeight: FontWeight.w700,
       height: 28 / 22,
-      letterSpacing: Platform.isIOS ? -0.26 : -0.04,
+      letterSpacing: -0.26,
     ),
 
     headlineLarge: TextStyle(
@@ -35,7 +35,7 @@ TextTheme ploopTextTheme() {
       fontFamily: 'Pretendard',
       fontWeight: FontWeight.w500,
       height: 1.25,
-      letterSpacing: Platform.isIOS ? -0.45 : -0.1,
+      letterSpacing: -0.45,
     ),
 
     headlineMedium: TextStyle(
@@ -43,7 +43,7 @@ TextTheme ploopTextTheme() {
       fontFamily: 'Pretendard',
       fontWeight: FontWeight.w500,
       height: 22 / 17,
-      letterSpacing: Platform.isIOS ? -0.43 : 0.08,
+      letterSpacing: -0.43,
     ),
 
     headlineSmall: TextStyle(
@@ -51,21 +51,21 @@ TextTheme ploopTextTheme() {
       fontFamily: 'Pretendard',
       fontWeight: FontWeight.w600,
       height: 18 / 13,
-      letterSpacing: Platform.isIOS ? -0.08 : -0.02,
+      letterSpacing: -0.08,
     ),
     titleLarge: TextStyle(
       fontSize: 17.sp,
       fontFamily: 'Pretendard',
       fontWeight: FontWeight.w700,
       height: 22 / 17,
-      letterSpacing: Platform.isIOS ? -0.43 : -0.08,
+      letterSpacing: -0.43,
     ),
     titleMedium: TextStyle(
       fontSize: 16.sp,
       fontFamily: 'Pretendard',
       fontWeight: FontWeight.w600,
       height: 1.25,
-      letterSpacing: Platform.isIOS ? -0.5 : -0.29,
+      letterSpacing: -0.5,
     ),
 
     titleSmall: TextStyle(
@@ -73,7 +73,7 @@ TextTheme ploopTextTheme() {
       fontFamily: 'Pretendard',
       fontWeight: FontWeight.w600,
       height: 27 / 14,
-      letterSpacing: Platform.isIOS ? -0.08 : -0.05,
+      letterSpacing: -0.08,
     ),
 
     labelLarge: TextStyle(
@@ -81,14 +81,14 @@ TextTheme ploopTextTheme() {
       fontFamily: 'Pretendard',
       fontWeight: FontWeight.w600,
       height: 1.33,
-      letterSpacing: Platform.isIOS ? -0.23 : -0.1,
+      letterSpacing: -0.23,
     ),
     labelMedium: TextStyle(
       fontSize: 11.sp,
       fontFamily: 'Pretendard',
       fontWeight: FontWeight.w600,
       height: 13 / 11,
-      letterSpacing: Platform.isIOS ? 0.06 : 0.02,
+      letterSpacing: 0.06,
     ),
 
     bodyLarge: TextStyle(
@@ -96,7 +96,7 @@ TextTheme ploopTextTheme() {
       fontFamily: 'Pretendard',
       fontWeight: FontWeight.w500,
       height: 13 / 11,
-      letterSpacing: Platform.isIOS ? 0 : -0.20,
+      letterSpacing: 0,
     ),
 
     bodyMedium: TextStyle(
@@ -104,7 +104,7 @@ TextTheme ploopTextTheme() {
       fontFamily: 'Pretendard',
       fontWeight: FontWeight.w400,
       height: 13 / 11,
-      letterSpacing: Platform.isIOS ? 0.06 : 0.3,
+      letterSpacing: 0.06,
     ),
   );
 }

@@ -34,6 +34,11 @@
 	<string>This app requires access to your camera to verify mission and to take photo of litter area and bins.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>ko</string>
+	</array>
 	<key>CFBundleDisplayName</key>
 	<string>Ploop Fe</string>
 	<key>CFBundleExecutable</key>
