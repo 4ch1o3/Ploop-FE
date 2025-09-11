@@ -26,7 +26,6 @@ void main() async {
     ProviderScope(
       child: EasyLocalization(
         supportedLocales: const [Locale('en', 'US'), Locale('ko', 'KR')],
-        startLocale: const Locale('en', 'US'),
         fallbackLocale: const Locale('en', 'US'),
         path: 'assets/localization',
         child: const MyApp(),
