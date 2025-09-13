@@ -7,7 +7,7 @@ part of 'recommendation_provider.dart';
 // **************************************************************************
 
 String _$routeRecommendationHash() =>
-    r'0cf1ccfd65fd9176cbc82585f578c6b66c598184';
+    r'26b70b8a7d1c1eba6509f9eb43636228b093e835';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -41,10 +41,10 @@ class RouteRecommendationFamily extends Family<AsyncValue<Recommendation?>> {
 
   /// See also [routeRecommendation].
   RouteRecommendationProvider call(
-    LatLngBounds bounds,
+    LatLng current,
   ) {
     return RouteRecommendationProvider(
-      bounds,
+      current,
     );
   }
 
@@ -53,7 +53,7 @@ class RouteRecommendationFamily extends Family<AsyncValue<Recommendation?>> {
     covariant RouteRecommendationProvider provider,
   ) {
     return call(
-      provider.bounds,
+      provider.current,
     );
   }
 
@@ -77,11 +77,11 @@ class RouteRecommendationProvider
     extends AutoDisposeFutureProvider<Recommendation?> {
   /// See also [routeRecommendation].
   RouteRecommendationProvider(
-    LatLngBounds bounds,
+    LatLng current,
   ) : this._internal(
           (ref) => routeRecommendation(
             ref as RouteRecommendationRef,
-            bounds,
+            current,
           ),
           from: routeRecommendationProvider,
           name: r'routeRecommendationProvider',
@@ -92,7 +92,7 @@ class RouteRecommendationProvider
           dependencies: RouteRecommendationFamily._dependencies,
           allTransitiveDependencies:
               RouteRecommendationFamily._allTransitiveDependencies,
-          bounds: bounds,
+          current: current,
         );
 
   RouteRecommendationProvider._internal(
@@ -102,10 +102,10 @@ class RouteRecommendationProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.bounds,
+    required this.current,
   }) : super.internal();
 
-  final LatLngBounds bounds;
+  final LatLng current;
 
   @override
   Override overrideWith(
@@ -120,7 +120,7 @@ class RouteRecommendationProvider
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        bounds: bounds,
+        current: current,
       ),
     );
   }
@@ -132,13 +132,13 @@ class RouteRecommendationProvider
 
   @override
   bool operator ==(Object other) {
-    return other is RouteRecommendationProvider && other.bounds == bounds;
+    return other is RouteRecommendationProvider && other.current == current;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, bounds.hashCode);
+    hash = _SystemHash.combine(hash, current.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -147,8 +147,8 @@ class RouteRecommendationProvider
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 mixin RouteRecommendationRef on AutoDisposeFutureProviderRef<Recommendation?> {
-  /// The parameter `bounds` of this provider.
-  LatLngBounds get bounds;
+  /// The parameter `current` of this provider.
+  LatLng get current;
 }
 
 class _RouteRecommendationProviderElement
@@ -157,7 +157,7 @@ class _RouteRecommendationProviderElement
   _RouteRecommendationProviderElement(super.provider);
 
   @override
-  LatLngBounds get bounds => (origin as RouteRecommendationProvider).bounds;
+  LatLng get current => (origin as RouteRecommendationProvider).current;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

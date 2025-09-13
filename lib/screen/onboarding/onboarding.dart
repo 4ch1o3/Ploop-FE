@@ -122,7 +122,7 @@ class LoginButton extends ConsumerWidget {
         showCupertinoDialog(
           context: context,
           builder: (context) => CupertinoAlertDialog(
-            title: const Text('onboarding_loginButton_errorTitle').tr(),
+            title: const Text('common_error').tr(),
             content: const Text('onboarding_loginButton_errorContent').tr(),
             actions: [
               CupertinoDialogAction(

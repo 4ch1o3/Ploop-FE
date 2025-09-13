@@ -6,7 +6,7 @@ part of 'country_list_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$countryListHash() => r'd2b7934a3d05af1eb58ed4ff7b8efb9e0ebbd8bf';
+String _$countryListHash() => r'26d095d71a247a62fc329cc1e69fd22099dd32c4';
 
 /// See also [countryList].
 @ProviderFor(countryList)

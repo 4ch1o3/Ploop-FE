@@ -8,16 +8,22 @@ part of 'recommendation_model.dart';
 
 _Recommendation _$RecommendationFromJson(Map<String, dynamic> json) =>
     _Recommendation(
-      recommendationRoute: (json['recommendationRoute'] as List<dynamic>)
+      current: const LatLngConverter().fromJson(json['current'] as List),
+      destination:
+          const LatLngConverter().fromJson(json['destination'] as List),
+      success: json['success'] as bool,
+      message: json['message'] as String,
+      waypoints: (json['waypoints'] as List<dynamic>)
           .map((e) => const LatLngConverter().fromJson(e as List))
           .toList(),
-      motivation: json['motivation'] as String,
     );
 
 Map<String, dynamic> _$RecommendationToJson(_Recommendation instance) =>
     <String, dynamic>{
-      'recommendationRoute': instance.recommendationRoute
-          .map(const LatLngConverter().toJson)
-          .toList(),
-      'motivation': instance.motivation,
+      'current': const LatLngConverter().toJson(instance.current),
+      'destination': const LatLngConverter().toJson(instance.destination),
+      'success': instance.success,
+      'message': instance.message,
+      'waypoints':
+          instance.waypoints.map(const LatLngConverter().toJson).toList(),
     };

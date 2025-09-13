@@ -140,13 +140,16 @@ class _MapPageState extends ConsumerState<MapPage> {
     LatLngBounds bounds = await controller.getVisibleRegion();
     debugPrint('$bounds');
     if (_showRoute) {
-      final recommended =
-          await ref.watch(routeRecommendationProvider(bounds).future);
+      final pos = await Geolocator.getCurrentPosition();
+
+      final recommended = await ref.watch(
+          routeRecommendationProvider(LatLng(pos.latitude, pos.longitude))
+              .future);
 
       if (recommended != null) {
         setState(() {
-          route = recommended.recommendationRoute;
-          motivation = recommended.motivation;
+          route = recommended.waypoints;
+          motivation = recommended.message;
 
           _routeMarkers = Marker(
             icon: AssetMapBitmap('assets/markers/icon_recommendation.png',

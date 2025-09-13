@@ -14,10 +14,189 @@ part of 'recommendation_model.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
+mixin _$RouteMetaInformation {
+  String get encodedPolyline;
+  int get distanceMeters;
+  String get duration;
+
+  /// Create a copy of RouteMetaInformation
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $RouteMetaInformationCopyWith<RouteMetaInformation> get copyWith =>
+      _$RouteMetaInformationCopyWithImpl<RouteMetaInformation>(
+          this as RouteMetaInformation, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RouteMetaInformation &&
+            (identical(other.encodedPolyline, encodedPolyline) ||
+                other.encodedPolyline == encodedPolyline) &&
+            (identical(other.distanceMeters, distanceMeters) ||
+                other.distanceMeters == distanceMeters) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, encodedPolyline, distanceMeters, duration);
+
+  @override
+  String toString() {
+    return 'RouteMetaInformation(encodedPolyline: $encodedPolyline, distanceMeters: $distanceMeters, duration: $duration)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $RouteMetaInformationCopyWith<$Res> {
+  factory $RouteMetaInformationCopyWith(RouteMetaInformation value,
+          $Res Function(RouteMetaInformation) _then) =
+      _$RouteMetaInformationCopyWithImpl;
+  @useResult
+  $Res call({String encodedPolyline, int distanceMeters, String duration});
+}
+
+/// @nodoc
+class _$RouteMetaInformationCopyWithImpl<$Res>
+    implements $RouteMetaInformationCopyWith<$Res> {
+  _$RouteMetaInformationCopyWithImpl(this._self, this._then);
+
+  final RouteMetaInformation _self;
+  final $Res Function(RouteMetaInformation) _then;
+
+  /// Create a copy of RouteMetaInformation
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? encodedPolyline = null,
+    Object? distanceMeters = null,
+    Object? duration = null,
+  }) {
+    return _then(_self.copyWith(
+      encodedPolyline: null == encodedPolyline
+          ? _self.encodedPolyline
+          : encodedPolyline // ignore: cast_nullable_to_non_nullable
+              as String,
+      distanceMeters: null == distanceMeters
+          ? _self.distanceMeters
+          : distanceMeters // ignore: cast_nullable_to_non_nullable
+              as int,
+      duration: null == duration
+          ? _self.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _RouteMetaInformation implements RouteMetaInformation {
+  const _RouteMetaInformation(
+      {required this.encodedPolyline,
+      required this.distanceMeters,
+      required this.duration});
+
+  @override
+  final String encodedPolyline;
+  @override
+  final int distanceMeters;
+  @override
+  final String duration;
+
+  /// Create a copy of RouteMetaInformation
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RouteMetaInformationCopyWith<_RouteMetaInformation> get copyWith =>
+      __$RouteMetaInformationCopyWithImpl<_RouteMetaInformation>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _RouteMetaInformation &&
+            (identical(other.encodedPolyline, encodedPolyline) ||
+                other.encodedPolyline == encodedPolyline) &&
+            (identical(other.distanceMeters, distanceMeters) ||
+                other.distanceMeters == distanceMeters) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, encodedPolyline, distanceMeters, duration);
+
+  @override
+  String toString() {
+    return 'RouteMetaInformation(encodedPolyline: $encodedPolyline, distanceMeters: $distanceMeters, duration: $duration)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$RouteMetaInformationCopyWith<$Res>
+    implements $RouteMetaInformationCopyWith<$Res> {
+  factory _$RouteMetaInformationCopyWith(_RouteMetaInformation value,
+          $Res Function(_RouteMetaInformation) _then) =
+      __$RouteMetaInformationCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String encodedPolyline, int distanceMeters, String duration});
+}
+
+/// @nodoc
+class __$RouteMetaInformationCopyWithImpl<$Res>
+    implements _$RouteMetaInformationCopyWith<$Res> {
+  __$RouteMetaInformationCopyWithImpl(this._self, this._then);
+
+  final _RouteMetaInformation _self;
+  final $Res Function(_RouteMetaInformation) _then;
+
+  /// Create a copy of RouteMetaInformation
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? encodedPolyline = null,
+    Object? distanceMeters = null,
+    Object? duration = null,
+  }) {
+    return _then(_RouteMetaInformation(
+      encodedPolyline: null == encodedPolyline
+          ? _self.encodedPolyline
+          : encodedPolyline // ignore: cast_nullable_to_non_nullable
+              as String,
+      distanceMeters: null == distanceMeters
+          ? _self.distanceMeters
+          : distanceMeters // ignore: cast_nullable_to_non_nullable
+              as int,
+      duration: null == duration
+          ? _self.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
 mixin _$Recommendation {
   @LatLngConverter()
-  List<LatLng> get recommendationRoute;
-  String get motivation;
+  LatLng get current;
+  @LatLngConverter()
+  LatLng get destination;
+  bool get success;
+  String get message;
+  @LatLngConverter()
+  List<LatLng> get waypoints;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  RouteMetaInformation? get meta;
 
   /// Create a copy of Recommendation
   /// with the given fields replaced by the non-null parameter values.
@@ -35,20 +214,23 @@ mixin _$Recommendation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Recommendation &&
-            const DeepCollectionEquality()
-                .equals(other.recommendationRoute, recommendationRoute) &&
-            (identical(other.motivation, motivation) ||
-                other.motivation == motivation));
+            (identical(other.current, current) || other.current == current) &&
+            (identical(other.destination, destination) ||
+                other.destination == destination) &&
+            (identical(other.success, success) || other.success == success) &&
+            (identical(other.message, message) || other.message == message) &&
+            const DeepCollectionEquality().equals(other.waypoints, waypoints) &&
+            (identical(other.meta, meta) || other.meta == meta));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(recommendationRoute), motivation);
+  int get hashCode => Object.hash(runtimeType, current, destination, success,
+      message, const DeepCollectionEquality().hash(waypoints), meta);
 
   @override
   String toString() {
-    return 'Recommendation(recommendationRoute: $recommendationRoute, motivation: $motivation)';
+    return 'Recommendation(current: $current, destination: $destination, success: $success, message: $message, waypoints: $waypoints, meta: $meta)';
   }
 }
 
@@ -59,7 +241,15 @@ abstract mixin class $RecommendationCopyWith<$Res> {
       _$RecommendationCopyWithImpl;
   @useResult
   $Res call(
-      {@LatLngConverter() List<LatLng> recommendationRoute, String motivation});
+      {@LatLngConverter() LatLng current,
+      @LatLngConverter() LatLng destination,
+      bool success,
+      String message,
+      @LatLngConverter() List<LatLng> waypoints,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      RouteMetaInformation? meta});
+
+  $RouteMetaInformationCopyWith<$Res>? get meta;
 }
 
 /// @nodoc
@@ -75,19 +265,53 @@ class _$RecommendationCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? recommendationRoute = null,
-    Object? motivation = null,
+    Object? current = null,
+    Object? destination = null,
+    Object? success = null,
+    Object? message = null,
+    Object? waypoints = null,
+    Object? meta = freezed,
   }) {
     return _then(_self.copyWith(
-      recommendationRoute: null == recommendationRoute
-          ? _self.recommendationRoute
-          : recommendationRoute // ignore: cast_nullable_to_non_nullable
-              as List<LatLng>,
-      motivation: null == motivation
-          ? _self.motivation
-          : motivation // ignore: cast_nullable_to_non_nullable
+      current: null == current
+          ? _self.current
+          : current // ignore: cast_nullable_to_non_nullable
+              as LatLng,
+      destination: null == destination
+          ? _self.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as LatLng,
+      success: null == success
+          ? _self.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool,
+      message: null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
+      waypoints: null == waypoints
+          ? _self.waypoints
+          : waypoints // ignore: cast_nullable_to_non_nullable
+              as List<LatLng>,
+      meta: freezed == meta
+          ? _self.meta
+          : meta // ignore: cast_nullable_to_non_nullable
+              as RouteMetaInformation?,
     ));
+  }
+
+  /// Create a copy of Recommendation
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RouteMetaInformationCopyWith<$Res>? get meta {
+    if (_self.meta == null) {
+      return null;
+    }
+
+    return $RouteMetaInformationCopyWith<$Res>(_self.meta!, (value) {
+      return _then(_self.copyWith(meta: value));
+    });
   }
 }
 
@@ -95,24 +319,38 @@ class _$RecommendationCopyWithImpl<$Res>
 @JsonSerializable()
 class _Recommendation implements Recommendation {
   const _Recommendation(
-      {@LatLngConverter() required final List<LatLng> recommendationRoute,
-      required this.motivation})
-      : _recommendationRoute = recommendationRoute;
+      {@LatLngConverter() required this.current,
+      @LatLngConverter() required this.destination,
+      required this.success,
+      required this.message,
+      @LatLngConverter() required final List<LatLng> waypoints,
+      @JsonKey(includeFromJson: false, includeToJson: false) this.meta})
+      : _waypoints = waypoints;
   factory _Recommendation.fromJson(Map<String, dynamic> json) =>
       _$RecommendationFromJson(json);
 
-  final List<LatLng> _recommendationRoute;
   @override
   @LatLngConverter()
-  List<LatLng> get recommendationRoute {
-    if (_recommendationRoute is EqualUnmodifiableListView)
-      return _recommendationRoute;
+  final LatLng current;
+  @override
+  @LatLngConverter()
+  final LatLng destination;
+  @override
+  final bool success;
+  @override
+  final String message;
+  final List<LatLng> _waypoints;
+  @override
+  @LatLngConverter()
+  List<LatLng> get waypoints {
+    if (_waypoints is EqualUnmodifiableListView) return _waypoints;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_recommendationRoute);
+    return EqualUnmodifiableListView(_waypoints);
   }
 
   @override
-  final String motivation;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  final RouteMetaInformation? meta;
 
   /// Create a copy of Recommendation
   /// with the given fields replaced by the non-null parameter values.
@@ -134,20 +372,24 @@ class _Recommendation implements Recommendation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Recommendation &&
+            (identical(other.current, current) || other.current == current) &&
+            (identical(other.destination, destination) ||
+                other.destination == destination) &&
+            (identical(other.success, success) || other.success == success) &&
+            (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality()
-                .equals(other._recommendationRoute, _recommendationRoute) &&
-            (identical(other.motivation, motivation) ||
-                other.motivation == motivation));
+                .equals(other._waypoints, _waypoints) &&
+            (identical(other.meta, meta) || other.meta == meta));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_recommendationRoute), motivation);
+  int get hashCode => Object.hash(runtimeType, current, destination, success,
+      message, const DeepCollectionEquality().hash(_waypoints), meta);
 
   @override
   String toString() {
-    return 'Recommendation(recommendationRoute: $recommendationRoute, motivation: $motivation)';
+    return 'Recommendation(current: $current, destination: $destination, success: $success, message: $message, waypoints: $waypoints, meta: $meta)';
   }
 }
 
@@ -160,7 +402,16 @@ abstract mixin class _$RecommendationCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@LatLngConverter() List<LatLng> recommendationRoute, String motivation});
+      {@LatLngConverter() LatLng current,
+      @LatLngConverter() LatLng destination,
+      bool success,
+      String message,
+      @LatLngConverter() List<LatLng> waypoints,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      RouteMetaInformation? meta});
+
+  @override
+  $RouteMetaInformationCopyWith<$Res>? get meta;
 }
 
 /// @nodoc
@@ -176,19 +427,53 @@ class __$RecommendationCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? recommendationRoute = null,
-    Object? motivation = null,
+    Object? current = null,
+    Object? destination = null,
+    Object? success = null,
+    Object? message = null,
+    Object? waypoints = null,
+    Object? meta = freezed,
   }) {
     return _then(_Recommendation(
-      recommendationRoute: null == recommendationRoute
-          ? _self._recommendationRoute
-          : recommendationRoute // ignore: cast_nullable_to_non_nullable
-              as List<LatLng>,
-      motivation: null == motivation
-          ? _self.motivation
-          : motivation // ignore: cast_nullable_to_non_nullable
+      current: null == current
+          ? _self.current
+          : current // ignore: cast_nullable_to_non_nullable
+              as LatLng,
+      destination: null == destination
+          ? _self.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as LatLng,
+      success: null == success
+          ? _self.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool,
+      message: null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
+      waypoints: null == waypoints
+          ? _self._waypoints
+          : waypoints // ignore: cast_nullable_to_non_nullable
+              as List<LatLng>,
+      meta: freezed == meta
+          ? _self.meta
+          : meta // ignore: cast_nullable_to_non_nullable
+              as RouteMetaInformation?,
     ));
+  }
+
+  /// Create a copy of Recommendation
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RouteMetaInformationCopyWith<$Res>? get meta {
+    if (_self.meta == null) {
+      return null;
+    }
+
+    return $RouteMetaInformationCopyWith<$Res>(_self.meta!, (value) {
+      return _then(_self.copyWith(meta: value));
+    });
   }
 }
 
