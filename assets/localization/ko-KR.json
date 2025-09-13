@@ -83,6 +83,16 @@
   "home_todayRecordCard_garbage": "주운 쓰레기",
   "home_challenge_partners_title": "함께 하는 미션 파트너",
   "home_challenge_partners_content": "{partnerName}님과 함께 도전 중이에요",
+
+  "vinylBag": "비닐 봉지",
+  "emptyCan": "빈 캔",
+  "bottleCap": "병뚜껑",
+  "paperCup": "버려진 종이컵",
+  "plasticBottle": "빈 페트병",
+  "home_mission_title1": "{category}\n{count}개 줍기",
+  "home_mission_title2": "{category}\n{count}개 모으기",
+  "home_mission_title3": "{category}\n{count}개 수거하기",
+
   "home_challenge_verifyButton": "미션 인증",
   "home_verifyingScreen_message": "미션 인증 중...",
   "home_verifySuccess_message": "성공적으로 인증되었어요!",

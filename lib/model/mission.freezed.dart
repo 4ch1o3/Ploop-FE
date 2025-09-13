@@ -16,7 +16,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Mission implements DiagnosticableTreeMixin {
   int get userMissionId;
-  String get name;
+  String get category;
+  int get requiredCount;
   bool get verified;
 
   /// Create a copy of Mission
@@ -34,7 +35,8 @@ mixin _$Mission implements DiagnosticableTreeMixin {
     properties
       ..add(DiagnosticsProperty('type', 'Mission'))
       ..add(DiagnosticsProperty('userMissionId', userMissionId))
-      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('category', category))
+      ..add(DiagnosticsProperty('requiredCount', requiredCount))
       ..add(DiagnosticsProperty('verified', verified));
   }
 
@@ -45,18 +47,22 @@ mixin _$Mission implements DiagnosticableTreeMixin {
             other is Mission &&
             (identical(other.userMissionId, userMissionId) ||
                 other.userMissionId == userMissionId) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.requiredCount, requiredCount) ||
+                other.requiredCount == requiredCount) &&
             (identical(other.verified, verified) ||
                 other.verified == verified));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, userMissionId, name, verified);
+  int get hashCode => Object.hash(
+      runtimeType, userMissionId, category, requiredCount, verified);
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Mission(userMissionId: $userMissionId, name: $name, verified: $verified)';
+    return 'Mission(userMissionId: $userMissionId, category: $category, requiredCount: $requiredCount, verified: $verified)';
   }
 }
 
@@ -65,7 +71,8 @@ abstract mixin class $MissionCopyWith<$Res> {
   factory $MissionCopyWith(Mission value, $Res Function(Mission) _then) =
       _$MissionCopyWithImpl;
   @useResult
-  $Res call({int userMissionId, String name, bool verified});
+  $Res call(
+      {int userMissionId, String category, int requiredCount, bool verified});
 }
 
 /// @nodoc
@@ -81,7 +88,8 @@ class _$MissionCopyWithImpl<$Res> implements $MissionCopyWith<$Res> {
   @override
   $Res call({
     Object? userMissionId = null,
-    Object? name = null,
+    Object? category = null,
+    Object? requiredCount = null,
     Object? verified = null,
   }) {
     return _then(_self.copyWith(
@@ -89,10 +97,14 @@ class _$MissionCopyWithImpl<$Res> implements $MissionCopyWith<$Res> {
           ? _self.userMissionId
           : userMissionId // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
-          ? _self.name
-          : name // ignore: cast_nullable_to_non_nullable
+      category: null == category
+          ? _self.category
+          : category // ignore: cast_nullable_to_non_nullable
               as String,
+      requiredCount: null == requiredCount
+          ? _self.requiredCount
+          : requiredCount // ignore: cast_nullable_to_non_nullable
+              as int,
       verified: null == verified
           ? _self.verified
           : verified // ignore: cast_nullable_to_non_nullable
@@ -106,7 +118,8 @@ class _$MissionCopyWithImpl<$Res> implements $MissionCopyWith<$Res> {
 class _Mission with DiagnosticableTreeMixin implements Mission {
   const _Mission(
       {required this.userMissionId,
-      required this.name,
+      required this.category,
+      required this.requiredCount,
       required this.verified});
   factory _Mission.fromJson(Map<String, dynamic> json) =>
       _$MissionFromJson(json);
@@ -114,7 +127,9 @@ class _Mission with DiagnosticableTreeMixin implements Mission {
   @override
   final int userMissionId;
   @override
-  final String name;
+  final String category;
+  @override
+  final int requiredCount;
   @override
   final bool verified;
 
@@ -138,7 +153,8 @@ class _Mission with DiagnosticableTreeMixin implements Mission {
     properties
       ..add(DiagnosticsProperty('type', 'Mission'))
       ..add(DiagnosticsProperty('userMissionId', userMissionId))
-      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('category', category))
+      ..add(DiagnosticsProperty('requiredCount', requiredCount))
       ..add(DiagnosticsProperty('verified', verified));
   }
 
@@ -149,18 +165,22 @@ class _Mission with DiagnosticableTreeMixin implements Mission {
             other is _Mission &&
             (identical(other.userMissionId, userMissionId) ||
                 other.userMissionId == userMissionId) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.requiredCount, requiredCount) ||
+                other.requiredCount == requiredCount) &&
             (identical(other.verified, verified) ||
                 other.verified == verified));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, userMissionId, name, verified);
+  int get hashCode => Object.hash(
+      runtimeType, userMissionId, category, requiredCount, verified);
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Mission(userMissionId: $userMissionId, name: $name, verified: $verified)';
+    return 'Mission(userMissionId: $userMissionId, category: $category, requiredCount: $requiredCount, verified: $verified)';
   }
 }
 
@@ -170,7 +190,8 @@ abstract mixin class _$MissionCopyWith<$Res> implements $MissionCopyWith<$Res> {
       __$MissionCopyWithImpl;
   @override
   @useResult
-  $Res call({int userMissionId, String name, bool verified});
+  $Res call(
+      {int userMissionId, String category, int requiredCount, bool verified});
 }
 
 /// @nodoc
@@ -186,7 +207,8 @@ class __$MissionCopyWithImpl<$Res> implements _$MissionCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   $Res call({
     Object? userMissionId = null,
-    Object? name = null,
+    Object? category = null,
+    Object? requiredCount = null,
     Object? verified = null,
   }) {
     return _then(_Mission(
@@ -194,10 +216,14 @@ class __$MissionCopyWithImpl<$Res> implements _$MissionCopyWith<$Res> {
           ? _self.userMissionId
           : userMissionId // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
-          ? _self.name
-          : name // ignore: cast_nullable_to_non_nullable
+      category: null == category
+          ? _self.category
+          : category // ignore: cast_nullable_to_non_nullable
               as String,
+      requiredCount: null == requiredCount
+          ? _self.requiredCount
+          : requiredCount // ignore: cast_nullable_to_non_nullable
+              as int,
       verified: null == verified
           ? _self.verified
           : verified // ignore: cast_nullable_to_non_nullable

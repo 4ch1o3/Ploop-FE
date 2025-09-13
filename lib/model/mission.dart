@@ -8,7 +8,8 @@ part 'mission.g.dart';
 abstract class Mission with _$Mission {
   const factory Mission({
     required int userMissionId,
-    required String name,
+    required String category,
+    required int requiredCount,
     required bool verified,
   }) = _Mission;
 

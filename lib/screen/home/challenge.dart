@@ -56,7 +56,7 @@ class ChallengeProgressCard extends ConsumerWidget {
               children: [
                 Text(
                   '${(totalPercentage * 100).round()}%',
-                  style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                  style: Theme.of(context).textTheme.displayLarge?.copyWith(
                         fontSize: 22.sp,
                         height: 1.27,
                         letterSpacing: -0.26,
@@ -96,19 +96,26 @@ class ChallengeProgressCard extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               spacing: 4.h,
               children: [
-                Text(
-                  'home_challenge_partners_title',
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        color: Colors.white,
-                      ),
-                ).tr(),
-                Text(
-                  'home_challenge_partners_content',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge
-                      ?.copyWith(color: GrayScale.gray_400),
-                ).tr(namedArgs: {'partnerName': missionResponse.partnerName}),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'home_challenge_partners_title',
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                            color: Colors.white,
+                          ),
+                    ).tr(),
+                    Text(
+                      'home_challenge_partners_content',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyLarge
+                          ?.copyWith(color: GrayScale.gray_400),
+                    ).tr(namedArgs: {
+                      'partnerName': missionResponse.partnerName
+                    }),
+                  ],
+                ),
                 SizedBox(
                   height: 6.h,
                 ),
@@ -306,10 +313,8 @@ class ChallengeCardState extends ConsumerState<ChallengeCard> {
         children: [
           Text(
             widget.title,
-            style: Theme.of(context).textTheme.titleMedium,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
-          // verify button
-
           Positioned(
             bottom: 1.h,
             right: 0.w,
@@ -319,8 +324,9 @@ class ChallengeCardState extends ConsumerState<ChallengeCard> {
                   borderRadius: BorderRadius.circular(30.w),
                   color: _isVerified ? GrayScale.gray_300 : Colors.black),
               // alignment: Alignment.center,
-              width: 53.w,
-              height: 25.h,
+              // width: 53.w,
+              height: 26.h,
+
               child: TextButton(
                 onPressed: () {
                   if (!_isVerified) {
@@ -328,6 +334,10 @@ class ChallengeCardState extends ConsumerState<ChallengeCard> {
                         .then((_) => {ref.watch(missionDataProvider)});
                   }
                 },
+                style: TextButton.styleFrom(
+                  minimumSize: Size.fromWidth(53.w),
+                  padding: EdgeInsets.symmetric(horizontal: 12.w),
+                ),
                 child: Text(
                   'home_challenge_verifyButton',
                   style: Theme.of(context)

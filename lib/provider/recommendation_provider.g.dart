@@ -7,7 +7,7 @@ part of 'recommendation_provider.dart';
 // **************************************************************************
 
 String _$routeRecommendationHash() =>
-    r'0cf1ccfd65fd9176cbc82585f578c6b66c598184';
+    r'aea208786cab83c6e64ab707da5f4a9feb16dcdd';
 
 /// Copied from Dart SDK
 class _SystemHash {
