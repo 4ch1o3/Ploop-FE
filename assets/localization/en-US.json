@@ -83,6 +83,16 @@
   "home_todayRecordCard_garbage": "Collected garbage",
   "home_challenge_partners_title": "Your challenge partners",
   "home_challenge_partners_content": "You and {partnerName} are in a challenge together",
+
+  "vinylBag": "vinyl bags",
+  "emptyCan": "empty cans",
+  "bottleCap": "bottle caps",
+  "paperCup": "paper cups",
+  "plasticBottle": "plastic bottles",
+  "home_mission_title1": "Pick up {count} {category}",
+  "home_mission_title2": "Collect {count} {category}",
+  "home_mission_title3": "Gather {count} {category}",
+
   "home_challenge_verifyButton": "Verify",
   "home_verifyingScreen_message": "Verifying in progress...",
   "home_verifySuccess_message": "Challenge Completed",

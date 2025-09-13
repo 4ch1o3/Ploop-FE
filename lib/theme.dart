@@ -49,7 +49,7 @@ TextTheme ploopTextTheme() {
     headlineSmall: TextStyle(
       fontSize: 13.sp,
       fontFamily: 'Pretendard',
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w500,
       height: 18 / 13,
       letterSpacing: -0.08,
     ),
