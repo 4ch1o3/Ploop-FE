@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ploop_fe/theme.dart';
@@ -31,12 +32,10 @@ class OptionButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.w),
           ),
         ),
-        child: Text(
-          label,
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: isSelected ? selectedColor : GrayScale.gray_300,
-              ),
-        ),
+        child: Text(label,
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  color: isSelected ? selectedColor : GrayScale.gray_300,
+                )).tr(),
       ),
     );
   }

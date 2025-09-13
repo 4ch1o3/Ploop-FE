@@ -63,7 +63,7 @@ class UserBirthDatePicker extends StatelessWidget {
                     ),
               ).tr()
             : Text(
-                '${date!.day} / ${date!.month} / ${date!.year}',
+                '${date!.day} / ${date!.month} / ${date!.year}'.tr(),
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       color: GrayScale.black,
                     ),

@@ -73,8 +73,7 @@ class PrefsPageLayout extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('$question',
-                              style: Theme.of(context).textTheme.headlineLarge)
-                          .tr(),
+                          style: Theme.of(context).textTheme.headlineLarge),
 
                       SizedBox(height: 60.h),
                       // dropdown options

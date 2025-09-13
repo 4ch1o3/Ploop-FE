@@ -12,12 +12,12 @@ import 'package:ploop_fe/screen/signup/widgets/option_button_set.dart';
 import 'package:ploop_fe/theme.dart';
 
 enum PreferredAreas {
-  NATURE,
-  ALLEYS,
-  CULTURE,
-  COAST,
-  CAMPUS,
-  HIDDEN,
+  nature,
+  alleys,
+  culture,
+  coast,
+  campus,
+  hidden,
 }
 
 class SetAreaPage extends ConsumerStatefulWidget {
@@ -28,13 +28,13 @@ class SetAreaPage extends ConsumerStatefulWidget {
 }
 
 class _SetAreaPageState extends ConsumerState<SetAreaPage> {
-  final List<String> labelList = [
-    "signup_area_nature".tr(),
-    "signup_area_urban".tr(),
-    "signup_area_historic".tr(),
-    "signup_area_coastal".tr(),
-    "signup_area_university".tr(),
-    "signup_area_hiddenGems".tr()
+  final List<(String, PreferredAreas)> areaOptions = [
+    ("signup_area_nature".tr(), PreferredAreas.nature),
+    ("signup_area_alleys".tr(), PreferredAreas.alleys),
+    ("signup_area_culture".tr(), PreferredAreas.culture),
+    ("signup_area_coast".tr(), PreferredAreas.coast),
+    ("signup_area_campus".tr(), PreferredAreas.campus),
+    ("signup_area_hidden".tr(), PreferredAreas.hidden)
   ];
 
   Set<String> preferredArea = {};
@@ -42,11 +42,11 @@ class _SetAreaPageState extends ConsumerState<SetAreaPage> {
   @override
   Widget build(BuildContext context) {
     return PrefsPageLayout(
-      question: 'signup_question.area'.tr(),
-      title1: 'signup_title1.area'.tr(),
+      question: 'signup_question.area',
+      title1: 'signup_title1.area',
       widget1: OptionButtonSet(
         alignColumn: true,
-        options: [...labelList],
+        options: areaOptions.map((e) => e.$1).toList(),
         isMultiSelect: true,
         maxMultiSelect: 3,
         selectedOptions: preferredArea,
@@ -54,8 +54,6 @@ class _SetAreaPageState extends ConsumerState<SetAreaPage> {
           setState(() {
             if (preferredArea.contains(label)) {
               preferredArea.remove(label);
-              // } else if (selectedOptions.length < 3) {
-              // selectedOptions.add(label);
             } else {
               preferredArea.add(label);
             }
@@ -186,10 +184,20 @@ class _SetAreaPageState extends ConsumerState<SetAreaPage> {
           return;
         }
 
+        List<String> areaPayload = [];
+        for (var selected in preferredArea) {
+          areaPayload.add(areaOptions
+              .firstWhere((e) => e.$1 == selected)
+              .$2
+              .name
+              .toUpperCase());
+        }
         ref
             .read(userPreferenceNotifierProvider.notifier)
-            .setPreferredAreas(preferredArea.toList());
-
+            .setPreferredAreas(areaPayload);
+        for (var area in areaPayload) {
+          debugPrint("area: $area");
+        }
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const FinishSetup()),

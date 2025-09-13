@@ -21,6 +21,8 @@ class SetPersonalInfoPage extends ConsumerStatefulWidget {
       _SetPersonalInfoPageState();
 }
 
+enum Gender { male, female, unknown }
+
 class _SetPersonalInfoPageState extends ConsumerState<SetPersonalInfoPage> {
   // prevent conflict with maximum selectable date
   DateTime? birthDate;
@@ -29,10 +31,10 @@ class _SetPersonalInfoPageState extends ConsumerState<SetPersonalInfoPage> {
 
   final DateTime _today = DateTime.now();
 
-  final List<String> labelList = [
-    'signup_personalInfo_male'.tr(),
-    'signup_personalInfo_female'.tr(),
-    'signup_personalInfo_other'.tr()
+  final List<(String, Gender)> genderOptions = [
+    ('signup_personalInfo_male'.tr(), Gender.male),
+    ('signup_personalInfo_female'.tr(), Gender.female),
+    ('signup_personalInfo_other'.tr(), Gender.unknown)
   ];
   String selectedOption = '';
 
@@ -62,19 +64,27 @@ class _SetPersonalInfoPageState extends ConsumerState<SetPersonalInfoPage> {
       ),
       title2: 'signup_title2.personalInfo'.tr(),
       widget2: OptionButtonSet(
-        options: [...labelList],
+        options: genderOptions.map((e) => e.$1).toList(),
         isMultiSelect: false,
         // maxMultiSelect: 1,
         selectedOption: gender,
         onTap: (label) {
           setState(() {
             gender = label;
+            // debugPrint("selected gender: $gender");
           });
         },
       ),
       onButtonPressed: () {
+        String genderPayload = genderOptions
+            .firstWhere((e) => e.$1 == gender)
+            .$2
+            .name
+            .toUpperCase();
         ref.read(userPreferenceNotifierProvider.notifier).setAge(age);
-        ref.read(userPreferenceNotifierProvider.notifier).setGender(gender);
+        ref
+            .read(userPreferenceNotifierProvider.notifier)
+            .setGender(genderPayload);
 
         if (age == -1 || gender == '') {
           if (Platform.isIOS) {
