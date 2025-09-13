@@ -19,14 +19,16 @@ class SetMotivationPage extends ConsumerStatefulWidget {
   ConsumerState<SetMotivationPage> createState() => _SetMotivationPageState();
 }
 
+enum Motivation { community, stress, trend, self, awareness, health }
+
 class _SetMotivationPageState extends ConsumerState<SetMotivationPage> {
-  final List<String> labelList = [
-    "signup_motivation_local".tr(),
-    "signup_motivation_stress".tr(),
-    "signup_motivation_trends".tr(),
-    "signup_motivation_selfDev".tr(),
-    "signup_motivation_social".tr(),
-    "signup_motivation_health".tr()
+  final List<(String, Motivation)> motivationOptions = [
+    ("signup_motivation_community".tr(), Motivation.community),
+    ("signup_motivation_stress".tr(), Motivation.stress),
+    ("signup_motivation_trend".tr(), Motivation.trend),
+    ("signup_motivation_self".tr(), Motivation.self),
+    ("signup_motivation_awareness".tr(), Motivation.awareness),
+    ("signup_motivation_health".tr(), Motivation.health)
   ];
 
   String? selectedMotivation;
@@ -34,90 +36,96 @@ class _SetMotivationPageState extends ConsumerState<SetMotivationPage> {
   @override
   Widget build(BuildContext context) {
     return PrefsPageLayout(
-        question: 'signup_question.motivation'.tr(),
-        title1: 'signup_title1.motivation'.tr(),
-        widget1: OptionButtonSet(
-          alignColumn: true,
-          options: [...labelList],
-          selectedOption: selectedMotivation,
-          onTap: (label) {
-            setState(() {
-              selectedMotivation = label;
-            });
-          },
-        ),
-        onButtonPressed: () {
-          if (selectedMotivation == null) {
-            if (Platform.isIOS) {
-              showCupertinoDialog(
-                context: context,
-                builder: (context) => CupertinoAlertDialog(
-                  title: const Text('signup_oops_title').tr(),
-                  content: const Text('signup_oops_content.motivation').tr(),
-                  actions: [
-                    CupertinoDialogAction(
-                      isDefaultAction: true,
-                      onPressed: () => Navigator.pop(context),
-                      child: const Text(
-                        'common_ok',
-                        style:
-                            TextStyle(color: Color.fromARGB(255, 0, 122, 255)),
-                      ).tr(),
-                    ),
-                  ],
-                ),
-              );
-            } else {
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: Text(
-                    'signup_oops_title',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: 24.sp,
-                      fontWeight: FontWeight.w400,
-                      height: 1.33.h,
-                      letterSpacing: 0,
-                    ),
-                  ).tr(),
-                  content: Text(
-                    'signup_oops_content.motivation',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
-                      height: 1.43.h,
-                      letterSpacing: 0.25,
-                    ),
-                  ).tr(),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: Text(
-                        'common_ok',
-                        style: TextStyle(
-                            fontFamily: 'Roboto',
-                            fontSize: 14.sp,
-                            height: 1.43.h,
-                            color: GrayScale.black),
-                      ).tr(),
-                    ),
-                  ],
-                ),
-              );
-            }
-            return;
+      question: 'signup_question.motivation'.tr(),
+      title1: 'signup_title1.motivation'.tr(),
+      widget1: OptionButtonSet(
+        alignColumn: true,
+        options: motivationOptions.map((e) => e.$1).toList(),
+        selectedOption: selectedMotivation,
+        onTap: (label) {
+          setState(() {
+            selectedMotivation = label;
+          });
+        },
+      ),
+      onButtonPressed: () {
+        if (selectedMotivation == null) {
+          if (Platform.isIOS) {
+            showCupertinoDialog(
+              context: context,
+              builder: (context) => CupertinoAlertDialog(
+                title: const Text('signup_oops_title').tr(),
+                content: const Text('signup_oops_content.motivation').tr(),
+                actions: [
+                  CupertinoDialogAction(
+                    isDefaultAction: true,
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text(
+                      'common_ok',
+                      style: TextStyle(color: Color.fromARGB(255, 0, 122, 255)),
+                    ).tr(),
+                  ),
+                ],
+              ),
+            );
+          } else {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: Text(
+                  'signup_oops_title',
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.w400,
+                    height: 1.33.h,
+                    letterSpacing: 0,
+                  ),
+                ).tr(),
+                content: Text(
+                  'signup_oops_content.motivation',
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                    height: 1.43.h,
+                    letterSpacing: 0.25,
+                  ),
+                ).tr(),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: Text(
+                      'common_ok',
+                      style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: 14.sp,
+                          height: 1.43.h,
+                          color: GrayScale.black),
+                    ).tr(),
+                  ),
+                ],
+              ),
+            );
           }
+          return;
+        }
 
-          ref
-              .read(userPreferenceNotifierProvider.notifier)
-              .setMotivation(selectedMotivation!); // 깔끔하게 name만 추출
+        String motivationPayload = motivationOptions
+            .firstWhere((e) => e.$1 == selectedMotivation)
+            .$2
+            .name
+            .toUpperCase();
 
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const SetAreaPage()),
-          );
-        });
+        ref
+            .read(userPreferenceNotifierProvider.notifier)
+            .setMotivation(motivationPayload);
+
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SetAreaPage()),
+        );
+      },
+    );
   }
 }

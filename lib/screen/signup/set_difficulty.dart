@@ -122,7 +122,7 @@ class _SetDifficultyPageState extends ConsumerState<SetDifficultyPage> {
 
           ref
               .read(userPreferenceNotifierProvider.notifier)
-              .setDifficulty(selectedDifficulty!.name);
+              .setDifficulty(selectedDifficulty!.name.toUpperCase());
 
           Navigator.push(
             context,
