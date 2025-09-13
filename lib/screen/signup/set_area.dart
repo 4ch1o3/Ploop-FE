@@ -42,8 +42,8 @@ class _SetAreaPageState extends ConsumerState<SetAreaPage> {
   @override
   Widget build(BuildContext context) {
     return PrefsPageLayout(
-      question: 'signup_question.area',
-      title1: 'signup_title1.area',
+      question: 'signup_question.area'.tr(),
+      title1: 'signup_title1.area'.tr(),
       widget1: OptionButtonSet(
         alignColumn: true,
         options: areaOptions.map((e) => e.$1).toList(),
