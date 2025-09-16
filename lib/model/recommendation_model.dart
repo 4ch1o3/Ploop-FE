@@ -6,12 +6,15 @@ part 'recommendation_model.freezed.dart';
 part 'recommendation_model.g.dart';
 
 @freezed
-abstract class RouteMetaInformation with _$RouteMetaInformation {
-  const factory RouteMetaInformation({
+abstract class PolylineInformation with _$PolylineInformation {
+  const factory PolylineInformation({
     required String encodedPolyline,
     required int distanceMeters,
     required String duration,
-  }) = _RouteMetaInformation;
+  }) = _PolylineInformation;
+
+  factory PolylineInformation.fromJson(Map<String, dynamic> json) =>
+      _$PolylineInformationFromJson(json);
 }
 
 @freezed
@@ -22,8 +25,7 @@ abstract class Recommendation with _$Recommendation {
     required bool success,
     required String message,
     @LatLngConverter() required List<LatLng> waypoints,
-    @JsonKey(includeFromJson: false, includeToJson: false)
-    RouteMetaInformation? meta,
+    required PolylineInformation polylineInfo,
   }) = _Recommendation;
 
   factory Recommendation.fromJson(Map<String, dynamic> json) =>

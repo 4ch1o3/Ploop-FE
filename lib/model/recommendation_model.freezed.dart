@@ -14,24 +14,27 @@ part of 'recommendation_model.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$RouteMetaInformation {
+mixin _$PolylineInformation {
   String get encodedPolyline;
   int get distanceMeters;
   String get duration;
 
-  /// Create a copy of RouteMetaInformation
+  /// Create a copy of PolylineInformation
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  $RouteMetaInformationCopyWith<RouteMetaInformation> get copyWith =>
-      _$RouteMetaInformationCopyWithImpl<RouteMetaInformation>(
-          this as RouteMetaInformation, _$identity);
+  $PolylineInformationCopyWith<PolylineInformation> get copyWith =>
+      _$PolylineInformationCopyWithImpl<PolylineInformation>(
+          this as PolylineInformation, _$identity);
+
+  /// Serializes this PolylineInformation to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is RouteMetaInformation &&
+            other is PolylineInformation &&
             (identical(other.encodedPolyline, encodedPolyline) ||
                 other.encodedPolyline == encodedPolyline) &&
             (identical(other.distanceMeters, distanceMeters) ||
@@ -40,34 +43,35 @@ mixin _$RouteMetaInformation {
                 other.duration == duration));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, encodedPolyline, distanceMeters, duration);
 
   @override
   String toString() {
-    return 'RouteMetaInformation(encodedPolyline: $encodedPolyline, distanceMeters: $distanceMeters, duration: $duration)';
+    return 'PolylineInformation(encodedPolyline: $encodedPolyline, distanceMeters: $distanceMeters, duration: $duration)';
   }
 }
 
 /// @nodoc
-abstract mixin class $RouteMetaInformationCopyWith<$Res> {
-  factory $RouteMetaInformationCopyWith(RouteMetaInformation value,
-          $Res Function(RouteMetaInformation) _then) =
-      _$RouteMetaInformationCopyWithImpl;
+abstract mixin class $PolylineInformationCopyWith<$Res> {
+  factory $PolylineInformationCopyWith(
+          PolylineInformation value, $Res Function(PolylineInformation) _then) =
+      _$PolylineInformationCopyWithImpl;
   @useResult
   $Res call({String encodedPolyline, int distanceMeters, String duration});
 }
 
 /// @nodoc
-class _$RouteMetaInformationCopyWithImpl<$Res>
-    implements $RouteMetaInformationCopyWith<$Res> {
-  _$RouteMetaInformationCopyWithImpl(this._self, this._then);
+class _$PolylineInformationCopyWithImpl<$Res>
+    implements $PolylineInformationCopyWith<$Res> {
+  _$PolylineInformationCopyWithImpl(this._self, this._then);
 
-  final RouteMetaInformation _self;
-  final $Res Function(RouteMetaInformation) _then;
+  final PolylineInformation _self;
+  final $Res Function(PolylineInformation) _then;
 
-  /// Create a copy of RouteMetaInformation
+  /// Create a copy of PolylineInformation
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -94,12 +98,14 @@ class _$RouteMetaInformationCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _RouteMetaInformation implements RouteMetaInformation {
-  const _RouteMetaInformation(
+@JsonSerializable()
+class _PolylineInformation implements PolylineInformation {
+  const _PolylineInformation(
       {required this.encodedPolyline,
       required this.distanceMeters,
       required this.duration});
+  factory _PolylineInformation.fromJson(Map<String, dynamic> json) =>
+      _$PolylineInformationFromJson(json);
 
   @override
   final String encodedPolyline;
@@ -108,20 +114,27 @@ class _RouteMetaInformation implements RouteMetaInformation {
   @override
   final String duration;
 
-  /// Create a copy of RouteMetaInformation
+  /// Create a copy of PolylineInformation
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$RouteMetaInformationCopyWith<_RouteMetaInformation> get copyWith =>
-      __$RouteMetaInformationCopyWithImpl<_RouteMetaInformation>(
+  _$PolylineInformationCopyWith<_PolylineInformation> get copyWith =>
+      __$PolylineInformationCopyWithImpl<_PolylineInformation>(
           this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$PolylineInformationToJson(
+      this,
+    );
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RouteMetaInformation &&
+            other is _PolylineInformation &&
             (identical(other.encodedPolyline, encodedPolyline) ||
                 other.encodedPolyline == encodedPolyline) &&
             (identical(other.distanceMeters, distanceMeters) ||
@@ -130,36 +143,37 @@ class _RouteMetaInformation implements RouteMetaInformation {
                 other.duration == duration));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, encodedPolyline, distanceMeters, duration);
 
   @override
   String toString() {
-    return 'RouteMetaInformation(encodedPolyline: $encodedPolyline, distanceMeters: $distanceMeters, duration: $duration)';
+    return 'PolylineInformation(encodedPolyline: $encodedPolyline, distanceMeters: $distanceMeters, duration: $duration)';
   }
 }
 
 /// @nodoc
-abstract mixin class _$RouteMetaInformationCopyWith<$Res>
-    implements $RouteMetaInformationCopyWith<$Res> {
-  factory _$RouteMetaInformationCopyWith(_RouteMetaInformation value,
-          $Res Function(_RouteMetaInformation) _then) =
-      __$RouteMetaInformationCopyWithImpl;
+abstract mixin class _$PolylineInformationCopyWith<$Res>
+    implements $PolylineInformationCopyWith<$Res> {
+  factory _$PolylineInformationCopyWith(_PolylineInformation value,
+          $Res Function(_PolylineInformation) _then) =
+      __$PolylineInformationCopyWithImpl;
   @override
   @useResult
   $Res call({String encodedPolyline, int distanceMeters, String duration});
 }
 
 /// @nodoc
-class __$RouteMetaInformationCopyWithImpl<$Res>
-    implements _$RouteMetaInformationCopyWith<$Res> {
-  __$RouteMetaInformationCopyWithImpl(this._self, this._then);
+class __$PolylineInformationCopyWithImpl<$Res>
+    implements _$PolylineInformationCopyWith<$Res> {
+  __$PolylineInformationCopyWithImpl(this._self, this._then);
 
-  final _RouteMetaInformation _self;
-  final $Res Function(_RouteMetaInformation) _then;
+  final _PolylineInformation _self;
+  final $Res Function(_PolylineInformation) _then;
 
-  /// Create a copy of RouteMetaInformation
+  /// Create a copy of PolylineInformation
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -168,7 +182,7 @@ class __$RouteMetaInformationCopyWithImpl<$Res>
     Object? distanceMeters = null,
     Object? duration = null,
   }) {
-    return _then(_RouteMetaInformation(
+    return _then(_PolylineInformation(
       encodedPolyline: null == encodedPolyline
           ? _self.encodedPolyline
           : encodedPolyline // ignore: cast_nullable_to_non_nullable
@@ -195,8 +209,7 @@ mixin _$Recommendation {
   String get message;
   @LatLngConverter()
   List<LatLng> get waypoints;
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  RouteMetaInformation? get meta;
+  PolylineInformation get polylineInfo;
 
   /// Create a copy of Recommendation
   /// with the given fields replaced by the non-null parameter values.
@@ -220,17 +233,18 @@ mixin _$Recommendation {
             (identical(other.success, success) || other.success == success) &&
             (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality().equals(other.waypoints, waypoints) &&
-            (identical(other.meta, meta) || other.meta == meta));
+            (identical(other.polylineInfo, polylineInfo) ||
+                other.polylineInfo == polylineInfo));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, current, destination, success,
-      message, const DeepCollectionEquality().hash(waypoints), meta);
+      message, const DeepCollectionEquality().hash(waypoints), polylineInfo);
 
   @override
   String toString() {
-    return 'Recommendation(current: $current, destination: $destination, success: $success, message: $message, waypoints: $waypoints, meta: $meta)';
+    return 'Recommendation(current: $current, destination: $destination, success: $success, message: $message, waypoints: $waypoints, polylineInfo: $polylineInfo)';
   }
 }
 
@@ -246,10 +260,9 @@ abstract mixin class $RecommendationCopyWith<$Res> {
       bool success,
       String message,
       @LatLngConverter() List<LatLng> waypoints,
-      @JsonKey(includeFromJson: false, includeToJson: false)
-      RouteMetaInformation? meta});
+      PolylineInformation polylineInfo});
 
-  $RouteMetaInformationCopyWith<$Res>? get meta;
+  $PolylineInformationCopyWith<$Res> get polylineInfo;
 }
 
 /// @nodoc
@@ -270,7 +283,7 @@ class _$RecommendationCopyWithImpl<$Res>
     Object? success = null,
     Object? message = null,
     Object? waypoints = null,
-    Object? meta = freezed,
+    Object? polylineInfo = null,
   }) {
     return _then(_self.copyWith(
       current: null == current
@@ -293,10 +306,10 @@ class _$RecommendationCopyWithImpl<$Res>
           ? _self.waypoints
           : waypoints // ignore: cast_nullable_to_non_nullable
               as List<LatLng>,
-      meta: freezed == meta
-          ? _self.meta
-          : meta // ignore: cast_nullable_to_non_nullable
-              as RouteMetaInformation?,
+      polylineInfo: null == polylineInfo
+          ? _self.polylineInfo
+          : polylineInfo // ignore: cast_nullable_to_non_nullable
+              as PolylineInformation,
     ));
   }
 
@@ -304,13 +317,9 @@ class _$RecommendationCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $RouteMetaInformationCopyWith<$Res>? get meta {
-    if (_self.meta == null) {
-      return null;
-    }
-
-    return $RouteMetaInformationCopyWith<$Res>(_self.meta!, (value) {
-      return _then(_self.copyWith(meta: value));
+  $PolylineInformationCopyWith<$Res> get polylineInfo {
+    return $PolylineInformationCopyWith<$Res>(_self.polylineInfo, (value) {
+      return _then(_self.copyWith(polylineInfo: value));
     });
   }
 }
@@ -324,7 +333,7 @@ class _Recommendation implements Recommendation {
       required this.success,
       required this.message,
       @LatLngConverter() required final List<LatLng> waypoints,
-      @JsonKey(includeFromJson: false, includeToJson: false) this.meta})
+      required this.polylineInfo})
       : _waypoints = waypoints;
   factory _Recommendation.fromJson(Map<String, dynamic> json) =>
       _$RecommendationFromJson(json);
@@ -349,8 +358,7 @@ class _Recommendation implements Recommendation {
   }
 
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  final RouteMetaInformation? meta;
+  final PolylineInformation polylineInfo;
 
   /// Create a copy of Recommendation
   /// with the given fields replaced by the non-null parameter values.
@@ -379,17 +387,18 @@ class _Recommendation implements Recommendation {
             (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality()
                 .equals(other._waypoints, _waypoints) &&
-            (identical(other.meta, meta) || other.meta == meta));
+            (identical(other.polylineInfo, polylineInfo) ||
+                other.polylineInfo == polylineInfo));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, current, destination, success,
-      message, const DeepCollectionEquality().hash(_waypoints), meta);
+      message, const DeepCollectionEquality().hash(_waypoints), polylineInfo);
 
   @override
   String toString() {
-    return 'Recommendation(current: $current, destination: $destination, success: $success, message: $message, waypoints: $waypoints, meta: $meta)';
+    return 'Recommendation(current: $current, destination: $destination, success: $success, message: $message, waypoints: $waypoints, polylineInfo: $polylineInfo)';
   }
 }
 
@@ -407,11 +416,10 @@ abstract mixin class _$RecommendationCopyWith<$Res>
       bool success,
       String message,
       @LatLngConverter() List<LatLng> waypoints,
-      @JsonKey(includeFromJson: false, includeToJson: false)
-      RouteMetaInformation? meta});
+      PolylineInformation polylineInfo});
 
   @override
-  $RouteMetaInformationCopyWith<$Res>? get meta;
+  $PolylineInformationCopyWith<$Res> get polylineInfo;
 }
 
 /// @nodoc
@@ -432,7 +440,7 @@ class __$RecommendationCopyWithImpl<$Res>
     Object? success = null,
     Object? message = null,
     Object? waypoints = null,
-    Object? meta = freezed,
+    Object? polylineInfo = null,
   }) {
     return _then(_Recommendation(
       current: null == current
@@ -455,10 +463,10 @@ class __$RecommendationCopyWithImpl<$Res>
           ? _self._waypoints
           : waypoints // ignore: cast_nullable_to_non_nullable
               as List<LatLng>,
-      meta: freezed == meta
-          ? _self.meta
-          : meta // ignore: cast_nullable_to_non_nullable
-              as RouteMetaInformation?,
+      polylineInfo: null == polylineInfo
+          ? _self.polylineInfo
+          : polylineInfo // ignore: cast_nullable_to_non_nullable
+              as PolylineInformation,
     ));
   }
 
@@ -466,13 +474,9 @@ class __$RecommendationCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $RouteMetaInformationCopyWith<$Res>? get meta {
-    if (_self.meta == null) {
-      return null;
-    }
-
-    return $RouteMetaInformationCopyWith<$Res>(_self.meta!, (value) {
-      return _then(_self.copyWith(meta: value));
+  $PolylineInformationCopyWith<$Res> get polylineInfo {
+    return $PolylineInformationCopyWith<$Res>(_self.polylineInfo, (value) {
+      return _then(_self.copyWith(polylineInfo: value));
     });
   }
 }
