@@ -201,14 +201,15 @@ class __$PolylineInformationCopyWithImpl<$Res>
 
 /// @nodoc
 mixin _$Recommendation {
-  @LatLngConverter()
+  @LatLngMapConverter()
   LatLng get current;
-  @LatLngConverter()
-  LatLng get destination;
+  @LatLngMapConverter()
+  LatLng? get destination;
   bool get success;
   String get message;
-  @LatLngConverter()
+  @LatLngMapListConverter()
   List<LatLng> get waypoints;
+  @JsonKey(name: 'route')
   PolylineInformation get polylineInfo;
 
   /// Create a copy of Recommendation
@@ -255,12 +256,12 @@ abstract mixin class $RecommendationCopyWith<$Res> {
       _$RecommendationCopyWithImpl;
   @useResult
   $Res call(
-      {@LatLngConverter() LatLng current,
-      @LatLngConverter() LatLng destination,
+      {@LatLngMapConverter() LatLng current,
+      @LatLngMapConverter() LatLng? destination,
       bool success,
       String message,
-      @LatLngConverter() List<LatLng> waypoints,
-      PolylineInformation polylineInfo});
+      @LatLngMapListConverter() List<LatLng> waypoints,
+      @JsonKey(name: 'route') PolylineInformation polylineInfo});
 
   $PolylineInformationCopyWith<$Res> get polylineInfo;
 }
@@ -279,7 +280,7 @@ class _$RecommendationCopyWithImpl<$Res>
   @override
   $Res call({
     Object? current = null,
-    Object? destination = null,
+    Object? destination = freezed,
     Object? success = null,
     Object? message = null,
     Object? waypoints = null,
@@ -290,10 +291,10 @@ class _$RecommendationCopyWithImpl<$Res>
           ? _self.current
           : current // ignore: cast_nullable_to_non_nullable
               as LatLng,
-      destination: null == destination
+      destination: freezed == destination
           ? _self.destination
           : destination // ignore: cast_nullable_to_non_nullable
-              as LatLng,
+              as LatLng?,
       success: null == success
           ? _self.success
           : success // ignore: cast_nullable_to_non_nullable
@@ -328,29 +329,29 @@ class _$RecommendationCopyWithImpl<$Res>
 @JsonSerializable()
 class _Recommendation implements Recommendation {
   const _Recommendation(
-      {@LatLngConverter() required this.current,
-      @LatLngConverter() required this.destination,
+      {@LatLngMapConverter() required this.current,
+      @LatLngMapConverter() this.destination,
       required this.success,
       required this.message,
-      @LatLngConverter() required final List<LatLng> waypoints,
-      required this.polylineInfo})
+      @LatLngMapListConverter() required final List<LatLng> waypoints,
+      @JsonKey(name: 'route') required this.polylineInfo})
       : _waypoints = waypoints;
   factory _Recommendation.fromJson(Map<String, dynamic> json) =>
       _$RecommendationFromJson(json);
 
   @override
-  @LatLngConverter()
+  @LatLngMapConverter()
   final LatLng current;
   @override
-  @LatLngConverter()
-  final LatLng destination;
+  @LatLngMapConverter()
+  final LatLng? destination;
   @override
   final bool success;
   @override
   final String message;
   final List<LatLng> _waypoints;
   @override
-  @LatLngConverter()
+  @LatLngMapListConverter()
   List<LatLng> get waypoints {
     if (_waypoints is EqualUnmodifiableListView) return _waypoints;
     // ignore: implicit_dynamic_type
@@ -358,6 +359,7 @@ class _Recommendation implements Recommendation {
   }
 
   @override
+  @JsonKey(name: 'route')
   final PolylineInformation polylineInfo;
 
   /// Create a copy of Recommendation
@@ -411,12 +413,12 @@ abstract mixin class _$RecommendationCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@LatLngConverter() LatLng current,
-      @LatLngConverter() LatLng destination,
+      {@LatLngMapConverter() LatLng current,
+      @LatLngMapConverter() LatLng? destination,
       bool success,
       String message,
-      @LatLngConverter() List<LatLng> waypoints,
-      PolylineInformation polylineInfo});
+      @LatLngMapListConverter() List<LatLng> waypoints,
+      @JsonKey(name: 'route') PolylineInformation polylineInfo});
 
   @override
   $PolylineInformationCopyWith<$Res> get polylineInfo;
@@ -436,7 +438,7 @@ class __$RecommendationCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   $Res call({
     Object? current = null,
-    Object? destination = null,
+    Object? destination = freezed,
     Object? success = null,
     Object? message = null,
     Object? waypoints = null,
@@ -447,10 +449,10 @@ class __$RecommendationCopyWithImpl<$Res>
           ? _self.current
           : current // ignore: cast_nullable_to_non_nullable
               as LatLng,
-      destination: null == destination
+      destination: freezed == destination
           ? _self.destination
           : destination // ignore: cast_nullable_to_non_nullable
-              as LatLng,
+              as LatLng?,
       success: null == success
           ? _self.success
           : success // ignore: cast_nullable_to_non_nullable

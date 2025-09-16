@@ -153,6 +153,11 @@ class _MapPageState extends ConsumerState<MapPage> {
         setState(() {
           String encoded = recommended.polylineInfo.encodedPolyline;
 
+          if (!recommended.success) {
+            motivation = recommended.message.tr();
+            return;
+          }
+
           List<LatLng> decodePolylineString(String encodedPolyline) {
             final List<PointLatLng> result =
                 PolylinePoints.decodePolyline(encodedPolyline);

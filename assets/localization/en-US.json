@@ -102,6 +102,7 @@
   "map_mapFilterButton_routeRecommendation": "Route Recommendation",
   "map_ploggingResult_addressNotFound": "Address not found",
   "map_startPlogging": "Start Plogging",
+  "AI 응답에 route 없음": "Not enough litters are reported to recommend plogging route.\nYou can help the community by exploring and adding a spot nearby!",
 
   "activity_title": "Activity",
   "activity_dateRangePicker": {

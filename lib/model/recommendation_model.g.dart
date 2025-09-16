@@ -23,25 +23,37 @@ Map<String, dynamic> _$PolylineInformationToJson(
 
 _Recommendation _$RecommendationFromJson(Map<String, dynamic> json) =>
     _Recommendation(
-      current: const LatLngConverter().fromJson(json['current'] as List),
-      destination:
-          const LatLngConverter().fromJson(json['destination'] as List),
+      current: const LatLngMapConverter()
+          .fromJson(json['current'] as Map<String, dynamic>),
+      destination: _$JsonConverterFromJson<Map<String, dynamic>, LatLng>(
+          json['destination'], const LatLngMapConverter().fromJson),
       success: json['success'] as bool,
       message: json['message'] as String,
-      waypoints: (json['waypoints'] as List<dynamic>)
-          .map((e) => const LatLngConverter().fromJson(e as List))
-          .toList(),
-      polylineInfo: PolylineInformation.fromJson(
-          json['polylineInfo'] as Map<String, dynamic>),
+      waypoints:
+          const LatLngMapListConverter().fromJson(json['waypoints'] as List),
+      polylineInfo:
+          PolylineInformation.fromJson(json['route'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$RecommendationToJson(_Recommendation instance) =>
     <String, dynamic>{
-      'current': const LatLngConverter().toJson(instance.current),
-      'destination': const LatLngConverter().toJson(instance.destination),
+      'current': const LatLngMapConverter().toJson(instance.current),
+      'destination': _$JsonConverterToJson<Map<String, dynamic>, LatLng>(
+          instance.destination, const LatLngMapConverter().toJson),
       'success': instance.success,
       'message': instance.message,
-      'waypoints':
-          instance.waypoints.map(const LatLngConverter().toJson).toList(),
-      'polylineInfo': instance.polylineInfo,
+      'waypoints': const LatLngMapListConverter().toJson(instance.waypoints),
+      'route': instance.polylineInfo,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

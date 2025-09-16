@@ -14,6 +14,11 @@ part 'recommendation_provider.g.dart';
 Future<Recommendation?> routeRecommendation(Ref ref, LatLng current) async {
   final jwt = ref.read(jwtNotifierProvider).jwt;
 
+  /// NOTE: This coordinate points in front of Tokyo Station.
+  /// - This is only for demonstration.
+  /// - Remove this line after demonstration, and when path creating in Korea using Routes API is enabled.
+  current = const LatLng(35.680640, 139.763095);
+
   if (jwt != null) {
     final url = Uri.parse('https://api.ploop.shop/api/map/route/recommend');
     final headers = {
