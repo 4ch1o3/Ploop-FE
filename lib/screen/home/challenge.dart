@@ -37,127 +37,128 @@ class ChallengeProgressCard extends ConsumerWidget {
 
       final double totalPercentage =
           (myProgress + partnerProgress) / totalChallengeCount;
-      return Container(
-        alignment: Alignment.topLeft,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: Colors.black,
-        ),
-        padding: EdgeInsets.fromLTRB(15.w, 14.h, 15.w, 16.h),
-        width: 370.w,
-        height: 214.h,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 16.h,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 4.h,
-              children: [
-                Text(
-                  '${(totalPercentage * 100).round()}%',
-                  style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                        fontSize: 22.sp,
-                        height: 1.27,
-                        letterSpacing: -0.26,
-                        color: Colors.white,
-                      ),
-                ),
-
-                // graph
-                Stack(
-                  children: [
-                    // background
-                    Container(
-                      decoration: BoxDecoration(
-                          color: GrayScale.gray_500,
-                          borderRadius: BorderRadius.circular(5.w)),
-                      width: 340.w,
-                      height: 24.h,
-                    ),
-                    Container(
-                      width: 340.w * totalPercentage,
-                      height: 24.h,
-                      decoration: BoxDecoration(
-                          color: theme().color_600,
-                          borderRadius: (totalPercentage == 1.00
-                              ? BorderRadius.all(Radius.circular(5.w))
-                              : BorderRadius.only(
-                                  topLeft: Radius.circular(5.w),
-                                  bottomLeft: Radius.circular(5.w)))),
-                    )
-                  ],
-                ),
-              ],
+      return Column(
+        children: [
+          Container(
+            alignment: Alignment.topLeft,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Colors.black,
             ),
-
-            // progress percentage
-            Column(
+            padding: EdgeInsets.fromLTRB(15.w, 14.h, 15.w, 16.h),
+            width: 370.w,
+            height: 214.h,
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 4.h,
+              spacing: 16.h,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: 4.h,
                   children: [
                     Text(
-                      'home_challenge_partners_title',
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      '${(totalPercentage * 100).round()}%',
+                      style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                            fontSize: 22.sp,
+                            height: 1.27,
+                            letterSpacing: -0.26,
                             color: Colors.white,
                           ),
-                    ).tr(),
-                    Text(
-                      'home_challenge_partners_content',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyLarge
-                          ?.copyWith(color: GrayScale.gray_400),
-                    ).tr(namedArgs: {
-                      'partnerName': missionResponse.partnerName
-                    }),
+                    ),
+
+                    // graph
+                    Stack(
+                      children: [
+                        // background
+                        Container(
+                          decoration: BoxDecoration(
+                              color: GrayScale.gray_500,
+                              borderRadius: BorderRadius.circular(5.w)),
+                          width: 340.w,
+                          height: 24.h,
+                        ),
+                        Container(
+                          width: 340.w * totalPercentage,
+                          height: 24.h,
+                          decoration: BoxDecoration(
+                              color: theme().color_600,
+                              borderRadius: (totalPercentage == 1.00
+                                  ? BorderRadius.all(Radius.circular(5.w))
+                                  : BorderRadius.only(
+                                      topLeft: Radius.circular(5.w),
+                                      bottomLeft: Radius.circular(5.w)))),
+                        )
+                      ],
+                    ),
                   ],
                 ),
-                SizedBox(
-                  height: 6.h,
-                ),
-                Row(
-                  spacing: 8.w,
+
+                // progress percentage
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: 4.h,
                   children: [
-                    ChallengeUserCard(
-                      username: myProfile.nickname!,
-                      verifiedChallengeCount: myProgress,
-                      totalChallengeCount: totalChallengeCount,
-                      profileImageUrl: myProfile.pictureUrl!,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'home_challenge_partners_title',
+                          style:
+                              Theme.of(context).textTheme.titleSmall?.copyWith(
+                                    color: Colors.white,
+                                  ),
+                        ).tr(),
+                        Text(
+                          'home_challenge_partners_content',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge
+                              ?.copyWith(color: GrayScale.gray_400),
+                        ).tr(namedArgs: {
+                          'partnerName': missionResponse.partnerName
+                        }),
+                      ],
                     ),
-                    ChallengeUserCard(
-                      username: missionResponse.partnerName,
-                      verifiedChallengeCount: partnerProgress,
-                      totalChallengeCount: totalChallengeCount,
-                      profileImageUrl: missionResponse.partnerImageUrl,
+                    SizedBox(
+                      height: 6.h,
+                    ),
+                    Row(
+                      spacing: 8.w,
+                      children: [
+                        ChallengeUserCard(
+                          username: myProfile.nickname!,
+                          verifiedChallengeCount: myProgress,
+                          totalChallengeCount: totalChallengeCount,
+                          profileImageUrl: myProfile.pictureUrl!,
+                        ),
+                        ChallengeUserCard(
+                          username: missionResponse.partnerName,
+                          verifiedChallengeCount: partnerProgress,
+                          totalChallengeCount: totalChallengeCount,
+                          profileImageUrl: missionResponse.partnerImageUrl,
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       );
     }, error: (error, stackTrace) {
       return SizedBox(
-        height: 388.h,
         child: Image.asset(
           context.locale.countryCode == "KR"
               ? 'assets/images/mission_error_kr.png'
               : 'assets/images/mission_error.png',
-          width: 370.w,
           height: 388.h,
         ),
       );
     }, loading: () {
       return SizedBox(
-        height: 388.h,
         child: Image.asset(
           'assets/images/mission_loading.png',
-          width: 370.w,
           height: 388.h,
         ),
       );

@@ -134,55 +134,86 @@ class MainPage extends ConsumerWidget {
             // Page Content
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 8.h,
+              // spacing: 8.h,
               children: [
                 const PloopAppBar(),
                 // Page body
                 Container(
                   padding: EdgeInsets.all(16.w),
                   child: Column(
-                    spacing: 12.h,
                     crossAxisAlignment: CrossAxisAlignment.start,
 
                     // Weekly Challenge
                     children: [
-                      Text(
-                        'home_weeklyChallenge',
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ).tr(),
-                      const ChallengeProgressCard(),
-                      const SizedBox(),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          spacing: 8.w,
-                          children: ref.watch(missionDataProvider).when(
-                                data: (mission) => mission.myMissions
-                                    .map((e) => ChallengeCard(
-                                          title: createMissionName(
-                                                  e.userMissionId,
-                                                  e.category,
-                                                  e.requiredCount)
-                                              .tr(),
-                                          isVerified: e.verified,
-                                          id: e.userMissionId,
-                                        ))
-                                    .toList(),
-                                loading: () => const [],
-                                error: (err, stack) => [],
+                      Column(
+                        spacing: 12.h,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'home_weeklyChallenge',
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ).tr(),
+                          ref.watch(missionDataProvider).when(
+                                data: (mission) => Column(
+                                  children: [
+                                    const ChallengeProgressCard(),
+                                    SizedBox(height: 26.h),
+                                    SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                        spacing: 8.w,
+                                        children: mission.myMissions
+                                            .map((e) => ChallengeCard(
+                                                  title: createMissionName(
+                                                          e.userMissionId,
+                                                          e.category,
+                                                          e.requiredCount)
+                                                      .tr(),
+                                                  isVerified: e.verified,
+                                                  id: e.userMissionId,
+                                                ))
+                                            .toList(),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                loading: () => Column(
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/mission_loading.png',
+                                      height: 388.h,
+                                    ),
+                                  ],
+                                ),
+                                error: (err, stack) => Column(
+                                  children: [
+                                    Image.asset(
+                                      context.locale.countryCode == "KR"
+                                          ? 'assets/images/mission_error_kr.png'
+                                          : 'assets/images/mission_error.png',
+                                      height: 388.h,
+                                    ),
+                                  ],
+                                ),
                               ),
-                        ),
+                        ],
                       ),
-                      SizedBox(
-                        height: 12.h,
-                      ),
-
                       // Today's Record
-                      Text(
-                        "home_todaysRecord",
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ).tr(),
-                      const TodayRecordCard(),
+
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        spacing: 12.h,
+                        children: [
+                          SizedBox(
+                            height: 24.h,
+                          ),
+                          Text(
+                            "home_todaysRecord",
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ).tr(),
+                          const TodayRecordCard(),
+                        ],
+                      ),
                     ],
                   ),
                 ),
