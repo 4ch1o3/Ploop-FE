@@ -113,6 +113,7 @@ class MapSampleState extends ConsumerState<MapSample> {
                       markerId: MarkerId('litter_${e.id}'),
                       position: (LatLng(e.latitude, e.longitude)),
                       visible: true,
+                      zIndexInt: 0,
                     ),
                   )
                   .toList());
@@ -148,6 +149,7 @@ class MapSampleState extends ConsumerState<MapSample> {
                       markerId: MarkerId('bin_${e.id}'),
                       position: (LatLng(e.latitude, e.longitude)),
                       visible: true,
+                      zIndexInt: 1,
                     ),
                   )
                   .toList());

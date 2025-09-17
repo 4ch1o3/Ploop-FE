@@ -76,7 +76,8 @@ class _MapPageState extends ConsumerState<MapPage> {
   bool _tracking = false;
   List<LatLng> _ploggingRoute = [];
   Set<Polyline> _ploggingPolylines = {};
-  Marker _routeMarkers = const Marker(markerId: MarkerId('recommend'));
+  Marker _routeMarkers =
+      const Marker(markerId: MarkerId('recommend'), zIndex: 0);
   int distanceFilterValue = 2;
   String motivation = "";
 
@@ -178,12 +179,12 @@ class _MapPageState extends ConsumerState<MapPage> {
           _zoomToRoute();
 
           _routeMarkers = Marker(
-            icon: AssetMapBitmap('assets/markers/icon_recommendation.png',
-                width: 36, height: 41),
-            markerId: const MarkerId('recommend'),
-            position: decodePolylineString(encoded)[0],
-            visible: true,
-          );
+              icon: AssetMapBitmap('assets/markers/icon_recommendation.png',
+                  width: 36, height: 41),
+              markerId: const MarkerId('recommend'),
+              position: decodePolylineString(encoded)[0],
+              visible: true,
+              zIndexInt: 3);
         });
 
         if (!_showRoute) {
@@ -331,7 +332,7 @@ class _MapPageState extends ConsumerState<MapPage> {
           Positioned(top: 154.h, left: 16.w, child: child),
     );
     // refresh
-    setState(() {}); // TODO: add something here or after Navigate push.then()
+    setState(() {});
   }
 
   Future<void> checkPermissionWhenStart() async {
