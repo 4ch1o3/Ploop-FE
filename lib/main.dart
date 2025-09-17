@@ -84,7 +84,7 @@ class MyApp extends StatelessWidget {
           // overriding default texttheme
           textTheme: ploopTextTheme(),
         ),
-        home: const OnboardingPage(),
+        home: const SplashScreen(),
       ),
     );
   }

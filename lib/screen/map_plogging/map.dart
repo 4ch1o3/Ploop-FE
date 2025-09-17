@@ -11,6 +11,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:ploop_fe/model/recommendation_model.dart';
 import 'package:ploop_fe/model/route_model.dart';
 import 'package:ploop_fe/provider/plogging_provider.dart';
 import 'package:ploop_fe/provider/plogging_state_provider.dart';
@@ -59,6 +61,7 @@ class _MapPageState extends ConsumerState<MapPage> {
   late Timer timer;
   late Duration _elapsedTime;
   late double _elapsedTimeFormat;
+  late PolylineInformation polylineInfo;
   List<LatLng> route = [];
 
   int _pickedAmount = 0;
@@ -73,7 +76,8 @@ class _MapPageState extends ConsumerState<MapPage> {
   bool _tracking = false;
   List<LatLng> _ploggingRoute = [];
   Set<Polyline> _ploggingPolylines = {};
-  Marker _routeMarkers = const Marker(markerId: MarkerId('recommend'));
+  Marker _routeMarkers =
+      const Marker(markerId: MarkerId('recommend'), zIndex: 0);
   int distanceFilterValue = 2;
   String motivation = "";
 
@@ -140,30 +144,51 @@ class _MapPageState extends ConsumerState<MapPage> {
     LatLngBounds bounds = await controller.getVisibleRegion();
     debugPrint('$bounds');
     if (_showRoute) {
-      final recommended =
-          await ref.watch(routeRecommendationProvider(bounds).future);
+      final pos = await Geolocator.getCurrentPosition();
+
+      final recommended = await ref.watch(
+          routeRecommendationProvider(LatLng(pos.latitude, pos.longitude))
+              .future);
 
       if (recommended != null) {
         setState(() {
-          route = recommended.recommendationRoute;
-          motivation = recommended.motivation;
+          String encoded = recommended.polylineInfo.encodedPolyline;
 
-          _routeMarkers = Marker(
-            icon: AssetMapBitmap('assets/markers/icon_recommendation.png',
-                width: 36, height: 41),
-            markerId: const MarkerId('recommend'),
-            position: (LatLng(route[0].latitude, route[0].longitude)),
-            visible: true,
-          );
+          if (!recommended.success) {
+            motivation = recommended.message.tr();
+            return;
+          }
+
+          if (recommended.success && recommended.message.contains("ok")) {
+            motivation = "map_recommendation_success".tr();
+          }
+
+          List<LatLng> decodePolylineString(String encodedPolyline) {
+            final List<PointLatLng> result =
+                PolylinePoints.decodePolyline(encodedPolyline);
+
+            route = result
+                .map((point) => LatLng(point.latitude, point.longitude))
+                .toList();
+            return route;
+          }
 
           recommend_polylines.add(Polyline(
               polylineId: const PolylineId('recommend'),
-              points: route,
+              points: decodePolylineString(encoded),
               color: theme().recommend,
               visible: _showRoute,
               width: 6));
 
           _zoomToRoute();
+
+          _routeMarkers = Marker(
+              icon: AssetMapBitmap('assets/markers/icon_recommendation.png',
+                  width: 36, height: 41),
+              markerId: const MarkerId('recommend'),
+              position: decodePolylineString(encoded)[0],
+              visible: true,
+              zIndexInt: 3);
         });
 
         if (!_showRoute) {
@@ -311,7 +336,7 @@ class _MapPageState extends ConsumerState<MapPage> {
           Positioned(top: 154.h, left: 16.w, child: child),
     );
     // refresh
-    setState(() {}); // TODO: add something here or after Navigate push.then()
+    setState(() {});
   }
 
   Future<void> checkPermissionWhenStart() async {

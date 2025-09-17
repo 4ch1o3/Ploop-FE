@@ -87,7 +87,7 @@ class MainPage extends ConsumerWidget {
             );
     }
 
-    String createMissionName(String category, int requiredCount) {
+    String createMissionName(int index, String category, int requiredCount) {
       // debugPrint(category);
       final List<(Category, String)> missionCategoryList = [
         (Category.bottleCap, "BOTTLE_CAP"),
@@ -100,28 +100,28 @@ class MainPage extends ConsumerWidget {
       final enumifiedCategory =
           missionCategoryList.firstWhere((e) => e.$2 == category).$1;
 
-      switch (Random().nextInt(3)) {
-        case 0:
-          return "home_mission_title1".tr(namedArgs: {
-            "category": enumifiedCategory.name.tr(),
-            "count": requiredCount.toString()
-          });
-        case 1:
-          return "home_mission_title2".tr(namedArgs: {
-            "category": enumifiedCategory.name.tr(),
-            "count": requiredCount.toString()
-          });
-        case 2:
-          return "home_mission_title3".tr(namedArgs: {
-            "category": enumifiedCategory.name.tr(),
-            "count": requiredCount.toString()
-          });
-        default:
-          return "home_mission_title1".tr(namedArgs: {
-            "category": enumifiedCategory.name.tr(),
-            "count": requiredCount.toString()
-          });
+      if (index % 3 == 0) {
+        return "home_mission_title1".tr(namedArgs: {
+          "category": enumifiedCategory.name.tr(),
+          "count": requiredCount.toString()
+        });
+      } else if (index % 3 == 1) {
+        return "home_mission_title2".tr(namedArgs: {
+          "category": enumifiedCategory.name.tr(),
+          "count": requiredCount.toString()
+        });
+      } else if (index % 3 == 2) {
+        return "home_mission_title3".tr(namedArgs: {
+          "category": enumifiedCategory.name.tr(),
+          "count": requiredCount.toString()
+        });
       }
+
+      // default
+      return "home_mission_title1".tr(namedArgs: {
+        "category": enumifiedCategory.name.tr(),
+        "count": requiredCount.toString()
+      });
     }
 
     return PopScope(
@@ -134,53 +134,86 @@ class MainPage extends ConsumerWidget {
             // Page Content
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 8.h,
+              // spacing: 8.h,
               children: [
                 const PloopAppBar(),
                 // Page body
                 Container(
                   padding: EdgeInsets.all(16.w),
                   child: Column(
-                    spacing: 12.h,
                     crossAxisAlignment: CrossAxisAlignment.start,
 
                     // Weekly Challenge
                     children: [
-                      Text(
-                        'home_weeklyChallenge',
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ).tr(),
-                      const ChallengeProgressCard(),
-                      const SizedBox(),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          spacing: 8.w,
-                          children: ref.watch(missionDataProvider).when(
-                                data: (mission) => mission.myMissions
-                                    .map((e) => ChallengeCard(
-                                          title: createMissionName(
-                                                  e.category, e.requiredCount)
-                                              .tr(),
-                                          isVerified: e.verified,
-                                          id: e.userMissionId,
-                                        ))
-                                    .toList(),
-                                loading: () => const [],
-                                error: (err, stack) => [],
+                      Column(
+                        spacing: 12.h,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'home_weeklyChallenge',
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ).tr(),
+                          ref.watch(missionDataProvider).when(
+                                data: (mission) => Column(
+                                  children: [
+                                    const ChallengeProgressCard(),
+                                    SizedBox(height: 26.h),
+                                    SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                        spacing: 8.w,
+                                        children: mission.myMissions
+                                            .map((e) => ChallengeCard(
+                                                  title: createMissionName(
+                                                          e.userMissionId,
+                                                          e.category,
+                                                          e.requiredCount)
+                                                      .tr(),
+                                                  isVerified: e.verified,
+                                                  id: e.userMissionId,
+                                                ))
+                                            .toList(),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                loading: () => Column(
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/mission_loading.png',
+                                      height: 388.h,
+                                    ),
+                                  ],
+                                ),
+                                error: (err, stack) => Column(
+                                  children: [
+                                    Image.asset(
+                                      context.locale.countryCode == "KR"
+                                          ? 'assets/images/mission_error_kr.png'
+                                          : 'assets/images/mission_error.png',
+                                      height: 388.h,
+                                    ),
+                                  ],
+                                ),
                               ),
-                        ),
+                        ],
                       ),
-                      SizedBox(
-                        height: 12.h,
-                      ),
-
                       // Today's Record
-                      Text(
-                        "home_todaysRecord",
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ).tr(),
-                      const TodayRecordCard(),
+
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        spacing: 12.h,
+                        children: [
+                          SizedBox(
+                            height: 24.h,
+                          ),
+                          Text(
+                            "home_todaysRecord",
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ).tr(),
+                          const TodayRecordCard(),
+                        ],
+                      ),
                     ],
                   ),
                 ),

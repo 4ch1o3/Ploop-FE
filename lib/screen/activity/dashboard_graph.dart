@@ -105,8 +105,8 @@ class GraphContainer extends ConsumerWidget {
         );
       },
       loading: () => Container(),
-      error: (err, stack) => Text(
-        'error',
+      error: (err, stack) => const Text(
+        'Error occured. Please try again.',
       ),
     );
   }

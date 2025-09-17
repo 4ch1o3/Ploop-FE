@@ -14,10 +14,203 @@ part of 'recommendation_model.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
+mixin _$PolylineInformation {
+  String get encodedPolyline;
+  int get distanceMeters;
+  String get duration;
+
+  /// Create a copy of PolylineInformation
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $PolylineInformationCopyWith<PolylineInformation> get copyWith =>
+      _$PolylineInformationCopyWithImpl<PolylineInformation>(
+          this as PolylineInformation, _$identity);
+
+  /// Serializes this PolylineInformation to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PolylineInformation &&
+            (identical(other.encodedPolyline, encodedPolyline) ||
+                other.encodedPolyline == encodedPolyline) &&
+            (identical(other.distanceMeters, distanceMeters) ||
+                other.distanceMeters == distanceMeters) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, encodedPolyline, distanceMeters, duration);
+
+  @override
+  String toString() {
+    return 'PolylineInformation(encodedPolyline: $encodedPolyline, distanceMeters: $distanceMeters, duration: $duration)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $PolylineInformationCopyWith<$Res> {
+  factory $PolylineInformationCopyWith(
+          PolylineInformation value, $Res Function(PolylineInformation) _then) =
+      _$PolylineInformationCopyWithImpl;
+  @useResult
+  $Res call({String encodedPolyline, int distanceMeters, String duration});
+}
+
+/// @nodoc
+class _$PolylineInformationCopyWithImpl<$Res>
+    implements $PolylineInformationCopyWith<$Res> {
+  _$PolylineInformationCopyWithImpl(this._self, this._then);
+
+  final PolylineInformation _self;
+  final $Res Function(PolylineInformation) _then;
+
+  /// Create a copy of PolylineInformation
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? encodedPolyline = null,
+    Object? distanceMeters = null,
+    Object? duration = null,
+  }) {
+    return _then(_self.copyWith(
+      encodedPolyline: null == encodedPolyline
+          ? _self.encodedPolyline
+          : encodedPolyline // ignore: cast_nullable_to_non_nullable
+              as String,
+      distanceMeters: null == distanceMeters
+          ? _self.distanceMeters
+          : distanceMeters // ignore: cast_nullable_to_non_nullable
+              as int,
+      duration: null == duration
+          ? _self.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _PolylineInformation implements PolylineInformation {
+  const _PolylineInformation(
+      {required this.encodedPolyline,
+      required this.distanceMeters,
+      required this.duration});
+  factory _PolylineInformation.fromJson(Map<String, dynamic> json) =>
+      _$PolylineInformationFromJson(json);
+
+  @override
+  final String encodedPolyline;
+  @override
+  final int distanceMeters;
+  @override
+  final String duration;
+
+  /// Create a copy of PolylineInformation
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PolylineInformationCopyWith<_PolylineInformation> get copyWith =>
+      __$PolylineInformationCopyWithImpl<_PolylineInformation>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$PolylineInformationToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _PolylineInformation &&
+            (identical(other.encodedPolyline, encodedPolyline) ||
+                other.encodedPolyline == encodedPolyline) &&
+            (identical(other.distanceMeters, distanceMeters) ||
+                other.distanceMeters == distanceMeters) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, encodedPolyline, distanceMeters, duration);
+
+  @override
+  String toString() {
+    return 'PolylineInformation(encodedPolyline: $encodedPolyline, distanceMeters: $distanceMeters, duration: $duration)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$PolylineInformationCopyWith<$Res>
+    implements $PolylineInformationCopyWith<$Res> {
+  factory _$PolylineInformationCopyWith(_PolylineInformation value,
+          $Res Function(_PolylineInformation) _then) =
+      __$PolylineInformationCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String encodedPolyline, int distanceMeters, String duration});
+}
+
+/// @nodoc
+class __$PolylineInformationCopyWithImpl<$Res>
+    implements _$PolylineInformationCopyWith<$Res> {
+  __$PolylineInformationCopyWithImpl(this._self, this._then);
+
+  final _PolylineInformation _self;
+  final $Res Function(_PolylineInformation) _then;
+
+  /// Create a copy of PolylineInformation
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? encodedPolyline = null,
+    Object? distanceMeters = null,
+    Object? duration = null,
+  }) {
+    return _then(_PolylineInformation(
+      encodedPolyline: null == encodedPolyline
+          ? _self.encodedPolyline
+          : encodedPolyline // ignore: cast_nullable_to_non_nullable
+              as String,
+      distanceMeters: null == distanceMeters
+          ? _self.distanceMeters
+          : distanceMeters // ignore: cast_nullable_to_non_nullable
+              as int,
+      duration: null == duration
+          ? _self.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
 mixin _$Recommendation {
-  @LatLngConverter()
-  List<LatLng> get recommendationRoute;
-  String get motivation;
+  @LatLngMapConverter()
+  LatLng get current;
+  @LatLngMapConverter()
+  LatLng? get destination;
+  bool get success;
+  String get message;
+  @LatLngMapListConverter()
+  List<LatLng> get waypoints;
+  @JsonKey(name: 'route')
+  PolylineInformation get polylineInfo;
 
   /// Create a copy of Recommendation
   /// with the given fields replaced by the non-null parameter values.
@@ -35,20 +228,24 @@ mixin _$Recommendation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Recommendation &&
-            const DeepCollectionEquality()
-                .equals(other.recommendationRoute, recommendationRoute) &&
-            (identical(other.motivation, motivation) ||
-                other.motivation == motivation));
+            (identical(other.current, current) || other.current == current) &&
+            (identical(other.destination, destination) ||
+                other.destination == destination) &&
+            (identical(other.success, success) || other.success == success) &&
+            (identical(other.message, message) || other.message == message) &&
+            const DeepCollectionEquality().equals(other.waypoints, waypoints) &&
+            (identical(other.polylineInfo, polylineInfo) ||
+                other.polylineInfo == polylineInfo));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(recommendationRoute), motivation);
+  int get hashCode => Object.hash(runtimeType, current, destination, success,
+      message, const DeepCollectionEquality().hash(waypoints), polylineInfo);
 
   @override
   String toString() {
-    return 'Recommendation(recommendationRoute: $recommendationRoute, motivation: $motivation)';
+    return 'Recommendation(current: $current, destination: $destination, success: $success, message: $message, waypoints: $waypoints, polylineInfo: $polylineInfo)';
   }
 }
 
@@ -59,7 +256,14 @@ abstract mixin class $RecommendationCopyWith<$Res> {
       _$RecommendationCopyWithImpl;
   @useResult
   $Res call(
-      {@LatLngConverter() List<LatLng> recommendationRoute, String motivation});
+      {@LatLngMapConverter() LatLng current,
+      @LatLngMapConverter() LatLng? destination,
+      bool success,
+      String message,
+      @LatLngMapListConverter() List<LatLng> waypoints,
+      @JsonKey(name: 'route') PolylineInformation polylineInfo});
+
+  $PolylineInformationCopyWith<$Res> get polylineInfo;
 }
 
 /// @nodoc
@@ -75,19 +279,49 @@ class _$RecommendationCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? recommendationRoute = null,
-    Object? motivation = null,
+    Object? current = null,
+    Object? destination = freezed,
+    Object? success = null,
+    Object? message = null,
+    Object? waypoints = null,
+    Object? polylineInfo = null,
   }) {
     return _then(_self.copyWith(
-      recommendationRoute: null == recommendationRoute
-          ? _self.recommendationRoute
-          : recommendationRoute // ignore: cast_nullable_to_non_nullable
-              as List<LatLng>,
-      motivation: null == motivation
-          ? _self.motivation
-          : motivation // ignore: cast_nullable_to_non_nullable
+      current: null == current
+          ? _self.current
+          : current // ignore: cast_nullable_to_non_nullable
+              as LatLng,
+      destination: freezed == destination
+          ? _self.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as LatLng?,
+      success: null == success
+          ? _self.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool,
+      message: null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
+      waypoints: null == waypoints
+          ? _self.waypoints
+          : waypoints // ignore: cast_nullable_to_non_nullable
+              as List<LatLng>,
+      polylineInfo: null == polylineInfo
+          ? _self.polylineInfo
+          : polylineInfo // ignore: cast_nullable_to_non_nullable
+              as PolylineInformation,
     ));
+  }
+
+  /// Create a copy of Recommendation
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PolylineInformationCopyWith<$Res> get polylineInfo {
+    return $PolylineInformationCopyWith<$Res>(_self.polylineInfo, (value) {
+      return _then(_self.copyWith(polylineInfo: value));
+    });
   }
 }
 
@@ -95,24 +329,38 @@ class _$RecommendationCopyWithImpl<$Res>
 @JsonSerializable()
 class _Recommendation implements Recommendation {
   const _Recommendation(
-      {@LatLngConverter() required final List<LatLng> recommendationRoute,
-      required this.motivation})
-      : _recommendationRoute = recommendationRoute;
+      {@LatLngMapConverter() required this.current,
+      @LatLngMapConverter() this.destination,
+      required this.success,
+      required this.message,
+      @LatLngMapListConverter() required final List<LatLng> waypoints,
+      @JsonKey(name: 'route') required this.polylineInfo})
+      : _waypoints = waypoints;
   factory _Recommendation.fromJson(Map<String, dynamic> json) =>
       _$RecommendationFromJson(json);
 
-  final List<LatLng> _recommendationRoute;
   @override
-  @LatLngConverter()
-  List<LatLng> get recommendationRoute {
-    if (_recommendationRoute is EqualUnmodifiableListView)
-      return _recommendationRoute;
+  @LatLngMapConverter()
+  final LatLng current;
+  @override
+  @LatLngMapConverter()
+  final LatLng? destination;
+  @override
+  final bool success;
+  @override
+  final String message;
+  final List<LatLng> _waypoints;
+  @override
+  @LatLngMapListConverter()
+  List<LatLng> get waypoints {
+    if (_waypoints is EqualUnmodifiableListView) return _waypoints;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_recommendationRoute);
+    return EqualUnmodifiableListView(_waypoints);
   }
 
   @override
-  final String motivation;
+  @JsonKey(name: 'route')
+  final PolylineInformation polylineInfo;
 
   /// Create a copy of Recommendation
   /// with the given fields replaced by the non-null parameter values.
@@ -134,20 +382,25 @@ class _Recommendation implements Recommendation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Recommendation &&
+            (identical(other.current, current) || other.current == current) &&
+            (identical(other.destination, destination) ||
+                other.destination == destination) &&
+            (identical(other.success, success) || other.success == success) &&
+            (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality()
-                .equals(other._recommendationRoute, _recommendationRoute) &&
-            (identical(other.motivation, motivation) ||
-                other.motivation == motivation));
+                .equals(other._waypoints, _waypoints) &&
+            (identical(other.polylineInfo, polylineInfo) ||
+                other.polylineInfo == polylineInfo));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_recommendationRoute), motivation);
+  int get hashCode => Object.hash(runtimeType, current, destination, success,
+      message, const DeepCollectionEquality().hash(_waypoints), polylineInfo);
 
   @override
   String toString() {
-    return 'Recommendation(recommendationRoute: $recommendationRoute, motivation: $motivation)';
+    return 'Recommendation(current: $current, destination: $destination, success: $success, message: $message, waypoints: $waypoints, polylineInfo: $polylineInfo)';
   }
 }
 
@@ -160,7 +413,15 @@ abstract mixin class _$RecommendationCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@LatLngConverter() List<LatLng> recommendationRoute, String motivation});
+      {@LatLngMapConverter() LatLng current,
+      @LatLngMapConverter() LatLng? destination,
+      bool success,
+      String message,
+      @LatLngMapListConverter() List<LatLng> waypoints,
+      @JsonKey(name: 'route') PolylineInformation polylineInfo});
+
+  @override
+  $PolylineInformationCopyWith<$Res> get polylineInfo;
 }
 
 /// @nodoc
@@ -176,19 +437,49 @@ class __$RecommendationCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? recommendationRoute = null,
-    Object? motivation = null,
+    Object? current = null,
+    Object? destination = freezed,
+    Object? success = null,
+    Object? message = null,
+    Object? waypoints = null,
+    Object? polylineInfo = null,
   }) {
     return _then(_Recommendation(
-      recommendationRoute: null == recommendationRoute
-          ? _self._recommendationRoute
-          : recommendationRoute // ignore: cast_nullable_to_non_nullable
-              as List<LatLng>,
-      motivation: null == motivation
-          ? _self.motivation
-          : motivation // ignore: cast_nullable_to_non_nullable
+      current: null == current
+          ? _self.current
+          : current // ignore: cast_nullable_to_non_nullable
+              as LatLng,
+      destination: freezed == destination
+          ? _self.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as LatLng?,
+      success: null == success
+          ? _self.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool,
+      message: null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
+      waypoints: null == waypoints
+          ? _self._waypoints
+          : waypoints // ignore: cast_nullable_to_non_nullable
+              as List<LatLng>,
+      polylineInfo: null == polylineInfo
+          ? _self.polylineInfo
+          : polylineInfo // ignore: cast_nullable_to_non_nullable
+              as PolylineInformation,
     ));
+  }
+
+  /// Create a copy of Recommendation
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PolylineInformationCopyWith<$Res> get polylineInfo {
+    return $PolylineInformationCopyWith<$Res>(_self.polylineInfo, (value) {
+      return _then(_self.copyWith(polylineInfo: value));
+    });
   }
 }
 

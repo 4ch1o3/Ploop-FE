@@ -7,7 +7,7 @@ part of 'plogging_provider.dart';
 // **************************************************************************
 
 String _$ploggingActivityNotifierHash() =>
-    r'758808e476f99ea358fc0f93a369945aac95b68b';
+    r'225a677b3bfbf12c8ad7761dc7293578af70cde0';
 
 /// See also [PloggingActivityNotifier].
 @ProviderFor(PloggingActivityNotifier)
