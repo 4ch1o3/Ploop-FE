@@ -8,6 +8,7 @@ part of 'mission_provider.dart';
 
 String _$missionDataHash() => r'850fdca54506af19eac4813c7e658c8f7572c3c3';
 
+
 /// See also [missionData].
 @ProviderFor(missionData)
 final missionDataProvider = AutoDisposeFutureProvider<MissionResponse>.internal(

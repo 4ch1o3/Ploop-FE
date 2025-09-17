@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,6 +12,14 @@ import 'package:ploop_fe/screen/home/challenge.dart';
 import 'package:ploop_fe/theme.dart';
 import 'ploop_appbar.dart';
 import 'today_record_card.dart';
+
+enum Category {
+  plasticBottle,
+  vinylBag,
+  bottleCap,
+  emptyCan,
+  paperCup,
+}
 
 class MainPage extends ConsumerWidget {
   const MainPage({super.key});
@@ -78,6 +87,43 @@ class MainPage extends ConsumerWidget {
             );
     }
 
+    String createMissionName(String category, int requiredCount) {
+      // debugPrint(category);
+      final List<(Category, String)> missionCategoryList = [
+        (Category.bottleCap, "BOTTLE_CAP"),
+        (Category.vinylBag, "VINYL_BAG"),
+        (Category.plasticBottle, "PLASTIC_BOTTLE"),
+        (Category.paperCup, "PAPER_CUP"),
+        (Category.emptyCan, "EMPTY_CAN"),
+      ];
+
+      final enumifiedCategory =
+          missionCategoryList.firstWhere((e) => e.$2 == category).$1;
+
+      switch (Random().nextInt(3)) {
+        case 0:
+          return "home_mission_title1".tr(namedArgs: {
+            "category": enumifiedCategory.name.tr(),
+            "count": requiredCount.toString()
+          });
+        case 1:
+          return "home_mission_title2".tr(namedArgs: {
+            "category": enumifiedCategory.name.tr(),
+            "count": requiredCount.toString()
+          });
+        case 2:
+          return "home_mission_title3".tr(namedArgs: {
+            "category": enumifiedCategory.name.tr(),
+            "count": requiredCount.toString()
+          });
+        default:
+          return "home_mission_title1".tr(namedArgs: {
+            "category": enumifiedCategory.name.tr(),
+            "count": requiredCount.toString()
+          });
+      }
+    }
+
     return PopScope(
       canPop: false,
       child: Container(
@@ -95,7 +141,7 @@ class MainPage extends ConsumerWidget {
                 Container(
                   padding: EdgeInsets.all(16.w),
                   child: Column(
-                    spacing: 8.h,
+                    spacing: 12.h,
                     crossAxisAlignment: CrossAxisAlignment.start,
 
                     // Weekly Challenge
@@ -105,7 +151,7 @@ class MainPage extends ConsumerWidget {
                         style: Theme.of(context).textTheme.titleMedium,
                       ).tr(),
                       const ChallengeProgressCard(),
-
+                      const SizedBox(),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
@@ -113,7 +159,9 @@ class MainPage extends ConsumerWidget {
                           children: ref.watch(missionDataProvider).when(
                                 data: (mission) => mission.myMissions
                                     .map((e) => ChallengeCard(
-                                          title: e.name,
+                                          title: createMissionName(
+                                                  e.category, e.requiredCount)
+                                              .tr(),
                                           isVerified: e.verified,
                                           id: e.userMissionId,
                                         ))
