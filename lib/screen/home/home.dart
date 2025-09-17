@@ -87,7 +87,7 @@ class MainPage extends ConsumerWidget {
             );
     }
 
-    String createMissionName(String category, int requiredCount) {
+    String createMissionName(int index, String category, int requiredCount) {
       // debugPrint(category);
       final List<(Category, String)> missionCategoryList = [
         (Category.bottleCap, "BOTTLE_CAP"),
@@ -100,28 +100,28 @@ class MainPage extends ConsumerWidget {
       final enumifiedCategory =
           missionCategoryList.firstWhere((e) => e.$2 == category).$1;
 
-      switch (Random().nextInt(3)) {
-        case 0:
-          return "home_mission_title1".tr(namedArgs: {
-            "category": enumifiedCategory.name.tr(),
-            "count": requiredCount.toString()
-          });
-        case 1:
-          return "home_mission_title2".tr(namedArgs: {
-            "category": enumifiedCategory.name.tr(),
-            "count": requiredCount.toString()
-          });
-        case 2:
-          return "home_mission_title3".tr(namedArgs: {
-            "category": enumifiedCategory.name.tr(),
-            "count": requiredCount.toString()
-          });
-        default:
-          return "home_mission_title1".tr(namedArgs: {
-            "category": enumifiedCategory.name.tr(),
-            "count": requiredCount.toString()
-          });
+      if (index % 3 == 0) {
+        return "home_mission_title1".tr(namedArgs: {
+          "category": enumifiedCategory.name.tr(),
+          "count": requiredCount.toString()
+        });
+      } else if (index % 3 == 1) {
+        return "home_mission_title2".tr(namedArgs: {
+          "category": enumifiedCategory.name.tr(),
+          "count": requiredCount.toString()
+        });
+      } else if (index % 3 == 2) {
+        return "home_mission_title3".tr(namedArgs: {
+          "category": enumifiedCategory.name.tr(),
+          "count": requiredCount.toString()
+        });
       }
+
+      // default
+      return "home_mission_title1".tr(namedArgs: {
+        "category": enumifiedCategory.name.tr(),
+        "count": requiredCount.toString()
+      });
     }
 
     return PopScope(
@@ -160,7 +160,9 @@ class MainPage extends ConsumerWidget {
                                 data: (mission) => mission.myMissions
                                     .map((e) => ChallengeCard(
                                           title: createMissionName(
-                                                  e.category, e.requiredCount)
+                                                  e.userMissionId,
+                                                  e.category,
+                                                  e.requiredCount)
                                               .tr(),
                                           isVerified: e.verified,
                                           id: e.userMissionId,
