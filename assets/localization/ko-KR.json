@@ -113,6 +113,7 @@
   "map_ploggingResult_addressNotFound": "주소를 불러오지 못했습니다.",
   "map_startPlogging": "플로깅 시작하기",
   "AI 응답에 route 없음": "추천할 플로깅 경로를 만들기에는\n신고된 쓰레기가 충분하지 않습니다.\n주변을 확인하고 새로운 쓰레기를\n등록해보세요!",
+  "map_recommendation_success": "AI가 선택한\n오늘의 플로깅 루트입니다.\n오늘의 플로깅 여정을 시작해보세요!",
 
   "activity_title": "나의 활동",
   "activity_dashboardText_completed": "미션 달성",

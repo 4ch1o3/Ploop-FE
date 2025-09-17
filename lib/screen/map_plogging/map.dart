@@ -159,6 +159,10 @@ class _MapPageState extends ConsumerState<MapPage> {
             return;
           }
 
+          if (recommended.success && recommended.message.contains("ok")) {
+            motivation = "map_recommendation_success".tr();
+          }
+
           List<LatLng> decodePolylineString(String encodedPolyline) {
             final List<PointLatLng> result =
                 PolylinePoints.decodePolyline(encodedPolyline);
