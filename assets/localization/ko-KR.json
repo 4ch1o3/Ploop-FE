@@ -1,4 +1,8 @@
 {
+  "main_goingBackConfirm_title": "정말 돌아갈까요?",
+  "main_goingBackConfirm_content": "지금 이동하면 모든 진행 상황을 잃게 됩니다.",
+  "main_goingBackConfirm_confirm": "페이지 이동하기",
+
   "common_next": "다음",
   "common_continue": "완료",
   "common_upload": "업로드",
@@ -98,14 +102,14 @@
   "home_verifySuccess_message": "성공적으로 인증되었어요!",
   "home_verifyFailed_message": "인증에 실패했어요.",
 
-  "map_updateToast_success": "성공적으로 등록되었어요.",
-  "map_updateToast_failed": "등록에 실패했어요.",
+  "map_updateToast_success": "성공적으로 등록되었어요",
+  "map_updateToast_failed": "등록에 실패했어요",
   "map_locationPermission_title": "백그라운드 위치 권한이 필요합니다.",
   "map_locationPermission_content": "앱을 사용하지 않을 때도 플로깅 경로를 정확하게 기록하려면, 위치 접근 권한을 '항상 허용'으로 설정해 주세요.",
   "map_goToSettings": "설정 열기",
   "map_pickedUpAmount": "주운 쓰레기 개수",
-  "map_stopPloggingButton_stop": "플로깅 멈추기",
-  "map_stopPloggingButton_end": "플로깅 종료하기",
+  "map_stopPloggingButton_stop": "멈추기",
+  "map_stopPloggingButton_end": "종료하기",
 
   "map_mapFilterButton_litterArea": "쓰레기 발견 구역",
   "map_mapFilterButton_bin": "쓰레기통",
@@ -114,6 +118,9 @@
   "map_startPlogging": "플로깅 시작하기",
   "AI 응답에 route 없음": "추천할 플로깅 경로를 만들기에는\n신고된 쓰레기가 충분하지 않습니다.\n주변을 확인하고 새로운 쓰레기를\n등록해보세요!",
   "map_recommendation_success": "AI가 선택한\n오늘의 플로깅 루트입니다.\n오늘의 플로깅 여정을 시작해보세요!",
+  "map_specify_title": "무엇을 발견했는지 선택해 주세요.",
+  "map_specify_notSelected_title": "잠깐만요!",
+  "map_specify_notSelected_content": "이미지를 업로드하기 전에\n종류를 선택해야 합니다.",
 
   "activity_title": "나의 활동",
   "activity_dashboardText_completed": "미션 달성",

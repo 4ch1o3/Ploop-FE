@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -80,17 +81,16 @@ class _SpecifyPhotoState extends ConsumerState<SpecifyPhoto> {
           showCupertinoDialog(
             context: context,
             builder: (context) => CupertinoAlertDialog(
-              title: const Text('Hold on!'),
-              content:
-                  const Text('You need to select a type before uploading.'),
+              title: const Text('map_specify_notSelected_title').tr(),
+              content: const Text('map_specify_notSelected_content').tr(),
               actions: [
                 CupertinoDialogAction(
                   isDefaultAction: true,
                   onPressed: () => Navigator.pop(context),
                   child: const Text(
-                    'OK',
+                    'common_ok',
                     style: TextStyle(color: Color.fromARGB(255, 0, 122, 255)),
-                  ),
+                  ).tr(),
                 ),
               ],
             ),
@@ -100,7 +100,7 @@ class _SpecifyPhotoState extends ConsumerState<SpecifyPhoto> {
             context: context,
             builder: (context) => AlertDialog(
               title: Text(
-                'Hold on!',
+                'map_specify_notSelected_title',
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   fontSize: 24.sp,
@@ -108,9 +108,9 @@ class _SpecifyPhotoState extends ConsumerState<SpecifyPhoto> {
                   height: 1.33.h,
                   letterSpacing: 0,
                 ),
-              ),
+              ).tr(),
               content: Text(
-                'You need to select a type before uploading.',
+                'map_specify_notSelected_content',
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   fontSize: 14.sp,
@@ -118,18 +118,18 @@ class _SpecifyPhotoState extends ConsumerState<SpecifyPhoto> {
                   height: 1.43.h,
                   letterSpacing: 0.25,
                 ),
-              ),
+              ).tr(),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
                   child: Text(
-                    'OK',
+                    'common_ok',
                     style: TextStyle(
                         fontFamily: 'Roboto',
                         fontSize: 14.sp,
                         height: 1.43.h,
                         color: GrayScale.black),
-                  ),
+                  ).tr(),
                 ),
               ],
             ),
@@ -165,10 +165,10 @@ class _SpecifyPhotoState extends ConsumerState<SpecifyPhoto> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Please specify what you found.',
+                  'map_specify_title'.tr(),
                   style: Theme.of(context)
                       .textTheme
-                      .bodyMedium
+                      .titleLarge
                       ?.copyWith(color: GrayScale.white),
                 ),
                 // buttons row
@@ -182,7 +182,7 @@ class _SpecifyPhotoState extends ConsumerState<SpecifyPhoto> {
                               selectedType = ImageType.bin;
                             });
                           },
-                          label: 'Bin',
+                          label: 'map_mapFilterButton_bin'.tr(),
                           isSelected: selectedType == ImageType.bin),
                     ),
                     Expanded(
@@ -192,7 +192,7 @@ class _SpecifyPhotoState extends ConsumerState<SpecifyPhoto> {
                             selectedType = ImageType.area;
                           });
                         },
-                        label: 'Litter Area',
+                        label: 'map_mapFilterButton_litterArea'.tr(),
                         isSelected: selectedType == ImageType.area,
                       ),
                     ),
@@ -239,7 +239,7 @@ class UploadButton extends StatelessWidget {
         height: 48.h,
         alignment: Alignment.center,
         child: Text(
-          'Upload',
+          'common_upload'.tr(),
           style: Theme.of(context).textTheme.labelLarge,
         ),
       ),
@@ -278,7 +278,7 @@ class TypeSelectButton extends StatelessWidget {
         child: Center(
           child: Text(
             label,
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
                   color: isSelected ? theme().color_600 : GrayScale.gray_500,
                 ),
           ),

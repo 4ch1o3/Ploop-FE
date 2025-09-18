@@ -1,4 +1,5 @@
 import 'package:dotted_line/dotted_line.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -106,8 +107,8 @@ class GraphContainer extends ConsumerWidget {
       },
       loading: () => Container(),
       error: (err, stack) => const Text(
-        'Error occured. Please try again.',
-      ),
+        'common_error',
+      ).tr(),
     );
   }
 }

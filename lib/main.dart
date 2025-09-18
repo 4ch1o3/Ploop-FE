@@ -127,8 +127,8 @@ class _MainScaffoldState extends ConsumerState<MainScaffold> {
         showCupertinoDialog(
           context: context,
           builder: (context) => CupertinoAlertDialog(
-            title: const Text('Are you sure?'),
-            content: const Text('Your progress will be lost if you exit now.'),
+            title: const Text('main_goingBackConfirm_title').tr(),
+            content: const Text('main_goingBackConfirm_content').tr(),
             actions: [
               CupertinoDialogAction(
                 isDefaultAction: false,
@@ -142,17 +142,17 @@ class _MainScaffoldState extends ConsumerState<MainScaffold> {
                   Navigator.pop(context);
                 },
                 child: const Text(
-                  'Go to page',
+                  'main_goingBackConfirm_confirm',
                   style: TextStyle(color: Color.fromARGB(255, 0, 122, 255)),
-                ),
+                ).tr(),
               ),
               CupertinoDialogAction(
                 isDefaultAction: true,
                 onPressed: () => Navigator.pop(context),
                 child: const Text(
-                  'Cancel',
+                  'common_cancel',
                   style: TextStyle(color: Color.fromARGB(255, 0, 122, 255)),
-                ),
+                ).tr(),
               ),
             ],
           ),
@@ -162,7 +162,7 @@ class _MainScaffoldState extends ConsumerState<MainScaffold> {
           context: context,
           builder: (context) => AlertDialog(
             title: Text(
-              'Are you sure?',
+              'main_goingBackConfirm_title',
               style: TextStyle(
                 fontFamily: 'Roboto',
                 fontSize: 24.sp,
@@ -170,9 +170,9 @@ class _MainScaffoldState extends ConsumerState<MainScaffold> {
                 height: 1.33.h,
                 letterSpacing: 0,
               ),
-            ),
+            ).tr(),
             content: Text(
-              'Your progress will be lost if you exit now.',
+              'main_goingBackConfirm_content',
               style: TextStyle(
                 fontFamily: 'Roboto',
                 fontSize: 14.sp,
@@ -180,7 +180,7 @@ class _MainScaffoldState extends ConsumerState<MainScaffold> {
                 height: 1.43.h,
                 letterSpacing: 0.25,
               ),
-            ),
+            ).tr(),
             actions: [
               TextButton(
                 onPressed: () {
@@ -193,24 +193,24 @@ class _MainScaffoldState extends ConsumerState<MainScaffold> {
                   Navigator.pop(context);
                 },
                 child: Text(
-                  'Go to page',
+                  'main_goingBackConfirm_confirm',
                   style: TextStyle(
                       fontFamily: 'Roboto',
                       fontSize: 14.sp,
                       height: 1.43.h,
                       color: GrayScale.black),
-                ),
+                ).tr(),
               ),
               TextButton(
                 onPressed: () => Navigator.pop(context),
                 child: Text(
-                  'Cancel',
+                  'common_cancel',
                   style: TextStyle(
                       fontFamily: 'Roboto',
                       fontSize: 14.sp,
                       height: 1.43.h,
                       color: GrayScale.black),
-                ),
+                ).tr(),
               ),
             ],
           ),

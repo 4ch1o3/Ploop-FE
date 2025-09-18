@@ -18,7 +18,7 @@ class StopPloggingButton extends StatelessWidget {
         padding: EdgeInsets.all(0.w),
       ),
       child: Container(
-        // width: 142.w,
+        width: 142.w,
         // height: 40.h,
         padding: EdgeInsets.symmetric(horizontal: 20.5.w, vertical: 10.h),
         clipBehavior: Clip.antiAlias,

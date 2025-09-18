@@ -27,7 +27,7 @@ class PickupCounter extends StatelessWidget {
         ),
         Text(
           '$amount',
-          style: Theme.of(context).textTheme.displayMedium,
+          style: Theme.of(context).textTheme.displayLarge,
         ),
         CounterButton(
           iconUrl: 'assets/icons/counter-plus.png',
