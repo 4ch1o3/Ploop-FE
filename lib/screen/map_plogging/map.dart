@@ -77,7 +77,7 @@ class _MapPageState extends ConsumerState<MapPage> {
   List<LatLng> _ploggingRoute = [];
   Set<Polyline> _ploggingPolylines = {};
   Marker _routeMarkers =
-      const Marker(markerId: MarkerId('recommend'), zIndex: 0);
+      const Marker(markerId: MarkerId('recommend'), zIndexInt: 3);
   int distanceFilterValue = 2;
   String motivation = "";
 
@@ -314,14 +314,14 @@ class _MapPageState extends ConsumerState<MapPage> {
                   'map_updateToast_success',
                   style: Theme.of(context)
                       .textTheme
-                      .bodyLarge
+                      .labelLarge
                       ?.copyWith(color: GrayScale.gray_200),
                 ).tr()
               : Text(
                   'map_updateToast_failed',
                   style: Theme.of(context)
                       .textTheme
-                      .bodyLarge
+                      .labelLarge
                       ?.copyWith(color: GrayScale.gray_200),
                 ).tr(),
         ],
@@ -618,7 +618,7 @@ class _MapPageState extends ConsumerState<MapPage> {
                                       'common_km',
                                       style: Theme.of(context)
                                           .textTheme
-                                          .labelLarge
+                                          .headlineMedium
                                           ?.copyWith(
                                             color: GrayScale.gray_300,
                                           ),
@@ -638,7 +638,7 @@ class _MapPageState extends ConsumerState<MapPage> {
                                       'common_hours',
                                       style: Theme.of(context)
                                           .textTheme
-                                          .labelLarge
+                                          .headlineMedium
                                           ?.copyWith(
                                             color: GrayScale.gray_300,
                                           ),
@@ -653,8 +653,9 @@ class _MapPageState extends ConsumerState<MapPage> {
                               children: [
                                 Text(
                                   'map_pickedUpAmount',
-                                  style:
-                                      Theme.of(context).textTheme.headlineLarge,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium,
                                 ).tr(),
                                 PickupCounter(
                                   amount: _pickedAmount,

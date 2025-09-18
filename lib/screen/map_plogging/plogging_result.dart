@@ -56,7 +56,10 @@ class PloggingResult extends ConsumerWidget {
                           MaterialPageRoute(
                               builder: (builder) => const MainScaffold()));
                     },
-                    icon: Image.asset('assets/icons/navigate-back-icon.png'),
+                    icon: Image.asset(
+                      'assets/icons/navigate-back-icon.png',
+                      width: 11.sp,
+                    ),
                   )
                 ],
               ),
@@ -70,22 +73,25 @@ class PloggingResult extends ConsumerWidget {
                       Text(
                         DateFormat('dd. MM. y - hh:mm a')
                             .format(DateTime.now()),
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            fontWeight: FontWeight.w600,
-                            color: GrayScale.gray_300),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall
+                            ?.copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: GrayScale.gray_300),
                       ),
                       Column(
                         spacing: 8.h,
                         children: [
                           Text(
                             '$amount',
-                            style: Theme.of(context).textTheme.displayMedium,
+                            style: Theme.of(context).textTheme.displayLarge,
                           ),
                           Text(
                             'common_trashCollected',
                             style: Theme.of(context)
                                 .textTheme
-                                .labelLarge
+                                .headlineMedium
                                 ?.copyWith(color: GrayScale.gray_300),
                           ).tr(),
                         ],
@@ -104,7 +110,7 @@ class PloggingResult extends ConsumerWidget {
                                 'common_km',
                                 style: Theme.of(context)
                                     .textTheme
-                                    .labelLarge
+                                    .headlineMedium
                                     ?.copyWith(
                                       color: GrayScale.gray_300,
                                     ),
@@ -123,7 +129,7 @@ class PloggingResult extends ConsumerWidget {
                                 'common_hours',
                                 style: Theme.of(context)
                                     .textTheme
-                                    .labelLarge
+                                    .headlineMedium
                                     ?.copyWith(
                                       color: GrayScale.gray_300,
                                     ),
@@ -281,7 +287,7 @@ class _AddressBoxState extends State<AddressBox> {
         address ?? 'Location Unknown',
         style: Theme.of(context)
             .textTheme
-            .bodySmall
+            .bodyMedium
             ?.copyWith(color: GrayScale.white, height: 1),
       ),
     );

@@ -86,7 +86,10 @@ class PauseModal extends ConsumerWidget {
                   ),
                   Text(
                     'common_trashCollected',
-                    style: Theme.of(context).textTheme.headlineMedium,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineMedium
+                        ?.copyWith(color: GrayScale.gray_300),
                   ).tr(),
                 ],
               ),
@@ -98,7 +101,7 @@ class PauseModal extends ConsumerWidget {
                     spacing: 2.h,
                     children: [
                       Text(distance.toStringAsFixed(2),
-                          style: Theme.of(context).textTheme.displayMedium),
+                          style: Theme.of(context).textTheme.displaySmall),
                       Text(
                         'common_km',
                         style: Theme.of(context)
@@ -116,7 +119,7 @@ class PauseModal extends ConsumerWidget {
                     spacing: 2.h,
                     children: [
                       Text(formattedTime.toStringAsFixed(2),
-                          style: Theme.of(context).textTheme.displayMedium),
+                          style: Theme.of(context).textTheme.displaySmall),
                       Text(
                         'common_hours',
                         style: Theme.of(context)

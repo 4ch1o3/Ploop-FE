@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -165,10 +166,10 @@ class _SpecifyPhotoState extends ConsumerState<SpecifyPhoto> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Please specify what you found.',
+                  'map_specify_title'.tr(),
                   style: Theme.of(context)
                       .textTheme
-                      .bodyMedium
+                      .titleLarge
                       ?.copyWith(color: GrayScale.white),
                 ),
                 // buttons row
@@ -182,7 +183,7 @@ class _SpecifyPhotoState extends ConsumerState<SpecifyPhoto> {
                               selectedType = ImageType.bin;
                             });
                           },
-                          label: 'Bin',
+                          label: 'map_mapFilterButton_bin'.tr(),
                           isSelected: selectedType == ImageType.bin),
                     ),
                     Expanded(
@@ -192,7 +193,7 @@ class _SpecifyPhotoState extends ConsumerState<SpecifyPhoto> {
                             selectedType = ImageType.area;
                           });
                         },
-                        label: 'Litter Area',
+                        label: 'map_mapFilterButton_litterArea'.tr(),
                         isSelected: selectedType == ImageType.area,
                       ),
                     ),
@@ -239,7 +240,7 @@ class UploadButton extends StatelessWidget {
         height: 48.h,
         alignment: Alignment.center,
         child: Text(
-          'Upload',
+          'common_upload'.tr(),
           style: Theme.of(context).textTheme.labelLarge,
         ),
       ),
@@ -278,7 +279,7 @@ class TypeSelectButton extends StatelessWidget {
         child: Center(
           child: Text(
             label,
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
                   color: isSelected ? theme().color_600 : GrayScale.gray_500,
                 ),
           ),
