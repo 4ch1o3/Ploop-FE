@@ -1,4 +1,8 @@
 {
+  "main_goingBackConfirm_title": "정말 돌아갈까요?",
+  "main_goingBackConfirm_content": "지금 이동하면 모든 진행 상황을 잃게 됩니다.",
+  "main_goingBackConfirm_confirm": "페이지 이동하기",
+
   "common_next": "다음",
   "common_continue": "완료",
   "common_upload": "업로드",
@@ -115,6 +119,8 @@
   "AI 응답에 route 없음": "추천할 플로깅 경로를 만들기에는\n신고된 쓰레기가 충분하지 않습니다.\n주변을 확인하고 새로운 쓰레기를\n등록해보세요!",
   "map_recommendation_success": "AI가 선택한\n오늘의 플로깅 루트입니다.\n오늘의 플로깅 여정을 시작해보세요!",
   "map_specify_title": "무엇을 발견했는지 선택해 주세요.",
+  "map_specify_notSelected_title": "잠깐만요!",
+  "map_specify_notSelected_content": "이미지를 업로드하기 전에\n종류를 선택해야 합니다.",
 
   "activity_title": "나의 활동",
   "activity_dashboardText_completed": "미션 달성",

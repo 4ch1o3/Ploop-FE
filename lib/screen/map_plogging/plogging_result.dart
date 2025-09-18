@@ -284,12 +284,12 @@ class _AddressBoxState extends State<AddressBox> {
         color: GrayScale.black,
       ),
       child: Text(
-        address ?? 'Location Unknown',
+        address ?? 'map_ploggingResult_addressNotFound',
         style: Theme.of(context)
             .textTheme
             .bodyMedium
             ?.copyWith(color: GrayScale.white, height: 1),
-      ),
+      ).tr(),
     );
   }
 }

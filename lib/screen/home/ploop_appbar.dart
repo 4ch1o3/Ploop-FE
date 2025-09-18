@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -105,9 +106,9 @@ class _PloopAppBarState extends ConsumerState<PloopAppBar> {
                 radius: 20.w,
               ),
               Text(
-                userProfile.nickname ?? 'Loading...',
+                userProfile.nickname ?? 'common_loading',
                 style: Theme.of(context).textTheme.titleLarge,
-              ),
+              ).tr(),
             ],
           ),
         ],
