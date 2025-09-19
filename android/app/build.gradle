@@ -46,19 +46,16 @@ android {
 
     buildTypes {
         release {
-            buildTypes {
-        
-        applicationVariants.all { variant -> 
-            variant.outputs.all {
-                def name = "Ploop"
-                def buildType = variant.buildType.name
-                def versionName = variant.versionName
-                outputFileName = "${name}-${versionName}.apk"
-                // output.outputFile = new File(apk.parentFile, outputFileName);
-            }
+            signingConfig = signingConfigs.debug
         }
     }
-            signingConfig = signingConfigs.debug
+
+    applicationVariants.all { variant -> 
+        variant.outputs.all {
+            def name = "Ploop"
+            def buildType = variant.buildType.name
+            def versionName = variant.versionName
+            outputFileName = "${name}-${versionName}.apk"
         }
     }
 }
