@@ -18,7 +18,7 @@ if (envFile.exists()) {
 android {
     namespace = "com.example.ploop_fe" 
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -46,19 +46,16 @@ android {
 
     buildTypes {
         release {
-            buildTypes {
-        
-        applicationVariants.all { variant -> 
-            variant.outputs.all {
-                def name = "Ploop"
-                def buildType = variant.buildType.name
-                def versionName = variant.versionName
-                outputFileName = "${name}-${versionName}.apk"
-                // output.outputFile = new File(apk.parentFile, outputFileName);
-            }
+            signingConfig = signingConfigs.debug
         }
     }
-            signingConfig = signingConfigs.debug
+
+    applicationVariants.all { variant -> 
+        variant.outputs.all {
+            def name = "Ploop"
+            def buildType = variant.buildType.name
+            def versionName = variant.versionName
+            outputFileName = "${name}-${versionName}.apk"
         }
     }
 }

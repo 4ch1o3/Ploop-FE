@@ -22,16 +22,18 @@ class SetNicknamePage extends ConsumerStatefulWidget {
 class _SetNicknamePageState extends ConsumerState<SetNicknamePage> {
   String nickname = '';
 
+  TextEditingController textController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return PrefsPageLayout(
       question: 'signup_question.nickname'.tr(),
       title1: 'signup_title1.nickname'.tr(),
       widget1: NicknameInputField(
+          textController: textController,
           nickname: nickname,
           onChanged: (val) {
             setState(() {
-              nickname = val;
+              nickname = textController.text;
             });
           }),
       onButtonPressed: () {

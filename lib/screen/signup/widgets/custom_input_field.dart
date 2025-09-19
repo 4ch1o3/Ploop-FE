@@ -9,10 +9,12 @@ class NicknameInputField extends StatelessWidget {
   const NicknameInputField({
     super.key,
     required this.nickname,
+    required this.textController,
     required this.onChanged,
     this.maxNicknameLength = 20,
   });
 
+  final TextEditingController textController;
   final String nickname;
   final ValueChanged<String> onChanged;
   final int maxNicknameLength;
@@ -35,7 +37,8 @@ class NicknameInputField extends StatelessWidget {
         children: [
           Expanded(
             child: CupertinoTextField(
-              controller: TextEditingController(text: nickname)
+              // controller: TextEditingController(text: nickname)
+              controller: textController
                 ..selection = TextSelection.collapsed(offset: nickname.length),
               placeholder: 'signup_placeholder.nickname'.tr(),
               placeholderStyle:
